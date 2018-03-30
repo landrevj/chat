@@ -1,29 +1,44 @@
-<p>
-  <strong>Subject:</strong>
-  <%= @root_post.subject %>
-</p>
+<div class="root_post post">
+  <p>
+    <strong>Author:</strong>
+    <%= @root_post.user.user_name %>
+  </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @root_post.body %>
-</p>
+  <p>
+    <strong>Created:</strong>
+    <%= @root_post.created_at %>
+  </p>
 
-<p>
+  <p>
+    <strong>Subject:</strong>
+    <%= @root_post.subject %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= @root_post.body %>
+  </p>
   <strong>Picture:</strong>
   <%= image_tag(@root_post.picture_url, width: 600) if @root_post.picture.present? %>
+</div>
 
+<p>
   <h3>Comments</h3>
   <% @child_posts.each do |child_post| %>
-    <div class="child_post">
-      <%# <strong><%= child_post.user_name %\></strong> %>
-      <%# <br> %>
+    <div class="child_post post">
+      <strong><%= child_post.user.user_name %></strong> |
+      <strong><%= child_post.created_at %></strong>
+      <br>
       <p><%= child_post.body %></p>
       <p><%= image_tag(child_post.picture_url, width: 600) if child_post.picture.present? %></p>
       <p><%= link_to 'Delete', child_post_path(child_post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
     </div>
   <% end %>
 </p>
-<%= render partial: 'child_posts/form', locals: { child_post: @child_post } %>
+
+<div class="post-form">
+  <%= render partial: 'child_posts/form', locals: { child_post: @child_post } %>
+</div>
 
 <%= link_to 'Edit', edit_root_post_path(@root_post) %> |
 <%= link_to 'Back', root_posts_path %>

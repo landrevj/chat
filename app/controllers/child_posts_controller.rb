@@ -14,7 +14,7 @@ class ChildPostsController < ApplicationController
 
   # GET /child_posts/new
   def new
-    @child_post = ChildPost.new
+    @child_post = current_user.child_posts.build
   end
 
   # GET /child_posts/1/edit
@@ -24,11 +24,11 @@ class ChildPostsController < ApplicationController
   # POST /child_posts
   # POST /child_posts.json
   def create
-    @child_post = ChildPost.new(child_post_params)
+    @child_post = current_user.child_posts.build(child_post_params)
 
     respond_to do |format|
       if @child_post.save
-        format.html { redirect_to @child_post.root_post, notice: 'Child post was successfully created.' }
+        format.html { redirect_to @child_post.root_post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @child_post }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ChildPostsController < ApplicationController
   def update
     respond_to do |format|
       if @child_post.update(child_post_params)
-        format.html { redirect_to @child_post, notice: 'Child post was successfully updated.' }
+        format.html { redirect_to @child_post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @child_post }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ChildPostsController < ApplicationController
   def destroy
     @child_post.destroy
     respond_to do |format|
-      format.html { redirect_to child_posts_url, notice: 'Child post was successfully destroyed.' }
+      format.html { redirect_to child_posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+body
+{
+    margin: 0;
+}
+
+.container
+{
+    padding: 33px;
+    margin-top: 63px;
+}
+
+.nav
+{
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    width: 100%;
+    background: gray;
+    padding: 10px;
+}
+
+.nav-account,
+.nav-account-links
+{
+    color: white;
+    float: right;
+}
+
+.nav-account-links a
+{
+    color: white;
+}
+
+.post,
+.post-form
+{
+    background: gray;
+}
+
+

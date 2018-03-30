@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+<div class="nav">
+  <div class="nav-account">
+      Logged in as <strong><%= current_user.email %></strong> | <i><%= current_user.user_name %></i>
+      <br>
+      <div class="nav-account-links">
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+      </div>
+  </div>
+</div>
+<% end %>

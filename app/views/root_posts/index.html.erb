@@ -1,10 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Threads</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Created</th>
+      <th>Author</th>
       <th>Subject</th>
       <th>Body</th>
       <th>Picture</th>
@@ -13,8 +13,10 @@
   </thead>
 
   <tbody>
-    <% @root_posts.each do |root_post| %>
+    <% @root_posts.reverse_each do |root_post| %>
       <tr>
+        <td><%= root_post.created_at %></td>
+        <td><%= root_post.user.user_name %></td>
         <td><%= root_post.subject %></td>
         <td><%= root_post.body %></td>
         <td><%= root_post.picture %></td>

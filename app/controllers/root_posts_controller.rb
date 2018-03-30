@@ -16,7 +16,7 @@ class RootPostsController < ApplicationController
 
   # GET /root_posts/new
   def new
-    @root_post = RootPost.new
+    @root_post = current_user.root_posts.build
   end
 
   # GET /root_posts/1/edit
@@ -26,11 +26,11 @@ class RootPostsController < ApplicationController
   # POST /root_posts
   # POST /root_posts.json
   def create
-    @root_post = RootPost.new(root_post_params)
+    @root_post = current_user.root_posts.build(root_post_params)
 
     respond_to do |format|
       if @root_post.save
-        format.html { redirect_to @root_post, notice: 'Root post was successfully created.' }
+        format.html { redirect_to @root_post, notice: 'Thread was successfully created.' }
         format.json { render :show, status: :created, location: @root_post }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class RootPostsController < ApplicationController
   def update
     respond_to do |format|
       if @root_post.update(root_post_params)
-        format.html { redirect_to @root_post, notice: 'Root post was successfully updated.' }
+        format.html { redirect_to @root_post, notice: 'Thread was successfully updated.' }
         format.json { render :show, status: :ok, location: @root_post }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class RootPostsController < ApplicationController
   def destroy
     @root_post.destroy
     respond_to do |format|
-      format.html { redirect_to root_posts_url, notice: 'Root post was successfully destroyed.' }
+      format.html { redirect_to root_posts_url, notice: 'Thread was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
