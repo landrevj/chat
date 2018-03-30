@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Child Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Picture</th>
+      <th>Root post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @child_posts.each do |child_post| %>
+      <tr>
+        <td><%= child_post.body %></td>
+        <td><%= child_post.picture %></td>
+        <td><%= child_post.root_post_id %></td>
+        <td><%= link_to 'Show', child_post %></td>
+        <td><%= link_to 'Edit', edit_child_post_path(child_post) %></td>
+        <td><%= link_to 'Destroy', child_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Child Post', new_child_post_path %>

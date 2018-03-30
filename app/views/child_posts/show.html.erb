@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @child_post.body %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @child_post.picture %>
+</p>
+
+<p>
+  <strong>Root post:</strong>
+  <%= @child_post.root_post_id %>
+</p>
+
+<%= link_to 'Edit', edit_child_post_path(@child_post) %> |
+<%= link_to 'Back', child_posts_path %>

@@ -1,0 +1,2 @@
+module RootPostsHelper
+end

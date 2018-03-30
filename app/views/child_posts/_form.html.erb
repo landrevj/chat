@@ -1,0 +1,29 @@
+<%= form_with(model: child_post, local: true) do |form| %>
+  <% if child_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(child_post.errors.count, "error") %> prohibited this child_post from being saved:</h2>
+
+      <ul>
+      <% child_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :child_post_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, id: :child_post_picture %>
+  </div>
+
+  <%= form.hidden_field :root_post_id %>
+
+  <div class="actions">
+    <%= form.submit "Post"%>
+  </div>
+<% end %>
