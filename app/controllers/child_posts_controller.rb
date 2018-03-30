@@ -57,7 +57,7 @@ class ChildPostsController < ApplicationController
   def destroy
     @child_post.destroy
     respond_to do |format|
-      format.html { redirect_to child_posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_back fallback_location: @child_post.root_post, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

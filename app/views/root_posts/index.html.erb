@@ -1,35 +1,7 @@
 <h1>Threads</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Created</th>
-      <th>Author</th>
-      <th>Subject</th>
-      <th>Body</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @root_posts.reverse_each do |root_post| %>
-      <tr>
-        <td><%= root_post.created_at %></td>
-        <td><%= root_post.user.user_name %></td>
-        <td><%= root_post.subject %></td>
-        <td><%= root_post.body %></td>
-        <td><%= root_post.picture %></td>
-        <td><%= link_to 'Link', root_post %></td>
-        <% if root_post.user.id == current_user.id %>
-          <td><%= link_to 'Edit', edit_root_post_path(root_post) %></td>
-          <td><%= link_to 'Destroy', root_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @root_posts.reverse_each do |root_post| %>
+  <%= render root_post, root_post: root_post %>
+<% end %>
 <br>
-
 <%= link_to 'New Thread', new_root_post_path %>

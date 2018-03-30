@@ -50,7 +50,23 @@ body
 .post,
 .post-form
 {
+    margin-bottom: 10px;
     background: gray;
 }
 
+.post-details
+{
+    display: inline-block;
+}
 
+.post-detail,
+.post-links
+{
+    display: inherit;
+}
+
+.post-links
+{
+    float: right;
+    top: 0;
+}

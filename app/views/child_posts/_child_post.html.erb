@@ -1,0 +1,25 @@
+<div class="child-post post">
+        <div class="post-head">
+          <div class="post-details">
+            <div class="post-user-name post-detail"><strong><%= child_post.user.user_name %></strong> </div>
+            <div class="post-id post-detail"><strong><%= child_post.id %></strong> </div>
+            <div class="post-created post-detail"><%= child_post.created_at %></div>
+          </div>
+
+          <div class="post-links">
+            <%= link_to 'Link', child_post %>
+            <% if child_post.user.id == current_user.id %>
+              <td><%= link_to 'Edit', edit_child_post_path(child_post) %></td>
+              <td><%= link_to 'Destroy', child_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class="post-body"> <%= child_post.body %> </div>
+
+    <% if child_post.picture.present? %>
+      <div class="post-image">
+        <%= image_tag(child_post.picture_url, width: 600) %>
+      </div>
+    <% end %>
+</div>
