@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :child_posts, :path => 'posts'
   resources :root_posts, :path => 'threads'
   
