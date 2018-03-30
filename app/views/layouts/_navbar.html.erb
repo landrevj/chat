@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
 <div class="nav">
+  <%= link_to 'Home', root_path, :class => 'nav-page' %>
   <div class="nav-account">
       Logged in as <strong><%= current_user.email %></strong> | <i><%= current_user.user_name %></i>
       <br>

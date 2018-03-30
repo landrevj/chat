@@ -8,10 +8,12 @@
   <%= @child_post.body %>
 </p>
 
+<% if @child_post.picture.present? %>
 <p>
   <strong>Picture:</strong>
-  <%= image_tag(@child_post.picture_url, width: 600) if @child_post.picture.present? %>
+  <%= image_tag(@child_post.picture_url, width: 600) %>
 </p>
+<% end %>
 
 <%= link_to 'Edit', edit_child_post_path(@child_post) %> |
 <%= link_to 'Back', child_posts_path %>

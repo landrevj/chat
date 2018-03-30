@@ -27,11 +27,14 @@
   <% @child_posts.each do |child_post| %>
     <div class="child_post post">
       <strong><%= child_post.user.user_name %></strong> |
+      <strong><%= child_post.id %></strong> |
       <strong><%= child_post.created_at %></strong>
       <br>
       <p><%= child_post.body %></p>
       <p><%= image_tag(child_post.picture_url, width: 600) if child_post.picture.present? %></p>
-      <p><%= link_to 'Delete', child_post_path(child_post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% if child_post.user.id == current_user.id %>
+        <p><%= link_to 'Delete', child_post_path(child_post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
     </div>
   <% end %>
 </p>

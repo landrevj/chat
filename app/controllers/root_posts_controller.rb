@@ -1,5 +1,6 @@
 class RootPostsController < ApplicationController
   before_action :set_root_post, only: [:show, :edit, :update, :destroy]
+  before_action :owner?, only: [:edit, :update, :destroy]
 
   # GET /root_posts
   # GET /root_posts.json
@@ -72,5 +73,13 @@ class RootPostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def root_post_params
       params.require(:root_post).permit(:subject, :body, :picture)
+    end
+
+    # Check if current_user owns the post
+    def owner?
+      unless @root_post.user == current_user
+        flash[:alert] = "That post doesn't belong to you!"
+        redirect_back fallback_location: @root_post
+      end
     end
 end
