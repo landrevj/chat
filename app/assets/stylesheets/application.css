@@ -71,6 +71,50 @@ p.alert
 p.alert.alert-success { background: var(--green); }
 p.alert.alert-danger { background: var(--red); }
 
+input:focus,
+textarea:focus
+{
+    outline: none
+}
+
+#error_explanation
+{
+    position: fixed;
+    top: 75px;
+    left: calc(50% - 225px);
+    border: 0;
+    border-radius: 5px 5px 3px 3px;
+    color: var(--base01);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+#error_explanation h2
+{
+    border-radius: 3px 3px 0 0;
+    background: var(--red);
+}
+
+.field_with_errors
+{
+    padding: 0;
+    border-radius: 0 0 3px 3px;
+    background: var(--red);
+}
+
+.field_with_errors input::placeholder,
+.field_with_errors textarea::placeholder
+{
+    color: var(--white);
+}
+
+.field_with_errors input,
+.field_with_errors textarea
+{
+    color: var(--white);
+    background: var(--red) !important;
+}
+
+
 /******************************************************************
 
 Login/Registration/Reset
@@ -86,10 +130,11 @@ Login/Registration/Reset
 {
     display: inline-block;
     position: absolute;
-    top: calc(50% - 226.4px);
-    left: calc(50% - 165.5px);
-
-    padding: 75px;
+    top: calc(50% - 143.5px);
+    left: calc(50% - 125px);
+    width: 250px;
+    
+    padding: 0;
     border-radius: 3px;
     color: var(--white);
 }
@@ -110,13 +155,36 @@ Login/Registration/Reset
     margin: 0;
 }
 
+.card .body
+{
+    border-radius: 3px 3px 0 0;
+    background: var(--white);
+}
+
+.card .file 
+{
+    color: var(--base01);
+    background: var(--white)
+}
+
+.card input,
+.card textarea
+{
+    font-family: 'Open Sans', sans-serif !important;
+}
+
 .card input
 {
-    width: 187px;
+    width: 240px;
     height: 30px;
     padding: 5px;
     border: 0;
     background: var(--white);
+}
+
+.card textarea
+{
+    resize: none;
 }
 
 .card input#root_post_picture,
@@ -129,12 +197,15 @@ Login/Registration/Reset
 {
     height: 30px;
     padding: 5px;
-    border-radius: 3px;
+    border-radius: 0 0 3px 3px;
     border: 0;
     width: 100%;
     color: var(--white);
     background: var(--green);
 }
+
+.card.edit-user .submit input
+{ border-radius: 3px; }
 
 .card.login input#user_email,
 .card.register input#user_email,
@@ -165,7 +236,7 @@ Login/Registration/Reset
 .card.thread textarea,
 .card.child_post textarea
 {
-    width: 187px;
+    width: 240px;
     height: 200px;
     padding: 5px;
     border: none;
@@ -179,6 +250,7 @@ Login/Registration/Reset
 
 .card.edit-user input.delete-account
 {
+    border-radius: 3px;
     background: var(--red);
 }
 

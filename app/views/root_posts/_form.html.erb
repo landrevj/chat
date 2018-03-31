@@ -11,21 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field subject">
     <%= form.text_field :subject, id: :root_post_subject, placeholder: 'subject' %>
   </div>
 
-  <div class="field">
+  <div class="field body">
     <%= form.text_area :body, id: :root_post_body, placeholder: 'body' %>
   </div>
 
-  <div class="field">
+  <div class="field file">
     <%= form.file_field :picture, id: :root_post_picture %>
   </div>
 
-  <br>
-
-  <div class="actions">
+  <div class="actions submit">
     <%= form.submit "Create Thread" %>
   </div>
 <% end %>

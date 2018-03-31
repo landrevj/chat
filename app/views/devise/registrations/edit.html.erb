@@ -3,11 +3,11 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field">
+    <div class="field email">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email' %>
     </div>
 
-    <div class="field">
+    <div class="field user-name">
       <%= f.text_field :user_name, required: true, placeholder: 'username' %>
     </div>
 
@@ -15,21 +15,21 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="field">
+    <div class="field password">
       <%= f.password_field :password, autocomplete: "off", placeholder: 'new password ( length >= 6 )' %>
     </div>
 
-    <div class="field">
+    <div class="field password-confirmation">
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'confirm new password' %>
     </div>
 
-    <div class="field">
+    <div class="field current-password">
       <%= f.password_field :current_password, autocomplete: "off", placeholder: 'current password (required)' %>
     </div>
 
     <br>
 
-    <div class="actions">
+    <div class="actions submit">
       <%= f.submit "update account info" %>
     </div>
   <% end %>
@@ -37,8 +37,4 @@
   <br>
   
   <%= button_to "delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "delete-account" %>
-    
-  <br>
-
-  <%= link_to "Back", :back %>
 </div>
