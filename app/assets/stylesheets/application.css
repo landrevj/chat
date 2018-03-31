@@ -97,7 +97,6 @@ textarea:focus
 .field_with_errors
 {
     padding: 0;
-    border-radius: 0 0 3px 3px;
     background: var(--red);
 }
 
@@ -114,6 +113,16 @@ textarea:focus
     background: var(--red) !important;
 }
 
+.card.child_post .body .field_with_errors,
+.card.child_post .body .field_with_errors textarea
+{
+    border-radius: 3px 3px 0 0;
+}
+
+.card.edit-user .current-password .field_with_errors 
+{
+    border-radius: 0 0 3px 3px;
+}
 
 /******************************************************************
 
@@ -163,6 +172,7 @@ Login/Registration/Reset
 
 .card .file 
 {
+    padding-top: 10px;
     color: var(--base01);
     background: var(--white)
 }

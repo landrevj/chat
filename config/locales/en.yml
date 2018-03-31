@@ -30,4 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      root_post: 
+        one: Thread
+        other: Threads
+    attributes:
+      user:
+        email: "E-mail address"
+    errors:
+      models:
+        root_post:
+          attributes:
+            body:
+              blank: "can't be empty if you don't include an image"
+        child_post:
+          attributes:
+            body:
+              blank: "can't be empty if you don't include an image"
