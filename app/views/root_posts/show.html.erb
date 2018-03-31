@@ -1,15 +1,11 @@
-<%= render @root_post, root_post: @root_post %>
-
-<p>
-  <h3>Comments</h3>
-  <% @child_posts.each do |child_post| %>
-    <%= render child_post, child_post: child_post %>
-  <% end %>
-</p>
-
 <div class="post-form">
   <%= render partial: 'child_posts/form', locals: { child_post: @child_post } %>
 </div>
+ 
+<%= render @root_post, root_post: @root_post %>
 
-<%= link_to 'Edit', edit_root_post_path(@root_post) %> |
+<% @child_posts.each do |child_post| %>
+  <%= render child_post, child_post: child_post %>
+<% end %>
+
 <%= link_to 'Back', root_posts_path %>

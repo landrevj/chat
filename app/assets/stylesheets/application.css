@@ -14,45 +14,343 @@
  *= require_self
  */
 
+:root
+{
+    --bg:       #313131;
+    
+    --red:      #9A4C4C;
+    --green:    #87AF5F;
+    --yellow:   #D7D787;
+    --blue:     #5F87AF;
+    --magenta:  #A25576;
+    --cyan:     #87AFD7;
+    --white :   #E2DED3;
+
+    --font01 :    var(--white);
+    --font02 :  #A9A598;
+    --base01 :  #4B4B4B;
+    --base02 :  #444444;
+    --base03 :  #3C3C3C;
+}
+
+html 
+{
+    background: var(--bg);
+}
+
 body
+{
+    margin: 0;
+    background: transparent;
+    color: var(--font01);
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+a,
+a:visited
+{
+    color: var(--font01);
+    transition: all 0.2s;
+}
+
+a:hover
+{
+    color: var(--font02);
+    background: none;
+}
+
+p.alert
+{
+    margin-top: -10px;
+    margin-bottom: 23px;
+    padding: 20px;
+    border-radius: 3px;
+    background: var(--cyan);
+}
+
+p.alert.alert-success { background: var(--green); }
+p.alert.alert-danger { background: var(--red); }
+
+/******************************************************************
+
+Login/Registration/Reset
+
+*******************************************************************/
+
+.card.login,
+.card.register,
+.card.password-reset,
+.card.edit-user,
+.card.thread,
+.card.child_post
+{
+    display: inline-block;
+    position: absolute;
+    top: calc(50% - 226.4px);
+    left: calc(50% - 165.5px);
+
+    padding: 75px;
+    border-radius: 3px;
+    color: var(--white);
+}
+
+.card.edit-user,
+.card.thread,
+.card.child_post
+{ margin-top: -56px; }
+
+.card .text-icon
+{
+    font-size: 120px;
+    margin-bottom: 75px;
+}
+
+.card .field
 {
     margin: 0;
 }
 
+.card input
+{
+    width: 187px;
+    height: 30px;
+    padding: 5px;
+    border: 0;
+    background: var(--white);
+}
+
+.card input#root_post_picture,
+.card input#child_post_picture
+{
+    background:none;
+}
+
+.card input[type="submit"]
+{
+    height: 30px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 0;
+    width: 100%;
+    color: var(--white);
+    background: var(--green);
+}
+
+.card.login input#user_email,
+.card.register input#user_email,
+.card.edit-user input#user_email,
+.card.thread input#root_post_subject
+{
+    border-radius: 3px 3px 0 0;
+}
+
+.card.login input#user_password,
+.card.register input#user_password_confirmation,
+.card.edit-user input#user_current_password,
+.card.thread textarea#root_post_body
+{
+    border-radius: 0 0 3px 3px;
+}
+.card.child_post textarea#child_post_body { border-radius: 3px; }
+
+.card.login input#user_remember_me
+{
+    display: inline-block;
+    height: initial;
+    position: relative;
+    top: 2px;
+    width: initial;
+}
+
+.card.thread textarea,
+.card.child_post textarea
+{
+    width: 187px;
+    height: 200px;
+    padding: 5px;
+    border: none;
+    background: var(--white);
+}
+
+.card.login label
+{
+    display: inline-block;
+}
+
+.card.edit-user input.delete-account
+{
+    background: var(--red);
+}
+
+/******************************************************************
+
+Navbar
+
+*******************************************************************/
+
 .container
 {
     padding: 33px;
-    margin-top: 63px;
+    margin-top: 56px;
 }
 
 .nav
 {
+    display: flex;
     position: fixed;
     box-sizing: border-box;
     top: 0;
     width: 100%;
-    background: gray;
+    background: var(--base01);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.nav-left
+{
+    display: flex;
+    flex-grow: 1;
+}
+
+.nav-right
+{
     padding: 10px;
 }
 
-.nav-account,
-.nav-account-links
+.nav .home
 {
-    color: white;
+    width: 56px;
+    background: var(--base03);
+}
+
+.nav .home a
+{
+    padding: 15px;
+    font-size: 25px;
+    line-height: 50px;
+    text-decoration: none;
+}
+
+.nav .current-uri
+{
+    padding: 0 15px;
+    line-height: 55px;
+    font-size: 25px;
+    background: var(--base02);
+}
+
+.nav-right,
+.account-links
+{
+    color: var(--font01);
     float: right;
 }
 
-.nav-account-links a
+.account-links a
 {
-    color: white;
+    color: var(--font01);
 }
 
-.post,
+/******************************************************************
+
+Posts
+
+*******************************************************************/
+.new-thread
+{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    line-height: 68px;
+    border-radius: 99999px;
+    background: var(--blue);
+}
+
+.new-thread i.material-icons
+{
+    width: 55px;
+    height: 55px;
+    border-radius: 99999px;
+}
+
 .post-form
 {
-    margin-bottom: 10px;
-    background: gray;
+    position: fixed;
+    bottom: -295px;
+    right: 33px;
+    width: 250px;
+
+    border-radius: 3px;
+    background: var(--white);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+    transition: bottom 0.1s;
 }
+
+.post-form:hover
+{
+    bottom: -10px;
+}
+
+.post-form .form-handle
+{
+    border-radius: 3px 3px 0px 0px;
+    text-align: center;
+
+    color: var(--base01);
+    background: var(--white);
+}
+
+.post-form textarea
+{
+    resize: none;
+    width: 240px;
+    height: 200px;
+    padding: 5px;
+    border: none;
+    border-radius: 0 0 3px 3px;
+    background: var(--white);
+}
+
+.post-form input#child_post_picture
+{
+    padding: 0 5px;
+    width: calc(100% - 10px);
+    color: var(--base01);
+}
+
+.post-form input[type="submit"]
+{
+    height: 30px;
+    padding: 5px;
+    border: 0;
+    width: 100%;
+    color: var(--white);
+    background: var(--green);
+}
+
+.post
+{
+    display: flex;
+    margin-bottom: 10px;
+
+    padding: 20px;
+    border-radius: 3px;
+    background: var(--base01);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.post-left-col
+{
+    flex-grow: 100;
+    padding-right: 20px;
+}
+
+.post-user-name { color: var(--blue) }
+.post-subject { color: var(--red) }
+.post-id { color: var(--green) }
+.post-timestamp { color: var(--yellow) }
 
 .post-details
 {
@@ -68,5 +366,21 @@ body
 .post-links
 {
     float: right;
-    top: 0;
+    min-width: 80px;
+    margin-bottom: 10px;
+}
+
+.post-links a
+{
+    float: right;
+}
+
+.post a.link-delete:hover
+{
+    color: var(--red);
+}
+
+.post-body p
+{
+    margin-bottom: 0;
 }

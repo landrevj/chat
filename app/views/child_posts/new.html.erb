@@ -1,5 +1,6 @@
-<h1>New Post</h1>
+<div class="card child_post">
+  <div class="text-icon">>_</div>
+  <%= render 'form', child_post: @child_post %>
 
-<%= render 'form', child_post: @child_post %>
-
-<%= link_to 'Back', child_posts_path %>
+  <%= link_to 'Back', @child_post.root_post %>
+</div>

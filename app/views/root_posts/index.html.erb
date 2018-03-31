@@ -1,7 +1,9 @@
-<h1>Threads</h1>
+<div class="new-thread">
+  <%= link_to new_root_post_path do %>
+    <i class="material-icons">control_point</i>
+  <% end %>
+</div>
 
 <% @root_posts.reverse_each do |root_post| %>
   <%= render root_post, root_post: root_post %>
 <% end %>
-<br>
-<%= link_to 'New Thread', new_root_post_path %>

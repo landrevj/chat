@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # Custom Devise login/out routes
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

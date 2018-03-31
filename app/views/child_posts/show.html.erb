@@ -1,19 +1,2 @@
-<p>
-  <strong>Thread:</strong>
-  <%= @child_post.root_post_id %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @child_post.body %>
-</p>
-
-<% if @child_post.picture.present? %>
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@child_post.picture_url, width: 600) %>
-</p>
-<% end %>
-
-<%= link_to 'Edit', edit_child_post_path(@child_post) %> |
-<%= link_to 'Back', child_posts_path %>
+<%= render @child_post, child_post: @child_post %>
+<%= link_to 'Back', @child_post.root_post %>

@@ -1,26 +1,28 @@
 <div class="root-post post">
-        <div class="post-head">
-          <div class="post-details">
-            <div class="post-user-name post-detail"><strong><%= root_post.user.user_name %></strong> </div>
-            <div class="post-subject post-detail"><%= root_post.subject %> </div>
-            <div class="post-id post-detail"><strong><%= root_post.id %></strong> </div>
-            <div class="post-created post-detail"><%= root_post.created_at %></div>
-          </div>
+  <div class="post-left-col">
+    <div class="post-details">
+      <div class="post-user-name post-detail"><strong><%= root_post.user.user_name %></strong> </div>
+      <div class="post-subject post-detail"><strong><%= root_post.subject %></strong></div>
+      <div class="post-id post-detail"><strong>##<%= root_post.id %></strong> </div>
+      <div class="post-timestamp post-detail"><strong><%= root_post.created_at %></strong></div>
+    </div>
+    <div class="post-body"><p><%= root_post.body %></p></div>
+  </div>
 
-          <div class="post-links">
-            <%= link_to 'Link', root_post %>
-            <% if root_post.user.id == current_user.id %>
-              <td><%= link_to 'Edit', edit_root_post_path(root_post) %></td>
-              <td><%= link_to 'Destroy', root_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          </div>
-        </div>
-        
-        <div class="post-body"> <%= root_post.body %> </div>
-
+  <div class="post-right-col">
+    <div class="post-links">
+      <% if root_post.user.id == current_user.id %>
+        <%= link_to root_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "link-delete" do %><i class="material-icons">delete</i><% end %>
+        <%= link_to edit_root_post_path(root_post) do %> <i class="material-icons">create</i><% end %>
+      <% end %>
+      <%= link_to root_post do %> <i class="material-icons">link</i><% end %>
+    </div>
     <% if root_post.picture.present? %>
       <div class="post-image">
-        <%= image_tag(root_post.picture_url, width: 600) %>
+        <%= link_to root_post.picture_url do %>
+          <%= image_tag root_post.picture_url(:thumb) %>
+        <% end %>
       </div>
     <% end %>
+  </div>
 </div>
