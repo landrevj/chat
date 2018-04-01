@@ -11,7 +11,7 @@ module ApplicationHelper
     options = {
       filter_html:     true,
       hard_wrap:       true,
-      link_attributes: { rel: 'nofollow', target: "_blank" },
+      no_images:       true,
       space_after_headers: true,
     }
 
