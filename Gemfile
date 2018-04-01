@@ -34,8 +34,13 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-#Use Devise for user accounts
+# Use Devise for user accounts
 gem 'devise'
+
+# Use Redcarpet for markdown support
+gem 'redcarpet', '~> 3.4.0'
+# Use Rouge for markdown code highlighting
+gem 'rouge'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,19 +1,20 @@
-<div class="root-post post">
+<div class="root-post post" id="root-<%= root_post.id %>">
+  <a class="anchor" name="##<%= root_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
-      <div class="post-user-name post-detail"><strong><%= root_post.user.user_name %></strong> </div>
-      <div class="post-subject post-detail"><strong><%= root_post.subject %></strong></div>
-      <div class="post-id post-detail"><strong>##<%= root_post.id %></strong> </div>
-      <div class="post-timestamp post-detail"><strong><%= root_post.created_at %></strong></div>
+      <div class="user-name post-detail"><strong><%= root_post.user.user_name %></strong> </div>
+      <div class="subject post-detail"><strong><%= root_post.subject %></strong></div>
+      <div class="id post-detail"><a href="###<%= root_post.id %>"><strong>##<%= root_post.id %></strong></a></div>
+      <div class="timestamp post-detail"><strong><%= root_post.created_at %></strong></div>
     </div>
-    <div class="post-body"><p><%= root_post.body %></p></div>
+    <div class="body"><p><%= markdown root_post.body %></p></div>
   </div>
 
   <div class="post-right-col">
     <div class="post-links">
       <% if root_post.user.id == current_user.id %>
         <%= link_to root_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "link-delete" do %><i class="material-icons">delete</i><% end %>
-        <%= link_to edit_root_post_path(root_post) do %> <i class="material-icons">create</i><% end %>
+        <%= link_to edit_root_post_path(root_post) do %><i class="material-icons">create</i><% end %>
       <% end %>
       <%= link_to root_post do %> <i class="material-icons">link</i><% end %>
     </div>

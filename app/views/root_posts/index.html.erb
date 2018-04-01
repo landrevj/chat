@@ -1,9 +1,19 @@
 <div class="new-thread">
   <%= link_to new_root_post_path do %>
-    <i class="material-icons">control_point</i>
+    <i class="material-icons">add</i>
   <% end %>
 </div>
 
-<% @root_posts.reverse_each do |root_post| %>
-  <%= render root_post, root_post: root_post %>
+<% if session[:thread_view] == "full" %>
+  <div class="threads full">
+    <% @root_posts.reverse_each do |root_post| %>
+      <%= render 'root_posts/root_post_full', root_post: root_post %>
+    <% end %>
+  </div>
+<% elsif session[:thread_view] == "card" %>
+  <div class="threads card">
+    <% @root_posts.reverse_each do |root_post| %>
+      <%= render 'root_posts/root_post_card', root_post: root_post %>
+    <% end %>
+  </div>
 <% end %>

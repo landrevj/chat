@@ -46,6 +46,14 @@ body
     font-family: 'Open Sans', sans-serif !important;
 }
 
+.highlight,
+.highlight .w
+{
+    border-radius: 3px;
+    background: var(--bg);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
 a,
 a:visited
 {
@@ -345,7 +353,7 @@ Posts
     width: 55px;
     height: 55px;
     text-align: center;
-    line-height: 68px;
+    line-height: 70px;
     border-radius: 99999px;
     background: var(--blue);
 }
@@ -412,11 +420,18 @@ Posts
     background: var(--green);
 }
 
+.post a.anchor
+{
+    position: relative;
+    top: -80px;
+}
+
+/*      full        */
 .post
 {
     display: flex;
     margin-bottom: 10px;
-
+    
     padding: 20px;
     border-radius: 3px;
     background: var(--base01);
@@ -429,10 +444,11 @@ Posts
     padding-right: 20px;
 }
 
-.post-user-name { color: var(--blue) }
-.post-subject { color: var(--red) }
-.post-id { color: var(--green) }
-.post-timestamp { color: var(--yellow) }
+.user-name { color: var(--blue) }
+.subject { color: var(--red) }
+.id { color: var(--green) }
+.id a { color: var(--green) }
+.timestamp { color: var(--yellow) }
 
 .post-details
 {
@@ -457,12 +473,111 @@ Posts
     float: right;
 }
 
-.post a.link-delete:hover
+.post a.delete:hover
 {
     color: var(--red);
 }
 
-.post-body p
+.post .body p
 {
     margin-bottom: 0;
+    word-break: break-word;
 }
+
+/*      card        */
+.threads.card
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post-card
+{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 10px;
+    width: 250px;
+    height: 300px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.post-card .post-image
+{
+    border-radius: 3px 3px 0 0;
+    background: var(--base03);
+}
+
+.post-card .post-image a {margin: 15px;}
+
+.post-card .post-image img
+{
+    margin-top: 2px;
+    padding: 10px;
+}
+
+.post-card .details
+{
+    padding: 10px;
+    background: var(--base02);
+}
+
+.post-card .details.has-subject .subject:before
+{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 230px;
+    background: var(--base03);
+}
+
+.post-card.no-image .details { border-radius: 3px 3px 0 0; }
+
+.post-card .details .top-row
+{
+    display:flex;
+    justify-content: space-between;
+}
+
+.post-card .details .count { color: var(--green); }
+
+.post-card .body
+{
+    padding: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: 0;
+    background: var(--base01);
+}
+
+.post-card .body p {
+    margin: 0;
+    word-break: break-word;
+}
+
+.post-card .post-card-links .links-wrapper
+{
+    display: flex;
+    flex-direction: row-reverse;
+    line-height: 10px;
+    border-radius: 0 0 3px 3px;
+}
+
+.post-card .post-card-links a
+{
+    flex-grow: 1;
+    padding: 5px;
+    text-align: center;
+    color: var(--font01);
+    background: var(--base01);
+    transition: background 0.2s;
+}
+
+.post-card .post-card-links a.link { border-radius: 0 0 3px 3px; }
+.post-card.owned .post-card-links a.link { border-bottom-left-radius: 3px; border-bottom-right-radius: 0; }
+.post-card .post-card-links a.link:hover { background: var(--blue); }
+.post-card .post-card-links a.edit:hover { background: var(--green); }
+.post-card .post-card-links a.delete:hover { background: var(--red); }
+.post-card .post-card-links a.delete { border-bottom-right-radius: 3px; }

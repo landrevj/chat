@@ -6,6 +6,7 @@ class RootPostsController < ApplicationController
   # GET /root_posts.json
   def index
     @root_posts = RootPost.all
+    session[:thread_view] = "card"
   end
 
   # GET /root_posts/1
@@ -64,22 +65,25 @@ class RootPostsController < ApplicationController
     end
   end
 
+  
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_root_post
-      @root_post = RootPost.find(params[:id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_root_post
+    @root_post = RootPost.find(params[:id])
+  end
+ 
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def root_post_params
+    params.require(:root_post).permit(:subject, :body, :picture)
+  end
+ 
+  # Check if current_user owns the post
+  def owner?
+    unless @root_post.user == current_user
+      flash[:alert] = "That post doesn't belong to you!"
+      redirect_back fallback_location: @root_post
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def root_post_params
-      params.require(:root_post).permit(:subject, :body, :picture)
-    end
-
-    # Check if current_user owns the post
-    def owner?
-      unless @root_post.user == current_user
-        flash[:alert] = "That post doesn't belong to you!"
-        redirect_back fallback_location: @root_post
-      end
-    end
 end

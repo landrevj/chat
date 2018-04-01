@@ -1,7 +1,7 @@
 <%= form_with(model: root_post, local: true) do |form| %>
   <% if root_post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(root_post.errors.count, "error") %> prohibited this root_post from being saved:</h2>
+      <h2></h2>
 
       <ul>
       <% root_post.errors.full_messages.each do |message| %>

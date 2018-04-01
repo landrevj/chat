@@ -1,11 +1,12 @@
-<div class="child-post post">
+<div class="child-post post" id="child-<%= child_post.id %>">
+  <a class="anchor" name="#<%= child_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
-      <div class="post-user-name post-detail"><strong><%= child_post.user.user_name %></strong> </div>
-      <div class="post-id post-detail"><strong>#<%= child_post.id %></strong> </div>
-      <div class="post-timestamp post-detail"><strong><%= child_post.created_at %></strong></div>
+      <div class="user-name post-detail"><strong><%= child_post.user.user_name %></strong> </div>
+      <div class="id post-detail"><a href="##<%= child_post.id %>"><strong>#<%= child_post.id %></strong></a></div>
+      <div class="timestamp post-detail"><strong><%= child_post.created_at %></strong></div>
     </div>
-    <div class="post-body"><p><%= child_post.body %></p></div>
+    <div class="post-body"><p><%= markdown child_post.body %></p></div>
   </div>
         
 
