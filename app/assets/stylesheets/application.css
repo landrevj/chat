@@ -448,7 +448,8 @@ Posts
 .subject { color: var(--red) }
 .id { color: var(--green) }
 .id a { color: var(--green) }
-.timestamp { color: var(--yellow) }
+.timestamp-created { color: var(--yellow) }
+.timestamp-edited { color: var(--magenta) }
 
 .post-details
 {

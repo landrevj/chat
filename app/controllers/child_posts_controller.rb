@@ -43,7 +43,7 @@ class ChildPostsController < ApplicationController
   def update
     respond_to do |format|
       if @child_post.update(child_post_params)
-        format.html { redirect_to @child_post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @child_post.root_post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @child_post }
       else
         format.html { render :edit }

@@ -5,7 +5,10 @@
       <div class="user-name post-detail"><strong><%= root_post.user.user_name %></strong> </div>
       <div class="subject post-detail"><strong><%= root_post.subject %></strong></div>
       <div class="id post-detail"><a href="###<%= root_post.id %>"><strong>##<%= root_post.id %></strong></a></div>
-      <div class="timestamp post-detail"><strong><%= root_post.created_at %></strong></div>
+      <div class="timestamp-created post-detail"><strong><%= root_post.created_at %></strong></div>
+      <% if root_post.created_at != root_post.updated_at %>
+      <div class="timestamp-edited post-detail"><strong><%= root_post.updated_at %></strong></div>
+      <% end %>
     </div>
     <div class="body"><p><%= markdown root_post.body %></p></div>
   </div>

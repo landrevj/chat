@@ -5,6 +5,7 @@ module ApplicationHelper
 
   class HTML < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
+    include Redcarpet::Render::SmartyPants
   end
 
   def markdown(text)
