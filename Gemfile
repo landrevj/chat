@@ -9,7 +9,9 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+# Use Postgresql as the databse for Active Record
+gem 'pg'
 # Use Carrierwave for file uploads
 gem 'carrierwave'
 # Use MiniMagick for thumbnails
