@@ -320,22 +320,25 @@ Navbar
 
 .nav-right
 {
-    padding: 10px;
+    display: flex;
+    float: right;
 }
 
-.nav .home
+.nav .route
 {
     width: 56px;
     background: var(--base03);
 }
 
-.nav .home a
+.nav .route a
 {
     padding: 15px;
     font-size: 25px;
     line-height: 50px;
     text-decoration: none;
 }
+
+.nav .nav-right .route a { font-size: 40px; padding-bottom: 0; }
 
 .nav .current-uri
 {
@@ -345,16 +348,11 @@ Navbar
     background: var(--base02);
 }
 
-.nav-right,
-.account-links
+.nav .info
 {
-    color: var(--font01);
-    float: right;
-}
-
-.account-links a
-{
-    color: var(--font01);
+    padding: 10px 15px 10px 20px;
+    text-align: right;
+    background: var(--base02);
 }
 
 /******************************************************************

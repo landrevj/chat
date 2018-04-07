@@ -1,18 +1,16 @@
 <% if user_signed_in? %>
 <div class="nav">
   <div class="nav-left">
-    <div class="home"><%= link_to '>_', root_path %></div>
-    <div class="current-uri"><a><%= request.env['PATH_INFO'] %></a></div>
+    <div class="route" id="home"><%= link_to '>_', root_path %></div>
+    <div class="current-uri"><%= request.env['PATH_INFO'] %></div>
   </div>
   <div class="nav-right">
-      <strong><%= current_user.email %></strong> | 
-      <i><%= current_user.user_name %></i> |
-      <i><%= current_user.current_sign_in_ip %></i>
-      <br>
-      <div class="account-links">
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'account-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'account-link'  %>
-      </div>
+    <div class="info">
+      <div><%= current_user.email %></div>
+      <div><%= current_user.user_name %> | <%= current_user.current_sign_in_ip %></div>
+    </div>
+    <div class="route" id="edit"><%= link_to edit_user_registration_path do %><i class="material-icons">account_box</i><% end %></div>
+    <div class="route" id="logout"><%= link_to destroy_user_session_path do %><i class="material-icons">power_settings_new</i><% end %></div>
   </div>
 </div>
 <% end %>
