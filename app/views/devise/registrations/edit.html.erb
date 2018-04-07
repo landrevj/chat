@@ -3,11 +3,11 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field email">
+    <div class="field" id="email">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email' %>
     </div>
 
-    <div class="field user-name">
+    <div class="field" id="user-name">
       <%= f.text_field :user_name, required: true, placeholder: 'username' %>
     </div>
 
@@ -15,19 +15,19 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="field password">
+    <div class="field" id="password">
       <%= f.password_field :password, autocomplete: "off", placeholder: 'new password ( length >= 6 )' %>
     </div>
 
-    <div class="field password-confirmation">
+    <div class="field" id="password-confirmation">
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'confirm new password' %>
     </div>
 
-    <div class="field current-password">
+    <div class="field" id="current-password">
       <%= f.password_field :current_password, autocomplete: "off", placeholder: 'current password (required)' %>
     </div>
 
-    <div class="field thread-theme">
+    <div class="field" id="thread-theme">
       Thread display type:
       <%= f.radio_button :thread_theme, 'full' %> 
       <%= label :thread_theme_full, 'full' %>
@@ -35,14 +35,14 @@
       <%= label :thread_theme_card, 'card' %>
     </div>
 
-    <div class="field anonymous">
+    <div class="field" id="anonymous">
       Hide username 
       <%= f.check_box :anonymous %>
     </div>
 
     <br>
 
-    <div class="actions submit">
+    <div class="actions" id="submit">
       <%= f.submit "update account info" %>
     </div>
   <% end %>

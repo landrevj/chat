@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field subject">
+  <div class="field" id="subject">
     <%= form.text_field :subject, id: :root_post_subject, placeholder: 'subject' %>
   </div>
 
-  <div class="field body">
+  <div class="field" id="body">
     <%= form.text_area :body, id: :root_post_body, placeholder: 'body' %>
   </div>
 
-  <div class="field file">
+  <div class="field" id="file">
     <%= form.file_field :picture, id: :root_post_picture %>
   </div>
 
-  <div class="actions submit">
+  <div class="actions" id="submit">
     <%= form.submit "post" %>
   </div>
 <% end %>

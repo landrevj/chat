@@ -237,7 +237,8 @@ Login/Registration/Reset
     background: var(--green);
 }
 
-.card.edit-user .submit input
+.card.edit-user #submit input,
+.card.thread #submit input
 { border-radius: 3px; }
 
 .card.login input#user_email,
@@ -430,7 +431,6 @@ Posts
 {
     height: 30px;
     padding: 5px;
-    border: 0;
     width: 100%;
     color: var(--white);
     background: var(--green);
@@ -460,12 +460,6 @@ Posts
     padding-right: 20px;
 }
 
-.user-name { color: var(--blue) }
-.subject { color: var(--red) }
-.id { color: var(--green) }
-.id a { color: var(--green) }
-.timestamp-created { color: var(--yellow) }
-.timestamp-edited { color: var(--magenta) }
 
 .post-details
 {
@@ -477,6 +471,14 @@ Posts
 {
     display: inherit;
 }
+
+.post-detail#user-name { color: var(--blue) }
+.post-detail#subject { color: var(--red) }
+.post-detail#id { color: var(--green) }
+.post-detail#id a { color: var(--green) }
+.post-detail#count { color: var(--green) }
+.post-detail#timestamp-created { color: var(--yellow) }
+.post-detail#timestamp-edited { color: var(--magenta) }
 
 .post-links
 {
@@ -541,10 +543,11 @@ Posts
     background: var(--base02);
 }
 
-.post-card .details.has-subject .subject:before
+.post-card .details.has-subject #subject:before
 {
     content: '';
     display: block;
+    margin-top: 2px;
     height: 1px;
     width: 230px;
     background: var(--base03);
@@ -557,8 +560,6 @@ Posts
     display:flex;
     justify-content: space-between;
 }
-
-.post-card .details .count { color: var(--green); }
 
 .post-card .body
 {

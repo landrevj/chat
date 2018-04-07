@@ -2,11 +2,11 @@
   <a class="anchor" name="#<%= child_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
-      <div class="user-name post-detail"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
-      <div class="id post-detail"><a href="##<%= child_post.id %>"><strong>#<%= child_post.id %></strong></a></div>
-      <div class="timestamp-created post-detail"><strong><%= child_post.created_at %></strong></div>
+      <div class="post-detail" id="user-name"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
+      <div class="post-detail" id="id"><a href="##<%= child_post.id %>"><strong>#<%= child_post.id %></strong></a></div>
+      <div class="post-detail" id="timestamp-created"><strong><%= child_post.created_at %></strong></div>
       <% if child_post.created_at != child_post.updated_at %>
-      <div class="timestamp-edited post-detail"><strong><%= child_post.updated_at %></strong></div>
+      <div class="post-detail" id="timestamp-edited"><strong><%= child_post.updated_at %></strong></div>
       <% end %>
     </div>
     <div class="post-body"><p><%= markdown child_post.body %></p></div>

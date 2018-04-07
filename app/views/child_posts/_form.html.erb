@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field body">
+  <div class="field" id="body">
     <%= form.text_area :body, id: :child_post_body, placeholder: 'body' %>
   </div>
 
-  <div class="field file">
+  <div class="field" id="file">
     <%= form.file_field :picture, id: :child_post_picture %>
   </div>
 
   <%= form.hidden_field :root_post_id %>
 
-  <div class="actions submit">
+  <div class="actions" id="submit">
     <%= form.submit "post"%>
   </div>
 <% end %>
