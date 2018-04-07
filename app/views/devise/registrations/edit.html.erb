@@ -27,6 +27,19 @@
       <%= f.password_field :current_password, autocomplete: "off", placeholder: 'current password (required)' %>
     </div>
 
+    <div class="field thread-theme">
+      Thread display type:
+      <%= f.radio_button :thread_theme, 'full' %> 
+      <%= label :thread_theme_full, 'full' %>
+      <%= f.radio_button :thread_theme, 'card' %>
+      <%= label :thread_theme_card, 'card' %>
+    </div>
+
+    <div class="field anonymous">
+      Hide username 
+      <%= f.check_box :anonymous %>
+    </div>
+
     <br>
 
     <div class="actions submit">

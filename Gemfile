@@ -12,6 +12,8 @@ gem 'rails', '~> 5.1.6'
 # gem 'sqlite3'
 # Use Postgresql as the databse for Active Record
 gem 'pg'
+# Use Storext to manage db json data
+gem 'storext'
 # Use Carrierwave for file uploads
 gem 'carrierwave'
 # Use MiniMagick for thumbnails

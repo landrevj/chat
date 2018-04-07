@@ -4,13 +4,13 @@
   <% end %>
 </div>
 
-<% if session[:thread_view] == "full" %>
+<% if current_user.thread_theme == "full" %>
   <div class="threads full">
     <% @root_posts.reverse_each do |root_post| %>
       <%= render 'root_posts/root_post_full', root_post: root_post %>
     <% end %>
   </div>
-<% elsif session[:thread_view] == "card" %>
+<% elsif current_user.thread_theme == "card" %>
   <div class="threads card">
     <% @root_posts.reverse_each do |root_post| %>
       <%= render 'root_posts/root_post_card', root_post: root_post %>

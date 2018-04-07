@@ -200,6 +200,21 @@ Login/Registration/Reset
     background: var(--white);
 }
 
+.card input[type="radio"],
+.card input[type="checkbox"]
+{
+    position: relative;
+    top: 3px;
+    margin: 0 0 0 5px;
+    width: initial;
+    height: initial;
+}
+
+.card label
+{
+    display: inline;
+}
+
 .card textarea
 {
     resize: none;
@@ -240,6 +255,7 @@ Login/Registration/Reset
 {
     border-radius: 0 0 3px 3px;
 }
+
 .card.child_post textarea#child_post_body { border-radius: 3px; }
 
 .card.login input#user_remember_me

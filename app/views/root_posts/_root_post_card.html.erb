@@ -8,7 +8,7 @@
     <% end %>
     <div class="details <%= 'has-subject' if root_post.subject.present? %>">
         <div class="top-row">
-            <div class="user-name post-detail"><strong><%= root_post.user.user_name %></strong></div>
+            <div class="user-name post-detail"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong></div>
             <div class="count post-detail" title="post count / file count"><strong><%= root_post.child_posts.size + 1 %> / <%= root_post.file_count %></strong></div>
         </div>
         <div class="subject post-detail"><strong><%= root_post.subject %></strong></div>
