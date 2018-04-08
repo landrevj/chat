@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field" id="subject">
-    <%= form.text_field :subject, id: :root_post_subject, placeholder: 'subject' %>
+  <div class="field first" id="subject">
+    <%= form.text_field :subject, autocomplete: 'off', id: :root_post_subject, placeholder: 'subject' %>
   </div>
 
   <div class="field" id="body">
@@ -21,6 +21,11 @@
 
   <div class="field" id="file">
     <%= form.file_field :picture, id: :root_post_picture %>
+  </div>
+
+  <div class="field last" id="sticky">
+    <%= form.check_box :sticky %>
+    Sticky thread
   </div>
 
   <%= form.hidden_field :board_id %>

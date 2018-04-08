@@ -1,8 +1,8 @@
-<div class="root-post post-card <%= root_post.picture.present? ? 'has-image' : 'no-image' %> <%= 'owned' if root_post.user.id == current_user.id %>">
+<div class="root-post post-card big <%= 'sticky' if root_post.sticky %><%= root_post.picture.present? ? ' has-image' : ' no-image' %><%= ' owned' if root_post.user.id == current_user.id %>" id="root-<%= root_post.id %>">
     <% if root_post.picture.present? %>
       <div class="post-image">
         <%= link_to root_post.picture_url do %>
-          <%= image_tag root_post.picture_url(:thumb_square) %>
+          <%= image_tag root_post.picture_url(:thumb) %>
         <% end %>
       </div>
     <% end %>

@@ -28,6 +28,7 @@
 
     --font01 :    var(--white);
     --font02 :  #A9A598;
+    --font03 :  #848176;
     --base01 :  #4B4B4B;
     --base02 :  #444444;
     --base03 :  #3C3C3C;
@@ -205,7 +206,6 @@ Login/Registration/Reset
 {
     position: relative;
     top: 3px;
-    margin: 0 0 0 5px;
     width: initial;
     height: initial;
 }
@@ -220,11 +220,26 @@ Login/Registration/Reset
     resize: none;
 }
 
+.card #file { margin-top: -4px; }
+
 .card input#root_post_picture,
-.card input#child_post_picture
+.card input#child_post_picture,
+.card .field#sticky,
+.card .field#thread-theme,
+.card .field#anonymous
 {
-    background:none;
+    color: var(--base01);
+    background: var(--white);
 }
+
+.card .field#sticky,
+.card .field#thread-theme,
+.card .field#anonymous
+{
+    padding: 5px;
+}
+
+.card .field#sticky {margin-bottom: 10px;}
 
 .card input[type="submit"]
 {
@@ -237,23 +252,33 @@ Login/Registration/Reset
     background: var(--green);
 }
 
+/* phase this out for first last tags */
 .card.login input#user_email,
 .card.register input#user_email,
-.card.edit-user input#user_email,
-.card.thread input#root_post_subject
 {
     border-radius: 3px 3px 0 0;
 }
 
+.card .field.first input,
+.card .field.first textarea,
+.card .field.first .field_with_errors
+{
+    border-radius: 3px 3px 0 0;
+}
+
+/* phase this out for first last tags */
 .card.login input#user_password,
 .card.register input#user_password_confirmation,
-.card.edit-user input#user_current_password,
-.card.thread textarea#root_post_body
 {
     border-radius: 0 0 3px 3px;
 }
 
-.card.child_post textarea#child_post_body { border-radius: 3px; }
+.card .field.last,
+.card .field.last input,
+.card .field.last .field_with_errors
+{
+    border-radius: 0 0 3px 3px;
+}
 
 .card.login input#user_remember_me
 {
@@ -387,7 +412,10 @@ Boards
     text-align: center;
     background: var(--base01);
 }
-.board.new .abbreviation { border-radius: 3px; }
+.board.new .abbreviation {
+    border-radius: 3px;
+    background: var(--red);
+}
 
 .board .abbreviation a
 {
@@ -396,6 +424,7 @@ Boards
     line-height: 50px;
     text-decoration: none;
 }
+
 .board.new .abbreviation a
 {
     font-size: 36.5px;
@@ -417,7 +446,7 @@ Boards
 Posts
 
 *******************************************************************/
-.new-thread
+/* .new-thread
 {
     position: fixed;
     bottom: 25px;
@@ -435,7 +464,7 @@ Posts
     width: 55px;
     height: 55px;
     border-radius: 99999px;
-}
+} */
 
 .post-form
 {
@@ -447,14 +476,17 @@ Posts
     border-radius: 3px;
     background: var(--white);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
-    transition: bottom 0.1s;
 }
 
-.post-form#thread { bottom: -330px; }
+.post-form#thread
+{
+    top: calc(100% - 28px);
+}
 
 .post-form:hover,
 .post-form#thread:hover
 {
+    top: initial;
     bottom: -10px;
 }
 
@@ -467,12 +499,14 @@ Posts
     background: var(--white);
 }
 
+
 .post-form #subject input
 {
     border: none;
     padding: 5px;
     width: 240px;
     background: var(--white);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .post-form textarea
@@ -484,12 +518,20 @@ Posts
     border: none;
     border-radius: 0 0 3px 3px;
     background: var(--white);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .post-form #file input
 {
     padding: 0 5px;
     width: calc(100% - 10px);
+    color: var(--base01);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.post-form #sticky
+{
+    padding: 0 5px;
     color: var(--base01);
 }
 
@@ -521,12 +563,25 @@ Posts
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
 }
 
+.post.sticky
+{
+    border-left: var(--cyan) 10px solid;
+}
+
 .post-left-col
 {
     flex-grow: 100;
     padding-right: 20px;
 }
 
+
+.post .body,
+.post-card .body,
+.post .body p,
+.post-card .body p
+{
+    font-family: 'Open Sans', sans-serif !important;
+}
 
 .post-details
 {
@@ -583,11 +638,30 @@ Posts
     display: flex;
     flex-direction: column;
     
-    margin: 10px;
+    margin: 5px;
     width: 250px;
-    height: 300px;
     border-radius: 3px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.post-card.sticky
+{
+    border-top: var(--cyan) 10px solid;
+}
+
+.post-card.big
+{
+    height: 300px;
+}
+
+.post-card.small
+{
+    height: 320px;
+    width: 175px;
+}
+.post-card.small.sticky
+{
+    height: 310px;
 }
 
 .post-card .post-image
@@ -596,11 +670,10 @@ Posts
     background: var(--base03);
 }
 
-.post-card .post-image a {margin: 15px;}
-
 .post-card .post-image img
 {
-    margin-top: 2px;
+    display: block;
+    margin: 0 auto;
     padding: 10px;
 }
 
@@ -608,6 +681,21 @@ Posts
 {
     padding: 10px;
     background: var(--base02);
+}
+
+.post-card.no-image .details { border-radius: 3px 3px 0 0; }
+
+.post-card .details .top-row
+{
+    display:flex;
+    justify-content: space-between;
+}
+
+.post-card.small .details #subject
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .post-card .details.has-subject #subject:before
@@ -620,13 +708,7 @@ Posts
     background: var(--base03);
 }
 
-.post-card.no-image .details { border-radius: 3px 3px 0 0; }
-
-.post-card .details .top-row
-{
-    display:flex;
-    justify-content: space-between;
-}
+.post-card.small .details.has-subject #subject:before {width: initial;}
 
 .post-card .body
 {
@@ -642,6 +724,11 @@ Posts
     word-break: break-word;
 }
 
+.post-card .post-card-links
+{
+    border-radius: 0 0 3px 3px;
+    background: var(--base01);
+}
 .post-card .post-card-links .links-wrapper
 {
     display: flex;
@@ -656,7 +743,6 @@ Posts
     padding: 5px;
     text-align: center;
     color: var(--font01);
-    background: var(--base01);
     transition: background 0.2s;
 }
 

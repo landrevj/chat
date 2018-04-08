@@ -1,4 +1,6 @@
 class RootPost < ApplicationRecord
+  include Storext.model
+
   validates :user_id, presence: true
   validates :board_id, presence: true
   validates :subject, length: { maximum: 50, too_long: "cannot be longer than %{count} characters" }
@@ -10,6 +12,10 @@ class RootPost < ApplicationRecord
   belongs_to :user
   belongs_to :board
   has_many :child_posts
+
+  store_attributes :settings do
+    sticky Boolean, default: false
+  end
 
   def file_count
     sum = 0

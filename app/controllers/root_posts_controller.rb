@@ -76,7 +76,7 @@ class RootPostsController < ApplicationController
  
   # Never trust parameters from the scary internet, only allow the white list through.
   def root_post_params
-    params.require(:root_post).permit(:subject, :body, :picture, :board_id)
+    params.require(:root_post).permit(:subject, :body, :picture, :sticky, :board_id)
   end
  
   # Check if current_user owns the post

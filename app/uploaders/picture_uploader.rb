@@ -4,13 +4,9 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   version :thumb do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_fit => [150, 150]
   end
   
-  version :thumb_square do
-    process :resize_to_fill => [200, 100]
-  end
-
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog

@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field" id="body">
-    <%= form.text_area :body, id: :child_post_body, placeholder: 'body' %>
+  <div class="field first" id="body">
+    <%= form.text_area :body, autocomplete: 'off', id: :child_post_body, placeholder: 'body' %>
   </div>
 
-  <div class="field" id="file">
+  <div class="field last" id="file">
     <%= form.file_field :picture, id: :child_post_picture %>
   </div>
 

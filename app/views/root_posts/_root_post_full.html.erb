@@ -1,4 +1,4 @@
-<div class="root-post post" id="root-<%= root_post.id %>">
+<div class="root-post post <%= 'sticky' if root_post.sticky %>" id="root-<%= root_post.id %>">
   <a class="anchor" name="##<%= root_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
