@@ -5,7 +5,7 @@
     <div class="current-uri"><%= request.env['PATH_INFO'] %></div>
   </div>
   <% if @board %>
-    <div class="board-name"><%= @board.name %></div>
+    <div class="board-name"><%= link_to @board do %><%= @board.name %><% end %></div>
   <% end %>
   <div class="nav-right">
     <div class="info">

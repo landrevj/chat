@@ -18,6 +18,7 @@ class RootPostsController < ApplicationController
   
   # GET /root_posts/new
   def new
+    @board = @root_post.board
     @root_post = current_user.root_posts.build
   end
   
@@ -25,11 +26,12 @@ class RootPostsController < ApplicationController
   def edit
     @board = @root_post.board
   end
-
+  
   # POST /root_posts
   # POST /root_posts.json
   def create
     @root_post = current_user.root_posts.build(root_post_params)
+    @board = @root_post.board
 
     respond_to do |format|
       if @root_post.save

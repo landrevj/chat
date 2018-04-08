@@ -322,6 +322,8 @@ Navbar
     line-height: 55px;
 }
 
+.board-name a { text-decoration: none; }
+
 .nav-right
 {
     display: flex;
