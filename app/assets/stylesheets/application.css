@@ -382,7 +382,6 @@ Boards
 .board .abbreviation
 {
     border-radius: 3px 0 0 3px;
-    width: 50px;
     text-align: center;
     background: var(--base01);
 }
