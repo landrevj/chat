@@ -2,11 +2,11 @@
   <a class="anchor" name="#<%= child_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
-      <div class="post-detail" id="user-name"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
-      <div class="post-detail" id="id"><a href="##<%= child_post.id %>"><strong>#<%= child_post.id %></strong></a></div>
-      <div class="post-detail" id="timestamp-created"><strong><%= child_post.created_at %></strong></div>
+      <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
+      <div class="post-detail" id="id" title="id"><a href="##<%= child_post.id %>"><strong>#<%= child_post.id %></strong></a></div>
+      <div class="post-detail" id="timestamp-created" title="time created"><strong><%= child_post.created_at %></strong></div>
       <% if child_post.created_at != child_post.updated_at %>
-      <div class="post-detail" id="timestamp-edited"><strong><%= child_post.updated_at %></strong></div>
+      <div class="post-detail" id="timestamp-edited" title="time edited"><strong><%= child_post.updated_at %></strong></div>
       <% end %>
     </div>
     <div class="post-body"><p><%= markdown child_post.body %></p></div>
@@ -19,7 +19,8 @@
         <%= link_to child_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "link-delete" do %><i class="material-icons">delete</i><% end %>
         <%= link_to edit_child_post_path(child_post) do %> <i class="material-icons">create</i><% end %>
       <% end %>
-      <%= link_to child_post do %> <i class="material-icons">link</i><% end %>
+      <%= link_to child_post, class: "link" do %> <i class="material-icons">link</i><% end %>      
+      
     </div>
     <% if child_post.picture.present? %>
       <div class="post-image">

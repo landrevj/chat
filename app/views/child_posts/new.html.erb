@@ -2,5 +2,5 @@
   <div class="text-icon">>_</div>
   <%= render 'form', child_post: @child_post %>
 
-  <%= link_to 'Back', @child_post.root_post %>
+  <%= link_to 'Back', [@child_post.root_post.board, @child_post.root_post] %>
 </div>

@@ -5,24 +5,25 @@ class RootPostsController < ApplicationController
   # GET /root_posts
   # GET /root_posts.json
   def index
-    @root_posts = RootPost.all
-    session[:thread_view] = "card"
+    @root_posts = RootPost.all.order(created_at: :desc)
   end
 
   # GET /root_posts/1
   # GET /root_posts/1.json
   def show
-    @child_posts = @root_post.child_posts.all
+    @board = @root_post.board
+    @child_posts = @root_post.child_posts.all.order(created_at: :desc)
     @child_post = @root_post.child_posts.build
   end
-
+  
   # GET /root_posts/new
   def new
     @root_post = current_user.root_posts.build
   end
-
+  
   # GET /root_posts/1/edit
   def edit
+    @board = @root_post.board
   end
 
   # POST /root_posts
@@ -32,7 +33,7 @@ class RootPostsController < ApplicationController
 
     respond_to do |format|
       if @root_post.save
-        format.html { redirect_to @root_post, notice: 'Thread was successfully created.' }
+        format.html { redirect_to [@root_post.board, @root_post], notice: 'Thread was successfully created.' }
         format.json { render :show, status: :created, location: @root_post }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class RootPostsController < ApplicationController
   def update
     respond_to do |format|
       if @root_post.update(root_post_params)
-        format.html { redirect_to @root_post, notice: 'Thread was successfully updated.' }
+        format.html { redirect_to [@root_post.board, @root_post], notice: 'Thread was successfully updated.' }
         format.json { render :show, status: :ok, location: @root_post }
       else
         format.html { render :edit }
@@ -60,12 +61,10 @@ class RootPostsController < ApplicationController
   def destroy
     @root_post.destroy
     respond_to do |format|
-      format.html { redirect_to root_posts_url, notice: 'Thread was successfully destroyed.' }
+      format.html { redirect_to @root_post.board, notice: 'Thread was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
-
-  
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -75,7 +74,7 @@ class RootPostsController < ApplicationController
  
   # Never trust parameters from the scary internet, only allow the white list through.
   def root_post_params
-    params.require(:root_post).permit(:subject, :body, :picture)
+    params.require(:root_post).permit(:subject, :body, :picture, :board_id)
   end
  
   # Check if current_user owns the post

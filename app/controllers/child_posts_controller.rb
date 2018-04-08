@@ -11,6 +11,7 @@ class ChildPostsController < ApplicationController
   # GET /child_posts/1
   # GET /child_posts/1.json
   def show
+    @board = @child_post.root_post.board
   end
 
   # GET /child_posts/new
@@ -29,7 +30,7 @@ class ChildPostsController < ApplicationController
 
     respond_to do |format|
       if @child_post.save
-        format.html { redirect_to @child_post.root_post, notice: 'Post was successfully created.' }
+        format.html { redirect_to [@child_post.root_post.board, @child_post.root_post], notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @child_post }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class ChildPostsController < ApplicationController
   def update
     respond_to do |format|
       if @child_post.update(child_post_params)
-        format.html { redirect_to @child_post.root_post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to [@child_post.root_post.board, @child_post.root_post], notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @child_post }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class ChildPostsController < ApplicationController
   def destroy
     @child_post.destroy
     respond_to do |format|
-      format.html { redirect_back fallback_location: @child_post.root_post, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_back fallback_location: [@child_post.root_post.board, @child_post.root_post], notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,4 +1,4 @@
-<%= form_with(model: root_post, local: true) do |form| %>
+<%= form_with(model: [@board, root_post], local: true) do |form| %>
   <% if root_post.errors.any? %>
     <div id="error_explanation">
       <h2></h2>
@@ -23,7 +23,10 @@
     <%= form.file_field :picture, id: :root_post_picture %>
   </div>
 
+  <%= form.hidden_field :board_id %>
+
   <div class="actions" id="submit">
     <%= form.submit "post" %>
   </div>
+
 <% end %>

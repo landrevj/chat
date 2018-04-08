@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407033313) do
+ActiveRecord::Schema.define(version: 20180408025756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "abbreviation"
+  end
 
   create_table "child_posts", force: :cascade do |t|
     t.text "body"
@@ -21,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180407033313) do
     t.integer "root_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_child_posts_on_user_id"
   end
 
@@ -31,7 +38,9 @@ ActiveRecord::Schema.define(version: 20180407033313) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
+    t.bigint "board_id"
+    t.index ["board_id"], name: "index_root_posts_on_board_id"
     t.index ["user_id"], name: "index_root_posts_on_user_id"
   end
 
@@ -56,4 +65,7 @@ ActiveRecord::Schema.define(version: 20180407033313) do
     t.index ["user_name"], name: "index_users_on_user_name", unique: true
   end
 
+  add_foreign_key "child_posts", "users"
+  add_foreign_key "root_posts", "boards"
+  add_foreign_key "root_posts", "users"
 end

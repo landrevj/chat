@@ -230,16 +230,12 @@ Login/Registration/Reset
 {
     height: 30px;
     padding: 5px;
-    border-radius: 0 0 3px 3px;
+    border-radius: 3px;
     border: 0;
     width: 100%;
     color: var(--white);
     background: var(--green);
 }
-
-.card.edit-user #submit input,
-.card.thread #submit input
-{ border-radius: 3px; }
 
 .card.login input#user_email,
 .card.register input#user_email,
@@ -318,6 +314,14 @@ Navbar
     flex-grow: 1;
 }
 
+.board-name
+{
+    flex-grow: 100;
+    text-align: center;
+    font-size: 25px;
+    line-height: 55px;
+}
+
 .nav-right
 {
     display: flex;
@@ -353,6 +357,58 @@ Navbar
     padding: 10px 15px 10px 20px;
     text-align: right;
     background: var(--base02);
+}
+
+/******************************************************************
+
+Boards
+
+*******************************************************************/
+.boards
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.board
+{
+    display: flex;
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.board .abbreviation
+{
+    border-radius: 3px 0 0 3px;
+    width: 50px;
+    text-align: center;
+    background: var(--base01);
+}
+.board.new .abbreviation { border-radius: 3px; }
+
+.board .abbreviation a
+{
+    padding: 8px 18px;
+    font-size: 25px;
+    line-height: 50px;
+    text-decoration: none;
+}
+.board.new .abbreviation a
+{
+    font-size: 36.5px;
+    padding: 0 13px;
+}
+
+.board .name
+{
+    border-radius: 0 3px 3px 0;
+    padding: 0 10px;
+    font-size: 25px;
+    line-height: 50px;
+    display: inline;
+    background: var(--base03);
 }
 
 /******************************************************************
@@ -393,7 +449,10 @@ Posts
     transition: bottom 0.1s;
 }
 
-.post-form:hover
+.post-form#thread { bottom: -330px; }
+
+.post-form:hover,
+.post-form#thread:hover
 {
     bottom: -10px;
 }
@@ -404,6 +463,14 @@ Posts
     text-align: center;
 
     color: var(--base01);
+    background: var(--white);
+}
+
+.post-form #subject input
+{
+    border: none;
+    padding: 5px;
+    width: 240px;
     background: var(--white);
 }
 
@@ -418,7 +485,7 @@ Posts
     background: var(--white);
 }
 
-.post-form input#child_post_picture
+.post-form #file input
 {
     padding: 0 5px;
     width: calc(100% - 10px);
@@ -430,6 +497,7 @@ Posts
     height: 30px;
     padding: 5px;
     width: 100%;
+    border: none;
     color: var(--white);
     background: var(--green);
 }

@@ -13,8 +13,10 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  resources :boards, param: :abbreviation, :path => '' do
+    resources :root_posts, :path => 'threads'
+  end
   resources :child_posts, :except => [:index] , :path => 'posts'
-  resources :root_posts, :path => 'threads'
 
-  root to: redirect('/threads')
+  root to: redirect('/boards')
 end

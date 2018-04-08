@@ -25,7 +25,7 @@ test:
   adapter: postgresql
   template: template0
   encoding: unicode
-  database: chat_development
+  database: chat_test
   pool: 5
   username:
   password:

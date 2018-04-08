@@ -2,12 +2,12 @@
   <a class="anchor" name="##<%= root_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
-      <div class="post-detail" id="user-name"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
-      <div class="post-detail" id="subject"><strong><%= root_post.subject %></strong></div>
-      <div class="post-detail" id="id"><a href="###<%= root_post.id %>"><strong>##<%= root_post.id %></strong></a></div>
-      <div class="post-detail" id="timestamp-created"><strong><%= root_post.created_at %></strong></div>
+      <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
+      <div class="post-detail" id="subject" title="subject"><strong><%= root_post.subject %></strong></div>
+      <div class="post-detail" id="id" title="id"><a href="###<%= root_post.id %>"><strong>##<%= root_post.id %></strong></a></div>
+      <div class="post-detail" id="timestamp-created" title="time created"><strong><%= root_post.created_at %></strong></div>
       <% if root_post.created_at != root_post.updated_at %>
-      <div class="post-detail" id="timestamp-edited"><strong><%= root_post.updated_at %></strong></div>
+      <div class="post-detail" id="timestamp-edited" title="time edited"><strong><%= root_post.updated_at %></strong></div>
       <% end %>
     </div>
     <div class="body"><p><%= markdown root_post.body %></p></div>
@@ -16,10 +16,10 @@
   <div class="post-right-col">
     <div class="post-links">
       <% if root_post.user.id == current_user.id %>
-        <%= link_to root_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "link-delete" do %><i class="material-icons">delete</i><% end %>
-        <%= link_to edit_root_post_path(root_post) do %><i class="material-icons">create</i><% end %>
+        <%= link_to [@board, @root_post], method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" do %><i class="material-icons">delete</i><% end %>      
+        <%= link_to [:edit, @board, root_post], class: "edit" do %><i class="material-icons">create</i><% end %>
       <% end %>
-      <%= link_to root_post do %> <i class="material-icons">link</i><% end %>
+      <%= link_to [@board, root_post], class: "link" do %> <i class="material-icons">link</i><% end %>      
     </div>
     <% if root_post.picture.present? %>
       <div class="post-image">
