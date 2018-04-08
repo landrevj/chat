@@ -5,6 +5,6 @@
  
 <%= render 'root_post_full', root_post: @root_post %>
 
-<% @child_posts.reverse_each do |child_post| %>
+<% @child_posts.each do |child_post| %>
   <%= render child_post, child_post: child_post %>
 <% end %>

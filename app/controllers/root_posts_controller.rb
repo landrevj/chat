@@ -12,7 +12,7 @@ class RootPostsController < ApplicationController
   # GET /root_posts/1.json
   def show
     @board = @root_post.board
-    @child_posts = @root_post.child_posts.all.order(created_at: :desc)
+    @child_posts = @root_post.child_posts.all.order(created_at: :asc)
     @child_post = @root_post.child_posts.build
   end
   
