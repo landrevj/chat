@@ -22,6 +22,11 @@
 
 .byebug_history
 
+# Ignore rails admin public assets
+/public/assets/rails_admin/*
+/public/assets/application-*
+/public/assets/fontawesome-*
+
 # Ignore all picture uploads
 /public/uploads/root_post/picture/*
 /public/uploads/child_post/picture/*
