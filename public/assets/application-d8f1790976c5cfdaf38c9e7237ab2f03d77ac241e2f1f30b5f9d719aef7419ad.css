@@ -1,0 +1,925 @@
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #d0d0d0;
+  background-color: #151515;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}/* line 1, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 10, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 16, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 25, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 29, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 39, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding: 0 5px 7px;
+}
+
+/* line 44, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 49, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 53, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 59, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 66, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 76, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 82, /home/landrevj/Documents/dev/random/projects/chat/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+:root
+{
+    --bg:       #313131;
+    
+    --red:      #9A4C4C;
+    --green:    #87AF5F;
+    --yellow:   #D7D787;
+    --blue:     #5F87AF;
+    --magenta:  #A25576;
+    --cyan:     #87AFD7;
+    --white :   #E2DED3;
+
+    --font01 :    var(--white);
+    --font02 :  #A9A598;
+    --font03 :  #848176;
+    --base01 :  #4B4B4B;
+    --base02 :  #444444;
+    --base03 :  #3C3C3C;
+}
+
+html 
+{
+    background: var(--bg);
+}
+
+body
+{
+    margin: 0;
+    background: transparent;
+    color: var(--font01);
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.highlight,
+.highlight .w
+{
+    border-radius: 3px;
+    background: var(--bg);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+a,
+a:visited
+{
+    color: var(--font01);
+    transition: all 0.2s;
+}
+
+a:hover
+{
+    color: var(--font02);
+    background: none;
+}
+
+p.alert
+{
+    margin-top: -10px;
+    margin-bottom: 23px;
+    padding: 20px;
+    border-radius: 3px;
+    background: var(--cyan);
+}
+
+p.alert.alert-success { background: var(--green); }
+p.alert.alert-danger { background: var(--red); }
+
+input:focus,
+textarea:focus
+{
+    outline: none
+}
+
+#error_explanation
+{
+    position: fixed;
+    top: 75px;
+    left: calc(50% - 225px);
+    border: 0;
+    border-radius: 5px 5px 3px 3px;
+    color: var(--base01);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+#error_explanation h2
+{
+    border-radius: 3px 3px 0 0;
+    background: var(--red);
+}
+
+.field_with_errors
+{
+    padding: 0;
+    background: var(--red);
+}
+
+.field_with_errors input::placeholder,
+.field_with_errors textarea::placeholder
+{
+    color: var(--white);
+}
+
+.field_with_errors input,
+.field_with_errors textarea
+{
+    color: var(--white);
+    background: var(--red) !important;
+}
+
+.card.child_post .body .field_with_errors,
+.card.child_post .body .field_with_errors textarea
+{
+    border-radius: 3px 3px 0 0;
+}
+
+.card.edit-user .current-password .field_with_errors 
+{
+    border-radius: 0 0 3px 3px;
+}
+
+/******************************************************************
+
+Login/Registration/Reset
+
+*******************************************************************/
+
+.card.login,
+.card.register,
+.card.password-reset,
+.card.edit-user,
+.card.thread,
+.card.child_post
+{
+    display: inline-block;
+    position: absolute;
+    top: calc(50% - 143.5px);
+    left: calc(50% - 125px);
+    width: 250px;
+    
+    padding: 0;
+    border-radius: 3px;
+    color: var(--white);
+}
+
+.card.edit-user,
+.card.thread,
+.card.child_post
+{ margin-top: -56px; }
+
+.card .text-icon
+{
+    font-size: 120px;
+    margin-bottom: 75px;
+}
+
+.card .field
+{
+    margin: 0;
+}
+
+.card .body
+{
+    border-radius: 3px 3px 0 0;
+    background: var(--white);
+}
+
+.card .file 
+{
+    padding-top: 10px;
+    color: var(--base01);
+    background: var(--white)
+}
+
+.card input,
+.card textarea
+{
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.card input
+{
+    width: 240px;
+    height: 30px;
+    padding: 5px;
+    border: 0;
+    background: var(--white);
+}
+
+.card input[type="radio"],
+.card input[type="checkbox"]
+{
+    position: relative;
+    top: 3px;
+    width: initial;
+    height: initial;
+}
+
+.card label
+{
+    display: inline;
+}
+
+.card textarea
+{
+    resize: none;
+}
+
+.card #file { margin-top: -4px; }
+
+.card input#root_post_picture,
+.card input#child_post_picture,
+.card .field#sticky,
+.card .field#thread-theme,
+.card .field#anonymous
+{
+    color: var(--base01);
+    background: var(--white);
+}
+
+.card .field#sticky,
+.card .field#thread-theme,
+.card .field#anonymous
+{
+    padding: 5px;
+}
+
+.card .field#sticky {margin-bottom: 10px;}
+
+.card input[type="submit"]
+{
+    height: 30px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 0;
+    width: 100%;
+    color: var(--white);
+    background: var(--green);
+}
+
+/* phase this out for first last tags */
+.card.login input#user_email,
+.card.register input#user_email,
+{
+    border-radius: 3px 3px 0 0;
+}
+
+.card .field.first input,
+.card .field.first textarea,
+.card .field.first .field_with_errors
+{
+    border-radius: 3px 3px 0 0;
+}
+
+/* phase this out for first last tags */
+.card.login input#user_password,
+.card.register input#user_password_confirmation,
+{
+    border-radius: 0 0 3px 3px;
+}
+
+.card .field.last,
+.card .field.last input,
+.card .field.last .field_with_errors
+{
+    border-radius: 0 0 3px 3px;
+}
+
+.card.login input#user_remember_me
+{
+    display: inline-block;
+    height: initial;
+    position: relative;
+    top: 2px;
+    width: initial;
+}
+
+.card.thread textarea,
+.card.child_post textarea
+{
+    width: 240px;
+    height: 200px;
+    padding: 5px;
+    border: none;
+    background: var(--white);
+}
+
+.card.login label
+{
+    display: inline-block;
+}
+
+.card.edit-user input.delete-account
+{
+    border-radius: 3px;
+    background: var(--red);
+}
+
+/******************************************************************
+
+Navbar
+
+*******************************************************************/
+
+.container
+{
+    padding: 33px;
+    margin-top: 56px;
+}
+
+.nav
+{
+    display: flex;
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    width: 100%;
+    background: var(--base01);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.nav-left
+{
+    display: flex;
+    flex-grow: 1;
+}
+
+.board-name
+{
+    flex-grow: 100;
+    text-align: center;
+    font-size: 25px;
+    line-height: 55px;
+}
+
+.board-name a { text-decoration: none; }
+
+.nav-right
+{
+    display: flex;
+    float: right;
+}
+
+.nav .route
+{
+    width: 56px;
+    background: var(--base03);
+}
+
+.nav .route a
+{
+    padding: 15px;
+    font-size: 25px;
+    line-height: 50px;
+    text-decoration: none;
+}
+
+.nav .nav-right .route a { font-size: 40px; padding-bottom: 0; }
+
+.nav .current-uri
+{
+    padding: 0 15px;
+    line-height: 55px;
+    font-size: 25px;
+    background: var(--base02);
+}
+
+.nav .info
+{
+    padding: 10px 15px 10px 20px;
+    text-align: right;
+    background: var(--base02);
+}
+
+/******************************************************************
+
+Boards
+
+*******************************************************************/
+.boards
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.board
+{
+    display: flex;
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.board .abbreviation
+{
+    border-radius: 3px 0 0 3px;
+    text-align: center;
+    background: var(--base01);
+}
+.board.new .abbreviation {
+    border-radius: 3px;
+    background: var(--red);
+}
+
+.board .abbreviation a
+{
+    padding: 8px 18px;
+    font-size: 25px;
+    line-height: 50px;
+    text-decoration: none;
+}
+
+.board.new .abbreviation a
+{
+    font-size: 36.5px;
+    padding: 0 13px;
+}
+
+.board .name
+{
+    border-radius: 0 3px 3px 0;
+    padding: 0 10px;
+    font-size: 25px;
+    line-height: 50px;
+    display: inline;
+    background: var(--base03);
+}
+
+/******************************************************************
+
+Posts
+
+*******************************************************************/
+/* .new-thread
+{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    line-height: 70px;
+    border-radius: 99999px;
+    background: var(--blue);
+}
+
+.new-thread i.material-icons
+{
+    width: 55px;
+    height: 55px;
+    border-radius: 99999px;
+} */
+
+.post-form
+{
+    position: fixed;
+    bottom: -295px;
+    right: 33px;
+    width: 250px;
+
+    border-radius: 3px;
+    background: var(--white);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.post-form#thread
+{
+    top: calc(100% - 28px);
+}
+
+.post-form:hover,
+.post-form#thread:hover
+{
+    top: initial;
+    bottom: -10px;
+}
+
+.post-form .form-handle
+{
+    border-radius: 3px 3px 0px 0px;
+    text-align: center;
+
+    color: var(--base01);
+    background: var(--white);
+}
+
+
+.post-form #subject input
+{
+    border: none;
+    padding: 5px;
+    width: 240px;
+    background: var(--white);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.post-form textarea
+{
+    resize: none;
+    width: 240px;
+    height: 200px;
+    padding: 5px;
+    border: none;
+    border-radius: 0 0 3px 3px;
+    background: var(--white);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.post-form #file input
+{
+    padding: 0 5px;
+    width: calc(100% - 10px);
+    color: var(--base01);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.post-form #sticky
+{
+    padding: 0 5px;
+    color: var(--base01);
+}
+
+.post-form input[type="submit"]
+{
+    height: 30px;
+    padding: 5px;
+    width: 100%;
+    border: none;
+    color: var(--white);
+    background: var(--green);
+}
+
+.post a.anchor
+{
+    position: relative;
+    top: -80px;
+}
+
+/*      full        */
+.post
+{
+    display: flex;
+    margin-bottom: 10px;
+    
+    padding: 20px;
+    border-radius: 3px;
+    background: var(--base01);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.post.sticky
+{
+    border-left: var(--cyan) 10px solid;
+}
+
+.post-left-col
+{
+    flex-grow: 100;
+    padding-right: 20px;
+}
+
+
+.post .body,
+.post-card .body,
+.post .body p,
+.post-card .body p
+{
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.post-details
+{
+    display: inline-block;
+}
+
+.post-detail,
+.post-links
+{
+    display: inherit;
+}
+
+.post-detail#user-name { color: var(--blue) }
+.post-detail#subject { color: var(--red) }
+.post-detail#id { color: var(--green) }
+.post-detail#id a { color: var(--green) }
+.post-detail#count { color: var(--green) }
+.post-detail#timestamp-created { color: var(--yellow) }
+.post-detail#timestamp-edited { color: var(--magenta) }
+
+.post-links
+{
+    float: right;
+    min-width: 80px;
+    margin-bottom: 10px;
+}
+
+.post-links a
+{
+    float: right;
+}
+
+.post a.delete:hover
+{
+    color: var(--red);
+}
+
+.post .body p
+{
+    margin-bottom: 0;
+    word-break: break-word;
+}
+
+/*      card        */
+.threads.card
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post-card
+{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 5px;
+    width: 250px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.post-card.sticky
+{
+    border-top: var(--cyan) 10px solid;
+}
+
+.post-card.big
+{
+    height: 300px;
+}
+
+.post-card.small
+{
+    height: 320px;
+    width: 175px;
+}
+.post-card.small.sticky
+{
+    height: 310px;
+}
+
+.post-card .post-image
+{
+    border-radius: 3px 3px 0 0;
+    background: var(--base03);
+}
+
+.post-card .post-image img
+{
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.post-card .details
+{
+    padding: 10px;
+    background: var(--base02);
+}
+
+.post-card.no-image .details { border-radius: 3px 3px 0 0; }
+
+.post-card .details .top-row
+{
+    display:flex;
+    justify-content: space-between;
+}
+
+.post-card.small .details #subject
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-card .details.has-subject #subject:before
+{
+    content: '';
+    display: block;
+    margin-top: 2px;
+    height: 1px;
+    width: 230px;
+    background: var(--base03);
+}
+
+.post-card.small .details.has-subject #subject:before {width: initial;}
+
+.post-card .body
+{
+    padding: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: 0;
+    background: var(--base01);
+}
+
+.post-card .body p {
+    margin: 0;
+    word-break: break-word;
+}
+
+.post-card .post-card-links
+{
+    border-radius: 0 0 3px 3px;
+    background: var(--base01);
+}
+.post-card .post-card-links .links-wrapper
+{
+    display: flex;
+    flex-direction: row-reverse;
+    line-height: 10px;
+    border-radius: 0 0 3px 3px;
+}
+
+.post-card .post-card-links a
+{
+    flex-grow: 1;
+    padding: 5px;
+    text-align: center;
+    color: var(--font01);
+    transition: background 0.2s;
+}
+
+.post-card .post-card-links a.link { border-radius: 0 0 3px 3px; }
+.post-card.owned .post-card-links a.link { border-bottom-left-radius: 3px; border-bottom-right-radius: 0; }
+.post-card .post-card-links a.link:hover { background: var(--blue); }
+.post-card .post-card-links a.edit:hover { background: var(--green); }
+.post-card .post-card-links a.delete:hover { background: var(--red); }
+.post-card .post-card-links a.delete { border-bottom-right-radius: 3px; }

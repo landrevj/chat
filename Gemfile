@@ -40,6 +40,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Devise for user accounts
 gem 'devise'
+# Use rails_admin for admin dash
+gem 'rails_admin'
+# Use material_theme for theme
+gem 'rails_admin_material_theme', '~> 0.2.0'
 
 # Use Redcarpet for markdown support
 gem 'redcarpet', '~> 3.4.0'

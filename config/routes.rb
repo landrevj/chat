@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Custom Devise login/out routes
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
