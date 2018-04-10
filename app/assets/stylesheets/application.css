@@ -606,6 +606,7 @@ Posts
 .post-links a
 {
     float: right;
+    padding-left: 10px;
 }
 
 .post a.delete:hover
