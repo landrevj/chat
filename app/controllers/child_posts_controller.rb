@@ -1,7 +1,7 @@
 class ChildPostsController < ApplicationController
   before_action :set_child_post, only: [:show, :edit, :update, :destroy]
-  before_action :owner?, only: [:edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   # GET /child_posts
   # GET /child_posts.json
   def index
@@ -72,13 +72,5 @@ class ChildPostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def child_post_params
       params.require(:child_post).permit(:body, :picture, :root_post_id)
-    end
-
-    # Check if current_user owns the post
-    def owner?
-      unless @child_post.user == current_user
-        flash[:alert] = "That post doesn't belong to you!"
-        redirect_back fallback_location: @child_post.root_post
-      end
     end
 end

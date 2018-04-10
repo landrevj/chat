@@ -2,11 +2,4 @@
   <% @boards.each do |board| %>
     <%= render 'board', board: board %>      
   <% end %>
-  <div class="board new">
-    <div class="abbreviation">
-    <%= link_to new_board_path do %>
-      <i class="material-icons">add</i>
-    <% end %>
-    </div>
-  </div>
 </div>

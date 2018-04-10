@@ -40,6 +40,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Devise for user accounts
 gem 'devise'
+# Use CanCanCan for user permissions
+gem 'cancancan', '~> 2.0'
 # Use rails_admin for admin dash
 gem 'rails_admin'
 # Use material_theme for theme

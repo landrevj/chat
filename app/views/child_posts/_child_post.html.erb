@@ -2,7 +2,7 @@
   <a class="anchor" name="#<%= child_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
-      <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
+      <div class="post-detail" id="user-name" title="username"><strong><%= current_user.anonymous ? 'Anonymous' : child_post.user.user_name %></strong></div>
       <div class="post-detail" id="id" title="id"><a href="##<%= child_post.id %>"><strong>#<%= child_post.id %></strong></a></div>
       <div class="post-detail" id="timestamp-created" title="time created"><strong><%= child_post.created_at %></strong></div>
       <% if child_post.created_at != child_post.updated_at %>
@@ -15,7 +15,7 @@
 
   <div class="post-right-col">
     <div class="post-links">
-      <% if child_post.user.id == current_user.id %>
+      <% if can? :modify, child_post %>
         <%= link_to child_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "link-delete" do %><i class="material-icons">delete</i><% end %>
         <%= link_to edit_child_post_path(child_post) do %> <i class="material-icons">create</i><% end %>
       <% end %>

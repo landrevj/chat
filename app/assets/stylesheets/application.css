@@ -382,9 +382,13 @@ Navbar
 .nav .info
 {
     padding: 10px 15px 10px 20px;
+    font-size: 25px;
+    line-height: 35px;
     text-align: right;
     background: var(--base02);
 }
+
+.nav .info.admin { background: var(--red); }
 
 /******************************************************************
 
@@ -412,10 +416,6 @@ Boards
     text-align: center;
     background: var(--base01);
 }
-.board.new .abbreviation {
-    border-radius: 3px;
-    background: var(--red);
-}
 
 .board .abbreviation a
 {
@@ -423,12 +423,6 @@ Boards
     font-size: 25px;
     line-height: 50px;
     text-decoration: none;
-}
-
-.board.new .abbreviation a
-{
-    font-size: 36.5px;
-    padding: 0 13px;
 }
 
 .board .name
@@ -476,17 +470,17 @@ Posts
     border-radius: 3px;
     background: var(--white);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+    transition: bottom 0.1s;
 }
 
 .post-form#thread
 {
-    top: calc(100% - 28px);
+    bottom: -330px;
 }
 
 .post-form:hover,
 .post-form#thread:hover
 {
-    top: initial;
     bottom: -10px;
 }
 

@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Custom Devise login/out routes
-  devise_scope :user do
-    get 'login', to: 'devise/sessions#new'
-  end
-  devise_scope :user do
-    delete 'logout', to: 'devise/sessions#destroy'
-  end
   devise_for :users, skip: [:sessions]
   as :user do
     get 'login', to: 'devise/sessions#new', as: :new_user_session
@@ -14,7 +8,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  resources :boards, param: :abbreviation, :path => '' do
+  resources :boards, param: :abbreviation, :only => [:index, :show], :path => '' do
     resources :root_posts, :path => 'threads'
   end
   resources :child_posts, :except => [:index] , :path => 'posts'

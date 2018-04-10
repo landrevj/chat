@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   # GET /boards
   # GET /boards.json
   def index
