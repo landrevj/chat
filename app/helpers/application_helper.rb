@@ -8,6 +8,16 @@ module ApplicationHelper
     include Rouge::Plugins::Redcarpet
     include Redcarpet::Render::SmartyPants
 
+    def block_quote(quote)
+      puts quote
+      if (quote =~ /(?<=<p>)\s*!\s*/)
+        quote.gsub!(/(?<=<p>)\s*!\s*/, ' ')
+        "<blockquote class='spoiler'> #{quote}</blockquote>"
+      else
+        "<blockquote> #{quote}</blockquote>"
+      end
+    end
+
     # youtube auto embedding from https://stackoverflow.com/questions/23051568/how-to-embed-a-youtube-video-in-markdown-with-redcarpet-for-rails
     def autolink(link, link_type)
       case link_type

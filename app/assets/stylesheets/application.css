@@ -178,6 +178,26 @@ blockquote:after { content: no-close-quote; }
 
 blockquote p { display: inline; }
 
+.spoiler { border-left: 10px solid var(--red); background: var(--base03);}
+
+.spoiler:before { content: no-open-quote; }
+
+.spoiler,
+.spoiler > * 
+{
+    transition: color 0.1s, opacity 0.1s
+}
+
+.spoiler:not(:hover)
+{
+    color: transparent;
+}
+
+.spoiler:not(:hover) > *
+{
+    opacity: 0
+}
+
 /******************************************************************
 
 Login/Registration/Reset

@@ -86,7 +86,21 @@ th, td
 ```
 
 &nbsp;
-## Greentext
+## Quoting
+---
+You can quote posts using this syntax:
+
+```
+@#\#(root_post number)
+@\#(child_post number)
+
+so @\#1 will create a link to child_post with id 1
+and @\##1 will create a link to the root_post with id 1
+```
+Since post numbers are not board specific, the syntax is identical for cross-board quoting.
+
+&nbsp;
+## Greentext/Blockquotes
 ---
 Markdown uses '>' to generate blockquotes. This has been left as is as that is >'s intended function. [Educate yourselves.](https://en.wikipedia.org/wiki/Posting_style#Quoted_line_prefix)
 
@@ -119,18 +133,41 @@ Becomes:
 > Another
 
 &nbsp;
-## Quoting
+## Spoilers
 ---
-You can quote posts using this syntax:
+You can create spoilers using this syntax:
 
 ```
-@#\#(root_post number)
-@\#(child_post number)
+>!simple spoiler
 
-so @\#1 will create a link to child_post with id 1
-and @\##1 will create a link to the root_post with id 1
+#
+> regular blockquote
+>>! nested spoiler
+>>> nested nested blockquote
+>>! failed to drop down
+>
+>>! back to second level spoiler
+
+> back to blockquote
+>>! separate nested spoiler
 ```
-Since post numbers are not board specific, the syntax is identical for cross-board quoting.
+
+becomes:
+
+>!simple spoiler
+
+#
+> regular blockquote
+>>! nested spoiler
+>>> nested nested blockquote
+>>! failed to drop down
+>
+>>! back to second level spoiler
+
+> back to blockquote
+>>! separate nested spoiler
+
+On the whole I don't really know why this behaves the way it does, but it works well enough.
 
 "
 )%>
