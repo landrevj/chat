@@ -1,4 +1,11 @@
 <div class="boards">
+  <div class="board abv-only faq">
+    <div class="abbreviation">
+    <%= link_to '/pages/info' do %>
+      <i class="material-icons">info</i>
+    <% end %>
+    </div>
+  </div>
   <% @boards.each do |board| %>
     <%= render 'board', board: board %>      
   <% end %>

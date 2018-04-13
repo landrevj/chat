@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   end
   resources :child_posts, :except => [:index] , :path => 'posts'
 
+  get '/pages/:page' => 'pages#show'
+
   root to: redirect('/boards')
 end

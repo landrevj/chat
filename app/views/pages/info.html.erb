@@ -1,0 +1,137 @@
+<div class="card-full">
+<%= markdown( 
+"
+# Info
+---
+This site functions similarly to many imageboards out there, however, there are a few differences which I will explain here.
+
+&nbsp;
+## Structure
+---
+### Board > Root Post > Child Post
+This hierarchy is fairly standard for imageboards however these are the words used in the source. \
+Root Post is typically swapped out for 'Thread' and child post for simply 'Post' in most of the text and uri's you'll see but they mean the same thing.
+
+Unlike other imageboards, the numbering of threads and posts are not unique to boards, but a site-wide total. \
+This is due to how Rails ids things. This could likely be changed to function the same way as in other sites, but frankly, I can't even be asked.
+
+&nbsp;
+## Accounts
+---
+Authentication is entirely handled by the [Devise](https://github.com/plataformatec/devise) gem. \
+The information fields associated with an account are as follows:
+
+* E-mail address
+* Username
+* Encrypted password
+* Sign in count
+* Current sign in at (time)
+* Last sign in at (time)
+* Current sign in ip
+* Last sign in ip
+* Preferences (jsonb)
+* Admin (boolean)
+* Root posts (list of links)
+* Child posts (list of links)
+
+&nbsp;
+## Markdown
+---
+The body of both root and child posts supports markdown through the [Red Carpet](https://github.com/vmg/redcarpet) gem. \
+Enabled options and extensions:
+
+| Option/Extension             | Explanation |
+| ---------------------------- | ----------- |
+| filter_html                  | Do not allow any user-inputted HTML in the output. |
+| hard_wrap                    | Insert HTML <br> tags inside paragraphs where the original Markdown document had newlines. |
+| no_images                    | Do not generate any <img> tags. |
+| space_after_headers          | A space is always required between the hash at the beginning of a header and its name, e.g. #this is my header would not be a valid header. |
+| safe_links_only              | Only generate links for protocols which are considered safe.
+| autolink                     | Parse links even when they are not enclosed in <> characters. Autolinks for the http, https and ftp protocols will be automatically detected. Email addresses and http links without protocol, but starting with www are also handled.
+| strikethrough                | Parse strikethrough, PHP-Markdown style. Two ~ characters mark the start of a strikethrough, e.g. this is ~~good~~ bad.
+| underline                    | Parse underscored emphasis as underlines. This is `_underlined`_ but this is still `*italic`*.
+| highlight                    | Parse highlights. This is `=`=highlighted`=`=. It looks like this: ==highlighted==
+| no_intra_emphasis            | Do not parse emphasis inside of words. Strings such as foo_bar_baz will not generate <em> tags.
+| superscript                  | Parse superscripts after the ^ character; contiguous superscripts are nested together, and complex values can be enclosed in parenthesis, e.g. this is the 2^(nd) time.
+| tables                       | Parse tables, PHP-Markdown style.
+| fenced_code_blocks           | Parse fenced code blocks, PHP-Markdown style. Blocks delimited with 3 or more ~ or backticks will be considered as code, without the need to be indented. An optional language name may be added at the end of the opening fence for the code block.
+| disable_indented_code_blocks | Do not parse usual markdown code blocks. Markdown converts text with four spaces at the front of each line to code blocks. This option prevents it from doing so.
+A good guide for markdown can be found [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), but be aware that certain \
+features will not work due to the options set above.
+
+Additionally, YouTube links are automatically detected and embedded by a custom rule in the autolink extension. \
+This can be circumvented by using the link syntax: [title](url), and putting the link in both the title and url spots.
+
+Code syntax highlighting is also supported through the [Rouge](https://github.com/jneen/rouge) gem:
+
+```css
+table 
+{
+    border-collapse: collapse;
+    padding: 10px;
+    background: var(--bg);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+thead
+{
+    background: var(--blue);
+}
+
+th, td
+{
+    padding: 10px;
+    border: 1px var(--base02) solid;
+}
+```
+
+&nbsp;
+## Greentext
+---
+Markdown uses '>' to generate blockquotes. This has been left as is as that is >'s intended function. [Educate yourselves.](https://en.wikipedia.org/wiki/Posting_style#Quoted_line_prefix)
+
+```
+This:
+
+>First level
+>>Second level
+>>>Third level
+
+>First level
+>>Second level
+>>Second level
+
+#
+> Another
+```
+
+Becomes:
+
+>First level
+>>Second level
+>>>Third level
+
+>First level
+>>Second level
+>>Second level
+
+#
+> Another
+
+&nbsp;
+## Quoting
+---
+You can quote posts using this syntax:
+
+```
+@#\#(root_post number)
+@\#(child_post number)
+
+so @\#1 will create a link to child_post with id 1
+and @\##1 will create a link to the root_post with id 1
+```
+Since post numbers are not board specific, the syntax is identical for cross-board quoting.
+
+"
+)%>
+</div>
