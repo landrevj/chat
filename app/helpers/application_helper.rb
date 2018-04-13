@@ -7,7 +7,6 @@ module ApplicationHelper
   class HTML < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
     include Redcarpet::Render::SmartyPants
-    include ActionView::Helpers::SanitizeHelper
 
     # youtube auto embedding from https://stackoverflow.com/questions/23051568/how-to-embed-a-youtube-video-in-markdown-with-redcarpet-for-rails
     def autolink(link, link_type)
@@ -20,8 +19,8 @@ module ApplicationHelper
     def url_link(link)
       case link
         # regex from https://gist.github.com/afeld/1254889
-      when /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/ then youtube_link(link)
-      else normal_link(link)
+        when /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/ then youtube_link(link)
+        else normal_link(link)
       end
     end
 
