@@ -3,9 +3,11 @@ module ApplicationHelper
   require 'rouge'
   require 'rouge/plugins/redcarpet'
 
+  # Custom renderer for Redcarpet
   class HTML < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
     include Redcarpet::Render::SmartyPants
+    include ActionView::Helpers::SanitizeHelper
 
     # youtube auto embedding from https://stackoverflow.com/questions/23051568/how-to-embed-a-youtube-video-in-markdown-with-redcarpet-for-rails
     def autolink(link, link_type)
@@ -18,8 +20,8 @@ module ApplicationHelper
     def url_link(link)
       case link
         # regex from https://gist.github.com/afeld/1254889
-        when /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/ then youtube_link(link)
-        else normal_link(link)
+      when /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/ then youtube_link(link)
+      else normal_link(link)
       end
     end
 
@@ -37,12 +39,39 @@ module ApplicationHelper
     end
   end
 
+  # Apply custom markdown here
+  def custom_markdown(text)
+    wrap_quotes(text)
+  end
+
+  # Detect custom root and child post text references
+  # @##12 matches root post ##12
+  # @#12 matches child post #12
+  def wrap_quotes(text)
+    text.gsub(/@(#+)(\d+)/) do
+      begin
+        id = $2.to_i
+        if $1 == '##'
+          board = RootPost.find(id).board.abbreviation
+          "<a class='quote' href='/#{board}/threads/#{$2}'>@#{$1 + $2}</a>"
+        elsif $1 == '#'
+          board = ChildPost.find(id).root_post.board.abbreviation
+          thread_id = ChildPost.find(id).root_post.id
+          "<a class='quote' href='/#{board}/threads/#{thread_id}##{$2}'>@#{$1 + $2}</a>"
+        end
+      rescue ActiveRecord::RecordNotFound
+        "<a class='quote'>@#{$1 + $2}</a>"
+      end
+    end
+  end
+
   def markdown(text)
     options = {
       filter_html:     true,
       hard_wrap:       true,
       no_images:       true,
       space_after_headers: true,
+      safe_links_only: true,
     }
 
     extensions = {
@@ -52,6 +81,7 @@ module ApplicationHelper
       highlight:          true,
       no_intra_emphasis:  true,
       superscript:        true,
+      tables:             true,
       fenced_code_blocks: true,
       disable_indented_code_blocks: true,
     }
@@ -59,6 +89,6 @@ module ApplicationHelper
     renderer = HTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
-    markdown.render(text).html_safe
+    custom_markdown(markdown.render(text)).html_safe
   end
 end
