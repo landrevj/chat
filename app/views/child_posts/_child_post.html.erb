@@ -3,7 +3,7 @@
   <div class="post-left-col">
     <div class="post-details">
       <div class="post-detail" id="user-name" title="username"><strong><%= current_user.anonymous ? 'Anonymous' : child_post.user.user_name %></strong></div>
-      <div class="post-detail" id="id" title="id"><a href="#<%= child_post.id %>"><strong>#<%= child_post.id %></strong></a></div>
+      <div class="post-detail" id="id" title="id"><a><strong>#<%= child_post.id %></strong></a></div>
       <div class="post-detail" id="timestamp-created" title="time created"><strong><%= child_post.created_at %></strong></div>
       <% if child_post.created_at != child_post.updated_at %>
       <div class="post-detail" id="timestamp-edited" title="time edited"><strong><%= child_post.updated_at %></strong></div>

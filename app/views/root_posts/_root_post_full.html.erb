@@ -4,7 +4,7 @@
     <div class="post-details">
       <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
       <div class="post-detail" id="subject" title="subject"><strong><%= root_post.subject %></strong></div>
-      <div class="post-detail" id="id" title="id"><a href="##<%= root_post.id %>"><strong>##<%= root_post.id %></strong></a></div>
+      <div class="post-detail" id="id" title="id"><a><strong>##<%= root_post.id %></strong></a></div>
       <div class="post-detail" id="timestamp-created" title="time created"><strong><%= root_post.created_at %></strong></div>
       <% if root_post.created_at != root_post.updated_at %>
       <div class="post-detail" id="timestamp-edited" title="time edited"><strong><%= root_post.updated_at %></strong></div>

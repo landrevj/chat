@@ -133,6 +133,8 @@ textarea:focus
     border-radius: 0 0 3px 3px;
 }
 
+
+/* Custom Elements */
 hr
 {
     height: 2px;
@@ -197,6 +199,13 @@ blockquote p { display: inline; }
 {
     opacity: 0
 }
+
+a.quote
+{
+    text-decoration: none;
+    color: var(--font02);
+}
+a.quote:hover { color: var(--font01);}
 
 /******************************************************************
 
@@ -516,26 +525,6 @@ Boards
 Posts
 
 *******************************************************************/
-/* .new-thread
-{
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 55px;
-    height: 55px;
-    text-align: center;
-    line-height: 70px;
-    border-radius: 99999px;
-    background: var(--blue);
-}
-
-.new-thread i.material-icons
-{
-    width: 55px;
-    height: 55px;
-    border-radius: 99999px;
-} */
-
 .post-form
 {
     position: fixed;
@@ -666,11 +655,16 @@ Posts
 
 .post-detail#user-name { color: var(--blue) }
 .post-detail#subject { color: var(--red) }
-.post-detail#id { color: var(--green) }
 .post-detail#id a { color: var(--green) }
 .post-detail#count { color: var(--green) }
 .post-detail#timestamp-created { color: var(--yellow) }
 .post-detail#timestamp-edited { color: var(--magenta) }
+
+.post-detail#id a
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 .post-links
 {

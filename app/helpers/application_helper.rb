@@ -8,10 +8,9 @@ module ApplicationHelper
     include Rouge::Plugins::Redcarpet
     include Redcarpet::Render::SmartyPants
 
+    # Custom support for spoilers
     def block_quote(quote)
-      puts quote
-      if (quote =~ /(?<=<p>)\s*!\s*/)
-        quote.gsub!(/(?<=<p>)\s*!\s*/, ' ')
+      if quote.gsub!(/(?<=<p>)\s*!\s*/, ' ')
         "<blockquote class='spoiler'> #{quote}</blockquote>"
       else
         "<blockquote> #{quote}</blockquote>"
@@ -61,15 +60,20 @@ module ApplicationHelper
       begin
         id = $2.to_i
         if $1 == '##'
-          board = RootPost.find(id).board.abbreviation
-          "<a class='quote' href='/#{board}/threads/#{$2}'>@#{$1 + $2}</a>"
+          root_post = RootPost.find(id)
+          board = root_post.board.abbreviation
+          subject = current_user.id == root_post.user.id ? ' (You)' : ''
+          "<a class='quote' href='/#{board}/threads/#{$2}'>@#{$1 + $2 + subject}</a>"
         elsif $1 == '#'
-          board = ChildPost.find(id).root_post.board.abbreviation
-          thread_id = ChildPost.find(id).root_post.id
-          "<a class='quote' href='/#{board}/threads/#{thread_id}##{$2}'>@#{$1 + $2}</a>"
+          child_post = ChildPost.find(id)
+          board = child_post.root_post.board.abbreviation
+          thread_id = child_post.root_post.id
+          subject = current_user.id == child_post.user.id ? ' (You)' : ''
+
+          "<a class='quote' href='/#{board}/threads/#{thread_id}##{$2}'>@#{$1 + $2 + subject}</a>"
         end
       rescue ActiveRecord::RecordNotFound
-        "<a class='quote'>@#{$1 + $2}</a>"
+        "<a class='quote'>@#{$1 + $2} (broken)</a>"
       end
     end
   end

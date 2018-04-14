@@ -52,6 +52,8 @@ gem 'redcarpet', '~> 3.4.0'
 # Use Rouge for markdown code highlighting
 gem 'rouge'
 
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
