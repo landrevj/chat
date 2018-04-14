@@ -63,14 +63,14 @@ module ApplicationHelper
           root_post = RootPost.find(id)
           board = root_post.board.abbreviation
           subject = current_user.id == root_post.user.id ? ' (You)' : ''
-          "<a class='quote' href='/#{board}/threads/#{$2}'>@#{$1 + $2 + subject}</a>"
+          "<a class='quote root-quote' href='/#{board}/threads/#{$2}'>@#{$1 + $2 + subject}</a>"
         elsif $1 == '#'
           child_post = ChildPost.find(id)
           board = child_post.root_post.board.abbreviation
           thread_id = child_post.root_post.id
           subject = current_user.id == child_post.user.id ? ' (You)' : ''
 
-          "<a class='quote' href='/#{board}/threads/#{thread_id}##{$2}'>@#{$1 + $2 + subject}</a>"
+          "<a class='quote child-quote' href='/#{board}/threads/#{thread_id}##{$2}'>@#{$1 + $2 + subject}</a>"
         end
       rescue ActiveRecord::RecordNotFound
         "<a class='quote'>@#{$1 + $2} (broken)</a>"

@@ -28,5 +28,4 @@
 /public/assets/fontawesome-*
 
 # Ignore all picture uploads
-/public/uploads/root_post/picture/*
-/public/uploads/child_post/picture/*
+/public/uploads/*
