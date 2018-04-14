@@ -433,6 +433,7 @@ Navbar
     width: 100%;
     background: var(--base01);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+    z-index: 9998;
 }
 
 .nav-left
