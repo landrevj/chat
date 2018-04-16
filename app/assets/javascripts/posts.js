@@ -13,7 +13,6 @@ var ready = function(){
             $('.wild-ui').find('.img-expand:last').remove();
         });
     });
-
 };
 
 $(document).on('turbolinks:load', ready);
