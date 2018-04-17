@@ -11,7 +11,7 @@
     <div class="info <%= 'admin' if current_user.admin? %>">
       <div><%= current_user.user_name %> | <%= current_user.current_sign_in_ip %></div>
     </div>
-    <div class="route" id="dashboard"><%= link_to '/admin' do %><i class="material-icons">dashboard</i><% end %></div>
+    <% if current_user.admin? %><div class="route" id="dashboard"><%= link_to '/admin' do %><i class="material-icons">dashboard</i><% end %></div><% end %>
     <div class="route" id="edit"><%= link_to edit_user_registration_path do %><i class="material-icons">account_box</i><% end %></div>
     <div class="route" id="logout"><%= link_to destroy_user_session_path, method: :delete do %><i class="material-icons">power_settings_new</i><% end %></div>
   </div>
