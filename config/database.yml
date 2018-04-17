@@ -31,5 +31,10 @@ test:
   password:
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  template: template0
+  encoding: unicode
+  database: chat_production
+  pool: 5
+  username:
+  password:

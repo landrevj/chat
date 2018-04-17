@@ -26,6 +26,10 @@
 /public/assets/rails_admin/*
 /public/assets/application-*
 /public/assets/fontawesome-*
+/public/assets/.sprockets-*
 
 # Ignore all picture uploads
 /public/uploads/*
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
