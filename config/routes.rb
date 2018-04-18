@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   root to: redirect('/login')
 
-  # Custom Devise login/out routes
+  # custom Devise login/out routes
   devise_for :users, controllers: { registrations: "registrations" }, path:'account', skip: [:sessions]
   as :user do
     get '/account/preferences', to: 'registrations#preferences'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  # move rails_adming to shorter uri
+  # move rails_admin to shorter uri
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # resource routes
