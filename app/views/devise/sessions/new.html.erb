@@ -1,11 +1,11 @@
-<div class="card login">
+<div class="card float-form">
   <div class="text-icon">>_</div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
+    <div class="field first">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
     </div>
 
-    <div class="field">
+    <div class="field last">
       <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
     </div>
 
@@ -17,11 +17,12 @@
   
     <% if devise_mapping.rememberable? -%>
       <div class="field">
-        <%= f.label :remember_me %>
+        <%= f.label :remember_me, class: "inline-label" %>
         <%= f.check_box :remember_me %>
       </div>
-    <% end -%>
+    <% end %>
   <% end %>
 
+  <br>
   <%= render "devise/shared/links" %>
 </div>

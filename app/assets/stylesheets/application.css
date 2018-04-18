@@ -88,12 +88,12 @@ textarea:focus
 
 #error_explanation
 {
-    position: fixed;
-    top: 75px;
-    left: calc(50% - 225px);
+    width: initial;
+    padding: 7px 7px 1px 7px;
     border: 0;
     border-radius: 5px 5px 3px 3px;
     color: var(--base01);
+    background: white;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
 }
 
@@ -101,36 +101,6 @@ textarea:focus
 {
     border-radius: 3px 3px 0 0;
     background: var(--red);
-}
-
-.field_with_errors
-{
-    padding: 0;
-    background: var(--red);
-}
-
-.field_with_errors input::placeholder,
-.field_with_errors textarea::placeholder
-{
-    color: var(--white);
-}
-
-.field_with_errors input,
-.field_with_errors textarea
-{
-    color: var(--white);
-    background: var(--red) !important;
-}
-
-.card.child_post .body .field_with_errors,
-.card.child_post .body .field_with_errors textarea
-{
-    border-radius: 3px 3px 0 0;
-}
-
-.card.edit-user .current-password .field_with_errors 
-{
-    border-radius: 0 0 3px 3px;
 }
 
 
@@ -232,53 +202,39 @@ a.quote:hover { color: var(--font01);}
 Login/Registration/Reset
 
 *******************************************************************/
-
-.card.login,
-.card.register,
-.card.password-reset,
-.card.edit-user,
-.card.thread,
-.card.child_post
+.text-icon
+{
+    font-size: 120px;
+    margin-bottom: 75px;
+}
+.card.float-form
 {
     display: inline-block;
     position: absolute;
     top: calc(50% - 143.5px);
     left: calc(50% - 125px);
     width: 250px;
-    
     padding: 0;
     border-radius: 3px;
     color: var(--white);
 }
 
-.card.edit-user,
-.card.thread,
-.card.child_post
-{ margin-top: -56px; }
-
-.card .text-icon
+.card.float-form input
 {
-    font-size: 120px;
-    margin-bottom: 75px;
-}
-
-.card .field
-{
-    margin: 0;
-}
-
-.card .body
-{
-    border-radius: 3px 3px 0 0;
+    width: 240px;
+    height: 30px;
+    padding: 5px;
+    border: 0;
     background: var(--white);
 }
 
-.card .file 
+.card.float-form .field
 {
-    padding-top: 10px;
-    color: var(--base01);
-    background: var(--white)
+    margin: 0;
 }
+.card.float-form .field.only input{ border-radius: 3px; }
+.card.float-form .field.first input{ border-radius: 3px 3px 0 0; }
+.card.float-form .field.last input { border-radius: 0 0 3px 3px; }
 
 .card input,
 .card textarea
@@ -286,13 +242,80 @@ Login/Registration/Reset
     font-family: 'Open Sans', sans-serif !important;
 }
 
-.card input
+.inline-label { display: inline; }
+
+.card.big
+{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);    
+}
+
+.left-nav
+{
+    border-radius: 3px 0 0 3px;
+    padding: 20px 0;
+    background: var(--base02);
+}
+
+.left-nav.empty { width: 50px; }
+
+.left-nav .link
+{
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.left-nav .link.active
+{
+    padding-left: 15px;
+    border-left: var(--cyan) 5px solid;
+}
+
+.left-nav a 
+{
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.card .content
+{
+    border-radius: 3px;
+    padding: 20px;
+    flex-grow: 1;
+    color: var(--bg);
+    background: var(--white);
+}
+
+.left-nav + .content
+{
+    border-radius: 0 3px 3px 0;
+}
+
+.card.big input
 {
     width: 240px;
     height: 30px;
     padding: 5px;
     border: 0;
-    background: var(--white);
+}
+
+.card.big textarea
+{
+    width: 100%;
+    min-height: 200px;
+}
+
+.card.big .field_with_errors
+{
+    color: var(--font01);
+    background: var(--red);
+}
+
+.card.big .field_with_errors input
+{
+    background: white;
 }
 
 .card input[type="radio"],
@@ -304,114 +327,23 @@ Login/Registration/Reset
     height: initial;
 }
 
-.card label
-{
-    display: inline;
-}
-
-.card textarea
-{
-    resize: none;
-}
-
-.card #file { margin-top: -4px; }
-
-.card input#root_post_picture,
-.card input#child_post_picture,
-.card .field#sticky,
-.card .field#thread-theme,
-.card .field#anonymous
-{
-    color: var(--base01);
-    background: var(--white);
-}
-
-.card .field#sticky,
-.card .field#thread-theme,
-.card .field#anonymous
-{
-    padding: 5px;
-}
-
-.card .field#sticky {margin-bottom: 10px;}
-
-.card input[type="submit"]
+.card.big input[type="submit"],
+.card.float-form input[type="submit"]
 {
     height: 30px;
     padding: 5px;
-    border-radius: 3px;
     border: 0;
+    border-radius: 3px;
     width: 100%;
     color: var(--white);
     background: var(--green);
 }
 
-/* phase this out for first last tags */
-.card.login input#user_email,
-.card.register input#user_email,
+.card.big input.delete-account
 {
-    border-radius: 3px 3px 0 0;
-}
-
-.card .field.first input,
-.card .field.first textarea,
-.card .field.first .field_with_errors
-{
-    border-radius: 3px 3px 0 0;
-}
-
-/* phase this out for first last tags */
-.card.login input#user_password,
-.card.register input#user_password_confirmation,
-{
-    border-radius: 0 0 3px 3px;
-}
-
-.card .field.last,
-.card .field.last input,
-.card .field.last .field_with_errors
-{
-    border-radius: 0 0 3px 3px;
-}
-
-.card.login input#user_remember_me
-{
-    display: inline-block;
-    height: initial;
-    position: relative;
-    top: 2px;
-    width: initial;
-}
-
-.card.thread textarea,
-.card.child_post textarea
-{
-    width: 240px;
-    height: 200px;
-    padding: 5px;
-    border: none;
-    background: var(--white);
-}
-
-.card.login label
-{
-    display: inline-block;
-}
-
-.card.edit-user input.delete-account
-{
-    border-radius: 3px;
     background: var(--red);
 }
 
-.card-full
-{
-    margin: 0 50px;
-    padding: 30px;
-    border-radius: 3px;
-    background: var(--base01);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
-}
 /******************************************************************
 
 Navbar
@@ -712,7 +644,7 @@ Posts
 }
 
 /*      card        */
-.threads.card
+.threads
 {
     display: flex;
     flex-wrap: wrap;
@@ -737,8 +669,9 @@ Posts
 
 .post-card.big
 {
-    height: 300px;
+    height: 325px;
 }
+.post-card.big.sticky { height:315px; }
 
 .post-card.small
 {

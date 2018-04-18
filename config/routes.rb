@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :boards, param: :abbreviation, :only => [:index, :show], :path => '' do
-    resources :root_posts, :path => 'threads'
+    resources :root_posts, :except => [:index], :path => 'threads'
   end
   resources :child_posts, :except => [:index] , :path => 'posts'
 

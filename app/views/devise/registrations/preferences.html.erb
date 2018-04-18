@@ -1,28 +1,37 @@
-<div class="card edit-user">
-  <div class="text-icon">>_</div>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+<div class="card big">
 
-    <div class="field" id="thread-theme">
-      Thread display type:
+  <div class="left-nav">
+    <div class="link"><a href="/account/edit">Account</a></div>
+    <div class="link active"><a href="/account/preferences">Preferences</a></div>
+  </div>
+
+  <div class="content">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field" id="thread-theme">
+        Thread display type:
+        <br>
+        <%= label :thread_theme_full, 'full', class: 'inline-label' %>
+        <%= f.radio_button :thread_theme, 'full' %> 
+        <%= label :thread_theme_card_big, 'big card', class: 'inline-label' %>
+        <%= f.radio_button :thread_theme, 'card_big' %>
+        <%= label :thread_theme_card_small, 'small card', class: 'inline-label' %>
+        <%= f.radio_button :thread_theme, 'card_small' %>
+      </div>
+
       <br>
-      <%= label :thread_theme_full, 'full' %>
-      <%= f.radio_button :thread_theme, 'full' %> 
-      <%= label :thread_theme_card_big, 'big card' %>
-      <%= f.radio_button :thread_theme, 'card_big' %>
-      <%= label :thread_theme_card_small, 'small card' %>
-      <%= f.radio_button :thread_theme, 'card_small' %>
-    </div>
 
-    <div class="field" id="anonymous">
-      <%= label :anonymous, 'Hide username' %>
-      <%= f.check_box :anonymous %>
-    </div>
+      <div class="field" id="anonymous">
+        <%= label :anonymous, 'Hide username', class: 'inline-label' %>
+        <%= f.check_box :anonymous %>
+      </div>
 
-    <br>
+      <br>
 
-    <div class="actions" id="submit">
-      <%= f.submit "update account info" %>
-    </div>
-  <% end %>
+      <div class="actions" id="submit">
+        <%= f.submit "update" %>
+      </div>
+    <% end %>
+  </div>
 </div>

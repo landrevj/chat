@@ -1,9 +1,9 @@
-<div class="card register">
+<div class="card float-form">
   <div class="text-icon">>_</div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
     
-    <div class="field" id="email">
+    <div class="field first" id="email">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
     </div>
 
@@ -12,10 +12,10 @@
     </div>
 
     <div class="field" id="password">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "password (length >= 6)" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
     </div>
 
-    <div class="field" id="password-confirmation">
+    <div class="field last" id="password-confirmation">
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" %>
     </div>
 
