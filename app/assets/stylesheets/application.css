@@ -657,6 +657,8 @@ Posts
     justify-content: center;
 }
 
+.threads.full { display: initial; }
+
 .post-card
 {
     display: flex;
