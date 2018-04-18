@@ -288,6 +288,12 @@ Login/Registration/Reset
     background: var(--white);
 }
 
+.card .content.bg-dark
+{
+    color: var(--white);
+    background: var(--base01);
+}
+
 .left-nav + .content
 {
     border-radius: 0 3px 3px 0;
