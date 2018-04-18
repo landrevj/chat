@@ -4,10 +4,12 @@
     <%= devise_error_messages! %>
 
     <div class="field first" id="email">
+      <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email' %>
     </div>
 
     <div class="field" id="user-name">
+      <%= f.label :user_name %>
       <%= f.text_field :user_name, required: true, placeholder: 'username' %>
     </div>
 
@@ -16,31 +18,18 @@
     <% end %>
 
     <div class="field" id="password">
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br/>
       <%= f.password_field :password, autocomplete: "off", placeholder: 'new password ( length >= 6 )' %>
     </div>
 
     <div class="field" id="password-confirmation">
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'confirm new password' %>
     </div>
 
-    <div class="field" id="thread-theme">
-      Thread display type:
-      <br>
-      <%= f.radio_button :thread_theme, 'full' %> 
-      <%= label :thread_theme_full, 'full' %>
-      <%= f.radio_button :thread_theme, 'card_big' %>
-      <%= label :thread_theme_card_big, 'big card' %>
-      <%= f.radio_button :thread_theme, 'card_small' %>
-      <%= label :thread_theme_card_small, 'small card' %>
-    </div>
-
-    <div class="field" id="anonymous">
-      Hide username 
-      <%= f.check_box :anonymous %>
-    </div>
-
     <div class="field last" id="current-password">
-      <%= f.password_field :current_password, autocomplete: "off", placeholder: 'current password (required)' %>
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
+      <%= f.password_field :current_password, autocomplete: "off", placeholder: 'current password' %>
     </div>
 
     <br>

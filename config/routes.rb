@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Custom Devise login/out routes
-  devise_for :users, skip: [:sessions]
+  devise_for :users, controllers: { registrations: "registrations" }, path:'account', skip: [:sessions]
   as :user do
+    get '/account/preferences', to: 'registrations#preferences'
     get 'login', to: 'devise/sessions#new', as: :new_user_session
     post 'login', to: 'devise/sessions#create', as: :user_session
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
