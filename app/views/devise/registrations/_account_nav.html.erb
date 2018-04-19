@@ -1,5 +1,18 @@
 <div class="left-nav">
-    <div class="link <%= active == 'edit'        ? 'active' : '' %> "><a href="/account/edit">Account</a></div>
-    <div class="link <%= active == 'details'     ? 'active' : '' %> "><a href="/account/details">Details</a></div>
-    <div class="link <%= active == 'preferences' ? 'active' : '' %> "><a href="/account/preferences">Preferences</a></div>
+    <div class="link <%= active == 'edit'        ? 'active' : '' %> ">
+        <a href="/account/edit">Account</a>
+    </div>
+    <div class="link <%= active == 'details'     ? 'active' : '' %> ">
+        <a href="/account/details">Details</a>
+    </div>
+    <div class="link <%= active == 'preferences' ? 'active' : '' %> ">
+        <a href="/account/preferences">Preferences</a>
+    </div>
+
+    <hr>
+
+    <div class="link <%= active == 'threads' ? 'active' : '' %> ">
+        <a href="/account/threads">Your Threads</a>
+    </div>
+
 </div>

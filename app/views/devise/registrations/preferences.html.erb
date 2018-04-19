@@ -6,27 +6,29 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field" id="timezone">
-        <%= label :timezone, 'Timezone' %>
+      <div class="field data-field" id="timezone">
+        <%= label :timezone, 'Timezone', class: 'title' %>
         <%= f.time_zone_select :timezone %> 
       </div>
 
-      <div class="field" id="thread-theme">
-        Thread display type:
-        <br>
-        <%= label :thread_theme_full, 'full', class: 'inline-label' %>
-        <%= f.radio_button :thread_theme, 'full' %> 
-        <%= label :thread_theme_card_big, 'big card', class: 'inline-label' %>
-        <%= f.radio_button :thread_theme, 'card_big' %>
-        <%= label :thread_theme_card_small, 'small card', class: 'inline-label' %>
-        <%= f.radio_button :thread_theme, 'card_small' %>
+      <div class="field data-field" id="thread-theme">
+        <div class="title">Thread Display Type</div>
+        <div class="data">
+          <%= label :thread_theme_full, 'full', class: 'inline-label' %>
+          <%= f.radio_button :thread_theme, 'full', class: 'inline-input' %> 
+          <%= label :thread_theme_card_big, 'big card', class: 'inline-label' %>
+          <%= f.radio_button :thread_theme, 'card_big', class: 'inline-input' %>
+          <%= label :thread_theme_card_small, 'small card', class: 'inline-label' %>
+          <%= f.radio_button :thread_theme, 'card_small', class: 'inline-input' %>
+        </div>
       </div>
-
-      <br>
-
-      <div class="field" id="anonymous">
-        <%= label :anonymous, 'Hide username', class: 'inline-label' %>
-        <%= f.check_box :anonymous %>
+      
+      <div class="field data-field" id="anonymous">
+        <div class="title">Hide Username</div>
+        <div class="data">
+          <%= label :anonymous, 'anonymous', class: 'inline-label' %>
+          <%= f.check_box :anonymous, class: 'inline-input' %>
+        </div>
       </div>
 
       <br>

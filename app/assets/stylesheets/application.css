@@ -253,6 +253,7 @@ Login/Registration/Reset
 }
 
 .inline-label { display: inline; }
+.inline-input { display: inline !important; }
 
 .card.big
 {
@@ -289,6 +290,12 @@ Login/Registration/Reset
     text-decoration: none;
 }
 
+.left-nav hr
+{
+    margin: 10px;
+    background-color: var(--base03);
+}
+
 .card .content
 {
     border-radius: 3px;
@@ -315,6 +322,12 @@ Login/Registration/Reset
     height: 30px;
     padding: 5px;
     border: 0;
+}
+
+.card.big input,
+.card.big select
+{
+    display: block
 }
 
 .card.big textarea
@@ -360,19 +373,19 @@ Login/Registration/Reset
     background: var(--red);
 }
 
-.info-field
+.data-field
 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.info-field .title,
-.info-field .info
+.data-field .title,
+.data-field .data
 {
     min-height: 20px;
     line-height: 20px;
 }
 
-.info-field .title
+.data-field .title
 {
     display: inline-block;
     padding: 10px;
@@ -380,7 +393,9 @@ Login/Registration/Reset
     background: var(--cyan);
 }
 
-.info-field .info
+ .data-field .field_with_errors .title { background-color: var(--red); }
+
+.data-field .data
 {
     padding: 10px;
     background: white;
