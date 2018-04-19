@@ -5,9 +5,9 @@
       <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.anonymous ? 'Anonymous' : root_post.user.user_name %></strong> </div>
       <div class="post-detail" id="subject" title="subject"><strong><%= root_post.subject %></strong></div>
       <div class="post-detail" id="id" title="id"><a><strong>##<%= root_post.id %></strong></a></div>
-      <div class="post-detail" id="timestamp-created" title="time created"><strong><%= root_post.created_at %></strong></div>
+      <div class="post-detail" id="timestamp-created" title="<%= root_post.created_at %>"><strong><%= time_ago_in_words(root_post.created_at) %> ago </strong></div>
       <% if root_post.created_at != root_post.updated_at %>
-      <div class="post-detail" id="timestamp-edited" title="time edited"><strong><%= root_post.updated_at %></strong></div>
+      <div class="post-detail" id="timestamp-edited" title="<%= root_post.updated_at %>"><strong><%= time_ago_in_words(root_post.updated_at) %> ago</strong></div>
       <% end %>
     </div>
     <div class="body"><p><%= markdown root_post.body %></p></div>
