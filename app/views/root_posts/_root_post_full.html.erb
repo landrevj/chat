@@ -2,7 +2,7 @@
   <a class="anchor" name="#<%= root_post.id %>"></a>
   <div class="post-left-col">
     <div class="post-details">
-      <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.user_name if !current_user.anonymous %><%= "Anonymous" if current_user.anonymous %></strong> </div>
+      <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.anonymous ? 'Anonymous' : root_post.user.user_name %></strong> </div>
       <div class="post-detail" id="subject" title="subject"><strong><%= root_post.subject %></strong></div>
       <div class="post-detail" id="id" title="id"><a><strong>##<%= root_post.id %></strong></a></div>
       <div class="post-detail" id="timestamp-created" title="time created"><strong><%= root_post.created_at %></strong></div>
