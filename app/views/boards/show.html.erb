@@ -3,31 +3,11 @@
   <%= render partial: 'root_posts/form', locals: { root_post: @root_post } %>
 </div>
 
-<% if current_user.thread_theme == "full" %>
-  <div class="threads full">
-    <% @stickies.each do |root_post| %>
-      <%= render 'root_posts/root_post_full', root_post: root_post %>
-    <% end %>
-    <% @root_posts.each do |root_post| %>
-      <%= render 'root_posts/root_post_full', root_post: root_post %>
-    <% end %>
-  </div>
-<% elsif current_user.thread_theme == "card_big" %>
-  <div class="threads card">
-    <% @stickies.each do |root_post| %>
-      <%= render 'root_posts/root_post_card_big', root_post: root_post %>
-    <% end %>
-    <% @root_posts.each do |root_post| %>
-      <%= render 'root_posts/root_post_card_big', root_post: root_post %>
-    <% end %>
-  </div>
-<% elsif current_user.thread_theme == "card_small" %>
-  <div class="threads card">
-    <% @stickies.each do |root_post| %>
-      <%= render 'root_posts/root_post_card_small', root_post: root_post %>
-    <% end %>
-    <% @root_posts.each do |root_post| %>
-      <%= render 'root_posts/root_post_card_small', root_post: root_post %>
-    <% end %>
-  </div>
-<% end %>
+<div class="post-wrapper">
+  <% @stickies.each do |root_post| %>
+    <%= render 'root_posts/root_post_' + current_user.thread_theme, root_post: root_post %>
+  <% end %>
+  <% @root_posts.each do |root_post| %>
+    <%= render 'root_posts/root_post_' + current_user.thread_theme, root_post: root_post %>
+  <% end %>
+</div>
