@@ -105,6 +105,16 @@ textarea:focus
 
 
 /* Custom Elements */
+select
+{
+    height: 40px;
+    padding: 5px;
+    border: none;
+    background-color: white;
+}
+
+select:focus { outline: 0; }
+
 hr
 {
     height: 2px;
