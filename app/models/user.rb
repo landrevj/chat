@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :child_posts, dependent: :destroy
 
   store_attributes :preferences do
+    timezone     String, default: 'UTC'
     thread_theme String, default: 'full'
-    anonymous Boolean, default: true
+    anonymous    Boolean, default: true
   end
 end
