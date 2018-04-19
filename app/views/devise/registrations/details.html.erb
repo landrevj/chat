@@ -1,0 +1,86 @@
+<div class="card big">
+
+  <div class="left-nav">
+    <div class="link"><a href="/account/edit">Account</a></div>
+    <div class="link active"><a href="/account/details">Details</a></div>
+    <div class="link"><a href="/account/preferences">Preferences</a></div>
+  </div>
+
+  <div class="content">
+    <div class="info-field" id="email">
+      <div class="title">Email</div>
+      <div class="info"><%= current_user.email %></div>
+    </div>
+ 
+    <div class="info-field" id="username">
+      <div class="title">Username</div>
+      <div class="info"><%= current_user.user_name %></div>
+    </div>
+
+    <div class="info-field" id="id">
+      <div class="title">User ID</div>
+      <div class="info"><%= current_user.id %></div>
+    </div>
+ 
+    <div class="info-field" id="encrypted_password">
+      <div class="title">Encrypted Password</div>
+      <div class="info"><%= current_user.encrypted_password %></div>
+    </div>
+ 
+    <div class="info-field" id="reset_password_sent_at">
+      <div class="title">Reset Password Sent At</div>
+      <div class="info"><%= current_user.reset_password_sent_at %></div>
+    </div>
+
+    <div class="info-field" id="remember_created_at">
+      <div class="title">Remember Created At</div>
+      <div class="info"><%= current_user.remember_created_at %></div>
+    </div>
+ 
+    <div class="info-field" id="sign_in_count">
+      <div class="title">Sign-in Count</div>
+      <div class="info"><%= current_user.sign_in_count %></div>
+    </div>
+
+    <div class="info-field" id="created_at">
+      <div class="title">Created At</div>
+      <div class="info"><%= current_user.created_at %></div>
+    </div>
+ 
+    <div class="info-field" id="updated_at">
+      <div class="title">Updated At</div>
+      <div class="info"><%= current_user.updated_at %></div>
+    </div>
+ 
+    <div class="info-field" id="current_sign_in_at">
+      <div class="title">Current Sign-in At</div>
+      <div class="info"><%= current_user.current_sign_in_at %></div>
+    </div>
+ 
+    <div class="info-field" id="last_sign_in_at">
+      <div class="title">Last Sign-in At</div>
+      <div class="info"><%= current_user.last_sign_in_at %></div>
+    </div>
+ 
+    <div class="info-field" id="current_sign_in_ip">
+      <div class="title">Current Sign-in IP</div>
+      <div class="info"><%= current_user.current_sign_in_ip %></div>
+    </div>
+ 
+    <div class="info-field" id="last_sign_in_ip">
+      <div class="title">Last Sign-in IP</div>
+      <div class="info"><%= current_user.last_sign_in_ip %></div>
+    </div>
+ 
+    <div class="info-field" id="preferences">
+      <div class="title">Preferences</div>
+      <div class="info"><%= current_user.preferences %></div>
+    </div>
+ 
+    <div class="info-field" id="admin">
+      <div class="title">Is Admin</div>
+      <div class="info"><%= current_user.admin %></div>
+    </div>
+ 
+  </div>
+</div>

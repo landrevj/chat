@@ -4,6 +4,10 @@ class RegistrationsController < Devise::RegistrationsController
   def preferences
     render :preferences
   end
+  
+  def about
+    render :about
+  end
 
   protected 
 

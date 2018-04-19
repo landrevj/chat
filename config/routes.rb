@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }, path:'account', skip: [:sessions]
   as :user do
     get '/account/preferences', to: 'registrations#preferences'
+    get '/account/details', to: 'registrations#details'
     get 'login', to: 'devise/sessions#new', as: :new_user_session
     post 'login', to: 'devise/sessions#create', as: :user_session
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session

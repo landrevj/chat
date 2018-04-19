@@ -350,6 +350,32 @@ Login/Registration/Reset
     background: var(--red);
 }
 
+.info-field
+{
+    margin-bottom: 20px;
+}
+
+.info-field .title,
+.info-field .info
+{
+    min-height: 20px;
+    line-height: 20px;
+}
+
+.info-field .title
+{
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    background: var(--cyan);
+}
+
+.info-field .info
+{
+    padding: 10px;
+    background: white;
+}
+
 /******************************************************************
 
 Navbar
