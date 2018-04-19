@@ -6,6 +6,14 @@ class PictureUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fit => [150, 150]
   end
+
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
+
+  def size_range
+    1..4.megabytes
+  end
   
   # Choose what kind of storage to use for this uploader:
   storage :file
