@@ -541,7 +541,7 @@ Posts
     bottom: -295px;
     right: 33px;
     width: 250px;
-
+    
     border-radius: 3px;
     background: var(--white);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
@@ -563,7 +563,7 @@ Posts
 {
     border-radius: 3px 3px 0px 0px;
     text-align: center;
-
+    
     color: var(--base01);
     background: var(--white);
 }
@@ -612,6 +612,14 @@ Posts
     border: none;
     color: var(--white);
     background: var(--green);
+}
+
+.post-wrapper#card_big,
+.post-wrapper#card_small
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .post a.anchor
@@ -702,15 +710,6 @@ Posts
 }
 
 /*      card        */
-.threads
-{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.threads.full { display: initial; }
-
 .post-card
 {
     display: flex;
