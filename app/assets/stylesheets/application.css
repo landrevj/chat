@@ -226,7 +226,7 @@ Login/Registration/Reset
     width: 250px;
     padding: 0;
     border-radius: 3px;
-    color: var(--white);
+    color: var(--font01);
 }
 
 .card.float-form input
@@ -307,7 +307,7 @@ Login/Registration/Reset
 
 .card .content.bg-dark
 {
-    color: var(--white);
+    color: var(--font01);
     background: var(--base01);
 }
 
@@ -364,7 +364,7 @@ Login/Registration/Reset
     border: 0;
     border-radius: 3px;
     width: 100%;
-    color: var(--white);
+    color: var(--font01);
     background: var(--green);
 }
 
@@ -610,7 +610,7 @@ Posts
     padding: 5px;
     width: 100%;
     border: none;
-    color: var(--white);
+    color: var(--font01);
     background: var(--green);
 }
 
@@ -649,6 +649,11 @@ Posts
 {
     flex-grow: 100;
     padding-right: 20px;
+}
+
+.post .body
+{
+    color: var(--font01);
 }
 
 
@@ -794,6 +799,7 @@ Posts
     flex-grow: 1;
     overflow: hidden;
     border-radius: 0;
+    color: var(--font01);
     background: var(--base01);
 }
 

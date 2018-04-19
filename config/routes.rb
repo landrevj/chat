@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   as :user do
     get '/account/preferences', to: 'registrations#preferences'
     get '/account/details', to: 'registrations#details'
+    get '/account/threads', to: 'registrations#threads'
+    get '/account/posts', to: 'registrations#posts'
     get 'login', to: 'devise/sessions#new', as: :new_user_session
     post 'login', to: 'devise/sessions#create', as: :user_session
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session

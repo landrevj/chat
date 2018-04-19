@@ -18,10 +18,10 @@
     <div class="post-card-links">
         <div class="links-wrapper">
             <% if can? :modify, root_post %>
-                <%= link_to [@board, root_post], method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" do %><i class="material-icons">delete</i><% end %>
-                <%= link_to [:edit, @board, root_post], class: "edit" do %><i class="material-icons">create</i><% end %>
+                <%= link_to [board, root_post], method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" do %><i class="material-icons">delete</i><% end %>
+                <%= link_to [:edit, board, root_post], class: "edit" do %><i class="material-icons">create</i><% end %>
             <% end %>
-            <%= link_to [@board, root_post], class: "link" do %> <i class="material-icons">link</i><% end %>
+            <%= link_to [board, root_post], class: "link" do %> <i class="material-icons">link</i><% end %>
         </div>
     </div>
 </div>

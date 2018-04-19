@@ -4,9 +4,20 @@ class RegistrationsController < Devise::RegistrationsController
   def preferences
     render :preferences
   end
-  
-  def about
-    render :about
+
+  def details
+    render :details
+  end
+
+  def threads
+    @stickies = current_user.root_posts.where('settings @> ?', {sticky: true}.to_json).order(created_at: :desc)
+    @root_posts = current_user.root_posts.where('settings @> ?', {sticky: false}.to_json).order(created_at: :desc)
+    render :threads
+  end
+
+  def posts
+    @child_posts = current_user.child_posts.order(created_at: :desc)
+    render :posts
   end
 
   protected 

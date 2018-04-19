@@ -1,0 +1,12 @@
+<div class="card big">
+
+  <%= render 'account_nav', active: 'posts' %>
+
+  <div class="content">
+    <div class="post-wrapper">
+        <% @child_posts.each do |child_post| %>
+            <%= render 'child_posts/child_post', child_post: child_post %>
+        <% end %>
+    </div>
+  </div>
+</div>

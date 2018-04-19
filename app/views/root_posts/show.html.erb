@@ -3,7 +3,7 @@
   <%= render partial: 'child_posts/form', locals: { child_post: @child_post } %>
 </div>
  
-<%= render 'root_post_full', root_post: @root_post %>
+<%= render 'root_post_full', board: @root_post.board, root_post: @root_post %>
 
 <% @child_posts.each do |child_post| %>
   <%= render child_post, child_post: child_post %>

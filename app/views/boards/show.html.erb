@@ -5,9 +5,9 @@
 
 <div class="post-wrapper" id="<%= current_user.thread_theme %>">
   <% @stickies.each do |root_post| %>
-    <%= render 'root_posts/root_post_' + current_user.thread_theme, root_post: root_post %>
+    <%= render 'root_posts/root_post_' + current_user.thread_theme, board: root_post.board, root_post: root_post %>
   <% end %>
   <% @root_posts.each do |root_post| %>
-    <%= render 'root_posts/root_post_' + current_user.thread_theme, root_post: root_post %>
+    <%= render 'root_posts/root_post_' + current_user.thread_theme, board: root_post.board, root_post: root_post %>
   <% end %>
 </div>
