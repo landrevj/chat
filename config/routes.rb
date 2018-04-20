@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: redirect('/login')
 
   # custom Devise login/out routes
-  devise_for :users, controllers: { registrations: "registrations" }, path:'account', skip: [:sessions]
+  devise_for :users, controllers: { registrations: "registrations" }, path: 'account', skip: [:sessions]
   as :user do
     get '/account/preferences', to: 'registrations#preferences'
     get '/account/details', to: 'registrations#details'
@@ -22,9 +22,12 @@ Rails.application.routes.draw do
 
   # resource routes
   resources :boards, param: :abbreviation, :only => [:index, :show], :path => '' do
-    resources :root_posts, :except => [:index], :path => 'threads'
+    resources :root_posts, :path => 'threads'
   end
   resources :child_posts, :except => [:index] , :path => 'posts'
+
+  get '/api/root-post/:id', to: 'root_posts#show' 
+  get '/api/child-post/:id', to: 'child_posts#show' 
 
   # static page routes
   get '/pages/:page' => 'pages#show'

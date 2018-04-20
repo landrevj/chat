@@ -2,6 +2,9 @@ class ChildPostsController < ApplicationController
   before_action :set_child_post, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   
+  include ApplicationHelper
+  
+
   # GET /child_posts
   # GET /child_posts.json
   def index
@@ -12,6 +15,11 @@ class ChildPostsController < ApplicationController
   # GET /child_posts/1.json
   def show
     @board = @child_post.root_post.board
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { child_post: @child_post, markdown_body: markdown(@child_post.body) } }
+    end
   end
 
   # GET /child_posts/new
