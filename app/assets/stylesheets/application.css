@@ -640,6 +640,11 @@ Posts
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
 }
 
+.post.embedded
+{
+    background: #545454;
+}
+
 .post.sticky
 {
     border-left: var(--cyan) 10px solid;
