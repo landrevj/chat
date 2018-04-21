@@ -18,7 +18,6 @@ $(document).on('turbolinks:load', function () {
                 dataType: "json",
                 success: function (data) {
                     target.after(build_post(type, data));
-                    console.log(data);
                 },
                 error: function (type, data) {
                     console.log(data)
