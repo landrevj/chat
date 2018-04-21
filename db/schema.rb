@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421210219) do
+ActiveRecord::Schema.define(version: 20180421210956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20180421210219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.jsonb "properties", default: {}, null: false
+    t.index ["properties"], name: "index_child_posts_on_properties", using: :gin
     t.index ["user_id"], name: "index_child_posts_on_user_id"
   end
 
