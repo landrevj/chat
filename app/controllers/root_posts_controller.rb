@@ -37,6 +37,7 @@ class RootPostsController < ApplicationController
 
     respond_to do |format|
       if @root_post.save
+        propagate_replies(@root_post)
         format.html { redirect_to [@root_post.board, @root_post], notice: 'Thread was successfully created.' }
         format.json { render :show, status: :created, location: @root_post }
       else
@@ -79,5 +80,26 @@ class RootPostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def root_post_params
     params.require(:root_post).permit(:subject, :body, :picture, :board_id)
+  end
+
+  # Add root_post.id to the properties of each post it quotes.
+  def propagate_replies(root_post)
+    text = root_post.body
+    post = nil
+    text.gsub(/@(#+)(\d+)/) do
+      begin
+        id = $2.to_i
+        if $1 == '##'
+          post = RootPost.find(id)
+        elsif $1 == '#'
+          post = ChildPost.find(id)
+        end
+
+        post.root_reply_ids = post.root_reply_ids.push(root_post.id)
+        post.save(touch: false)
+
+      rescue ActiveRecord::RecordNotFound
+      end
+    end
   end
 end

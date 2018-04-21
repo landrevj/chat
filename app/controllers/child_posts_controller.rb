@@ -33,6 +33,7 @@ class ChildPostsController < ApplicationController
 
     respond_to do |format|
       if @child_post.save
+        propagate_replies(@child_post)
         format.html { redirect_to [@child_post.root_post.board, @child_post.root_post], notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @child_post }
       else
@@ -67,13 +68,34 @@ class ChildPostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_child_post
-      @child_post = ChildPost.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_child_post
+    @child_post = ChildPost.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def child_post_params
-      params.require(:child_post).permit(:body, :picture, :root_post_id)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def child_post_params
+    params.require(:child_post).permit(:body, :picture, :root_post_id)
+  end
+
+  # Add child_post.id to the properties of each post it quotes.
+  def propagate_replies(child_post)
+    text = child_post.body
+    post = nil
+    text.gsub(/@(#+)(\d+)/) do
+      begin
+        id = $2.to_i
+        if $1 == '##'
+          post = RootPost.find(id)
+        elsif $1 == '#'
+          post = ChildPost.find(id)
+        end
+
+        post.child_reply_ids = post.child_reply_ids.push(child_post.id)
+        post.save(touch: false)
+
+      rescue ActiveRecord::RecordNotFound
+      end
     end
+  end
 end
