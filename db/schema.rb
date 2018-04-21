@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409020647) do
+ActiveRecord::Schema.define(version: 20180421210219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20180409020647) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "board_id"
-    t.jsonb "settings", default: {}, null: false
+    t.jsonb "properties", default: {}, null: false
     t.index ["board_id"], name: "index_root_posts_on_board_id"
-    t.index ["settings"], name: "index_root_posts_on_settings", using: :gin
+    t.index ["properties"], name: "index_root_posts_on_properties", using: :gin
     t.index ["user_id"], name: "index_root_posts_on_user_id"
   end
 

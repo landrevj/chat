@@ -11,8 +11,8 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @stickies = @board.root_posts.where('settings @> ?', {sticky: true}.to_json).order(created_at: :desc)
-    @root_posts = @board.root_posts.where('settings @> ?', {sticky: false}.to_json).order(created_at: :desc)
+    @stickies = @board.root_posts.where('properties @> ?', {sticky: true}.to_json).order(created_at: :desc)
+    @root_posts = @board.root_posts.where('properties @> ?', {sticky: false}.to_json).order(created_at: :desc)
     @root_post = @board.root_posts.build
   end
 

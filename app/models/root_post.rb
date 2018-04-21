@@ -13,7 +13,7 @@ class RootPost < ApplicationRecord
   belongs_to :board
   has_many :child_posts
 
-  store_attributes :settings do
+  store_attributes :properties do
     sticky Boolean, default: false
   end
 

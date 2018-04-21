@@ -10,8 +10,8 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def threads
-    @stickies = current_user.root_posts.where('settings @> ?', {sticky: true}.to_json).order(created_at: :desc)
-    @root_posts = current_user.root_posts.where('settings @> ?', {sticky: false}.to_json).order(created_at: :desc)
+    @stickies = current_user.root_posts.where('properties @> ?', {sticky: true}.to_json).order(created_at: :desc)
+    @root_posts = current_user.root_posts.where('properties @> ?', {sticky: false}.to_json).order(created_at: :desc)
     render :threads
   end
 
