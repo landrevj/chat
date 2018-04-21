@@ -15,6 +15,8 @@ class RootPost < ApplicationRecord
 
   store_attributes :properties do
     sticky Boolean, default: false
+    root_reply_ids Array[Integer], default: []
+    child_reply_ids Array[Integer], default: []
   end
 
   def file_count
