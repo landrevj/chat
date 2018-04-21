@@ -70,7 +70,7 @@ function build_post(type, data)
     }
     
     var result = `
-    <div class="`+ type +` post ` + sticky + ` embedded" id="` + type.split('_', 1) + `-` + post.id + `">
+    <div class="`+ type +` post ` + sticky + ` embedded" id="` + type.split('-', 1) + `-` + post.id + `">
         <a class="anchor" name="` + id + `"></a>
         <div class="post-left-col">
             <div class="post-details">
