@@ -642,7 +642,7 @@ Posts
 
 .post.embedded
 {
-    background: #545454;
+    background: rgba(150,150,150,0.1);
 }
 
 .post.sticky
