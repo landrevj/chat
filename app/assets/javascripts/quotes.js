@@ -18,9 +18,10 @@ $(document).on('turbolinks:load', function () {
                 dataType: "json",
                 success: function (data) {
                     target.after(build_post(type, data));
+                    // console.log(data);
                 },
                 error: function (type, data) {
-                    console.log(data)
+                    console.log(data);
                 }
             });
         }
@@ -58,7 +59,7 @@ function build_post(type, data)
         edited = "<div class=\"post-detail\" id=\"timestamp-edited\" title=\"" + post.updated_at + "\"><strong>" + data.updated_ago + " ago</strong></div>";
     }
 
-    if ('picture' in post)
+    if (post.picture.url)
     {
         picture_url = post.picture.url;
         picture_thumb_url = post.picture.thumb.url;
