@@ -45,7 +45,7 @@ function build_post(type, data)
     if ('root_post' in data){
         post = data.root_post;
         id += '#' + post.id;
-        subject = "<div class=\"post-detail\" id=\"subject\" title=\"subject\"><strong>" + post.subject + "</strong></div>";
+        if (post.subject != '') subject = "<div class=\"post-detail\" id=\"subject\" title=\"subject\"><strong>" + post.subject + "</strong></div>";
     }
     else if ('child_post' in data){
         post = data.child_post;
