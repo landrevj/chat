@@ -8,10 +8,6 @@ class RootPostsController < ApplicationController
   # GET /root_posts.json
   def index
     @root_posts = RootPost.all.order(created_at: :desc)
-
-    respond_to do |format|
-      format.json { render json: @root_posts }
-    end
   end
 
   # GET /root_posts/1
@@ -20,11 +16,6 @@ class RootPostsController < ApplicationController
     @board = @root_post.board
     @child_posts = @root_post.child_posts.all.order(created_at: :asc)
     @child_post = @root_post.child_posts.build
-
-    respond_to do |format|
-      format.html
-      format.json { render json: { root_post: @root_post, markdown_body: markdown(@root_post.body), child_posts: @child_posts } }
-    end
   end
 
   # GET /root_posts/new

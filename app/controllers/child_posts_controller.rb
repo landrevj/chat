@@ -15,11 +15,6 @@ class ChildPostsController < ApplicationController
   # GET /child_posts/1.json
   def show
     @board = @child_post.root_post.board
-
-    respond_to do |format|
-      format.html
-      format.json { render json: { child_post: @child_post, markdown_body: markdown(@child_post.body) } }
-    end
   end
 
   # GET /child_posts/new

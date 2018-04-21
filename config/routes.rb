@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
   resources :child_posts, :except => [:index] , :path => 'posts'
 
+  get '/api/root-posts', to: 'root_posts#index' 
   get '/api/root-post/:id', to: 'root_posts#show' 
   get '/api/child-post/:id', to: 'child_posts#show' 
 
