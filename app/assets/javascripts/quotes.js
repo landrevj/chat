@@ -40,7 +40,8 @@ function build_post(type, data)
         subject = '',
         edited = '',
         picture_url = '',
-        picture_thumb_url = '';
+        picture_thumb_url = '',
+        replies = '';
 
     if ('root_post' in data){
         post = data.root_post;
@@ -52,7 +53,7 @@ function build_post(type, data)
         id += post.id;
     } 
 
-    if ('settings' in post && post.settings.sticky) sticky = 'sticky';
+    if (post.properties.sticky) sticky = 'sticky';
 
     if (post.created_at != post.updated_at)
     {
@@ -64,28 +65,33 @@ function build_post(type, data)
         picture_url = post.picture.url;
         picture_thumb_url = post.picture.thumb.url;
     }
+
+    if ('replies_html' in data) replies = data.replies_html;
     
     var result = "\
     <div class=\""+ type +" post " + sticky + " embedded\" id=\"" + type.split('-', 1) + "-" + post.id + "\">\
         <a class=\"anchor\" name=\"" + id + "\"></a>\
-        <div class=\"post-left-col\">\
-            <div class=\"post-details\">\
-                <div class=\"post-detail\" id=\"user-name\" title=\"username\"><strong>" + data.user_name + "</strong> </div>\
-                " + (subject ? subject : '') + "\
-                <div class=\"post-detail\" id=\"id\" title=\"id\"><a><strong>#" + id + "</strong></a></div>\
-                <div class=\"post-detail\" id=\"timestamp-created\" title=\"" + post.created_at + "\"><strong>" + data.created_ago + " ago </strong></div>\
-                " + (edited ? edited : '') + "\
+        <div class=\"contents\">\
+            <div class=\"post-left-col\">\
+                <div class=\"post-details\">\
+                    <div class=\"post-detail\" id=\"user-name\" title=\"username\"><strong>" + data.user_name + "</strong> </div>\
+                    " + (subject ? subject : '') + "\
+                    <div class=\"post-detail\" id=\"id\" title=\"id\"><a><strong>#" + id + "</strong></a></div>\
+                    <div class=\"post-detail\" id=\"timestamp-created\" title=\"" + post.created_at + "\"><strong>" + data.created_ago + " ago </strong></div>\
+                    " + (edited ? edited : '') + "\
+                </div>\
+                <div class=\"body\"><p>" + data.markdown_body + "</p></div>\
             </div>\
-            <div class=\"body\"><p>" + data.markdown_body + "</p></div>\
-        </div>\
-        \
-        <div class=\"post-right-col\">\
-            <div class=\"post-image\">\
-                <a href=\"" + picture_url + "\">\
-                    <img src=\"" + picture_thumb_url + "\">\
-                </a>\
+            \
+            <div class=\"post-right-col\">\
+                <div class=\"post-image\">\
+                    <a href=\"" + picture_url + "\">\
+                        <img src=\"" + picture_thumb_url + "\">\
+                    </a>\
+                </div>\
             </div>\
         </div>\
+        " + (replies ? replies : '') + "\
     </div>\
     ";
     return result;
