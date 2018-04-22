@@ -104,4 +104,27 @@ module ApplicationHelper
 
     custom_markdown(markdown.render(text)).html_safe
   end
+
+  def replies(post)
+    content_tag :div, class: 'replies' do
+      r = ''
+      post.root_reply_ids.collect do |id|
+        p = RootPost.find(id)
+        r += content_tag :div, class: ['root-reply', 'reply'] do
+          content_tag :a, href: board_root_post_url(p.board, p) do
+            content_tag :i, 'reply_all', class: 'material-icons'
+          end
+        end
+      end
+      post.child_reply_ids.collect do |id|
+        p = ChildPost.find(id)
+        r += content_tag :div, class: ['child-reply', 'reply'] do
+          content_tag :a, href: board_root_post_url(p.root_post.board, p.root_post) + '#' + p.id.to_s do
+            content_tag :i, 'reply', class: 'material-icons'
+          end
+        end
+      end
+      r.html_safe
+    end
+  end
 end
