@@ -34,6 +34,7 @@ $(document).on('turbolinks:load', function () {
 
 function build_post(type, data)
 {
+    // help
     var post = '',
         sticky = '',
         id = '',
@@ -75,10 +76,10 @@ function build_post(type, data)
             <div class=\"post-left-col\">\
                 <div class=\"post-details\">\
                     <div class=\"post-detail\" id=\"user-name\" title=\"username\"><strong>" + data.user_name + "</strong> </div>\
-                    " + (subject ? subject : '') + "\
+                    " + subject + "\
                     <div class=\"post-detail\" id=\"id\" title=\"id\"><a><strong>#" + id + "</strong></a></div>\
                     <div class=\"post-detail\" id=\"timestamp-created\" title=\"" + post.created_at + "\"><strong>" + data.created_ago + " ago </strong></div>\
-                    " + (edited ? edited : '') + "\
+                    " + edited + "\
                 </div>\
                 <div class=\"body\"><p>" + data.markdown_body + "</p></div>\
             </div>\
@@ -91,7 +92,7 @@ function build_post(type, data)
                 </div>\
             </div>\
         </div>\
-        " + (replies ? replies : '') + "\
+        " + replies + "\
     </div>\
     ";
     return result;
