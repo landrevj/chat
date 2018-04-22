@@ -658,13 +658,22 @@ Posts
 {
     padding: 0 10px;
     border-radius: 0 0 3px 3px;
-    background: var(--base03);
+    background: var(--base02);
 }
 
 .post .reply
 {
     display: inline;
-    /* margin-right: -15px; */
+}
+
+.post .root-reply
+{
+    margin-right: 3px;
+}
+
+.post .root-reply + .root-reply
+{
+    margin-left: 3px;
 }
 
 .post .reply i
