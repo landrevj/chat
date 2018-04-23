@@ -634,13 +634,14 @@ Posts
     margin-bottom: 10px;
     
     border-radius: 3px;
-    background: var(--base01);
+    background: var(--base03);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
 }
 
 .post.embedded
 {
-    background: rgba(150,150,150,0.1);
+    margin: 25px 25px;
+    outline: var(--bg) 1px solid;
 }
 
 .post.sticky
@@ -652,6 +653,8 @@ Posts
 {
     display: flex;
     padding: 20px;
+    border-radius: 3px 3px 0 0;
+    background: var(--base01);
 }
 
 .post .replies
@@ -664,6 +667,11 @@ Posts
 .post .reply
 {
     display: inline;
+}
+
+.post .reply.opened
+{
+    margin: 0 !important;
 }
 
 .post .root-reply
@@ -680,7 +688,13 @@ Posts
 {
     position: relative;
     top: 1px;
+    height: 28px;
     font-size: 25px;
+}
+
+.post .reply.opened i
+{
+    top: 2px;
 }
 
 .post-left-col

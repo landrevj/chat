@@ -110,7 +110,7 @@ module ApplicationHelper
       r = ''
       post.root_reply_ids.collect do |id|
         p = RootPost.find(id)
-        r += content_tag :div, class: ['root-reply', 'reply'] do
+        r += content_tag :div, class: ['root-reply', 'reply'], id: id do
           content_tag :a, href: board_root_post_url(p.board, p) do
             content_tag :i, 'reply_all', class: 'material-icons'
           end
@@ -118,7 +118,7 @@ module ApplicationHelper
       end
       post.child_reply_ids.collect do |id|
         p = ChildPost.find(id)
-        r += content_tag :div, class: ['child-reply', 'reply'] do
+        r += content_tag :div, class: ['child-reply', 'reply'], id: id do
           content_tag :a, href: board_root_post_url(p.root_post.board, p.root_post) + '#' + p.id.to_s do
             content_tag :i, 'reply', class: 'material-icons'
           end
