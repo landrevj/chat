@@ -1,5 +1,5 @@
-$(document).on('turbolinks:load', function () {
-    $('body').on('click', 'a.quote', function(e){
+$(document).on('turbolinks:load', () => {
+    $('body').on('click', 'a.quote', (e) => {
         e.preventDefault()
         var target = $(e.target);
         
@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function () {
         }
     });
 
-    $('body').on('click', 'div.reply a', function(e){
+    $('body').on('click', 'div.reply a', (e) => {
         e.preventDefault()
         var clicked = $(e.target).parent().parent();
         var type = '';
@@ -52,7 +52,7 @@ function insert_post(type, id, target)
         type: "GET",
         url: "/api/" + type + "/" + id,
         dataType: "json",
-        success: function (data) {
+        success: (data) => {
             target.after(data.html);
             target.next().addClass('embedded');
             // console.log(data);
