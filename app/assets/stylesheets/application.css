@@ -692,6 +692,13 @@ Posts
     font-size: 25px;
 }
 
+.post .dead-link i
+{
+    font-size: 20px;
+    height: 23px;
+    top: 0;
+}
+
 .post .reply.opened i
 {
     top: 2px;

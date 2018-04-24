@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', () => {
         }
     });
 
-    $('body').on('click', 'div.reply a', (e) => {
+    $('body').on('click', 'div.reply a.live-link', (e) => {
         e.preventDefault()
         var clicked = $(e.target).parent().parent();
         var type = '';

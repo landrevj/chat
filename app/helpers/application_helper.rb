@@ -109,18 +109,30 @@ module ApplicationHelper
     content_tag :div, class: 'replies' do
       r = ''
       post.root_reply_ids.collect do |id|
-        p = RootPost.find(id)
         r += content_tag :div, class: ['root-reply', 'reply'], id: id do
-          content_tag :a, href: board_root_post_url(p.board, p) do
-            content_tag :i, 'reply_all', class: 'material-icons'
+          begin
+            p = RootPost.find(id)
+            content_tag :a, class: 'live-link', href: board_root_post_url(p.board, p) do
+              content_tag :i, 'reply_all', class: 'material-icons'
+            end
+          rescue ActiveRecord::RecordNotFound
+            content_tag :a, class: 'dead-link', title: 'dead link' do
+              content_tag :i, 'error', class: 'material-icons'
+            end
           end
         end
       end
       post.child_reply_ids.collect do |id|
-        p = ChildPost.find(id)
         r += content_tag :div, class: ['child-reply', 'reply'], id: id do
-          content_tag :a, href: board_root_post_url(p.root_post.board, p.root_post) + '#' + p.id.to_s do
-            content_tag :i, 'reply', class: 'material-icons'
+          begin
+            p = ChildPost.find(id)
+            content_tag :a, class: 'live-link', href: board_root_post_url(p.root_post.board, p.root_post) + '#' + p.id.to_s do
+              content_tag :i, 'reply', class: 'material-icons'
+            end
+          rescue ActiveRecord::RecordNotFound
+            content_tag :a, class: 'dead-link', title: 'dead link' do
+              content_tag :i, 'error', class: 'material-icons'
+            end
           end
         end
       end
