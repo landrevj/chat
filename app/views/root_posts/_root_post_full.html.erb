@@ -1,6 +1,6 @@
 <div class="root-post post <%= 'sticky' if root_post.sticky %>" id="root-<%= root_post.id %>">
-  <a class="anchor" name="#<%= root_post.id %>"></a>
-  <div class="contents">
+  <a class="post-anchor" name="#<%= root_post.id %>"></a>
+  <div class="post-contents">
     <div class="post-left-col">
       <div class="post-details">
         <div class="post-detail" id="user-name" title="username"><strong><%= root_post.user.anonymous ? 'Anonymous' : root_post.user.user_name %></strong> </div>
@@ -11,7 +11,7 @@
         <div class="post-detail" id="timestamp-edited" title="<%= root_post.updated_at %>"><strong><%= time_ago_in_words(root_post.updated_at) %> ago</strong></div>
         <% end %>
       </div>
-      <div class="body"><p><%= markdown root_post.body %></p></div>
+      <div class="post-body"><p><%= markdown root_post.body %></p></div>
     </div>
 
     <div class="post-right-col">
