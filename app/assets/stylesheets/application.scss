@@ -87,7 +87,7 @@ body > .alert
 .card
 {
     border: none;
-    background: var(--base03);
+    background: var(--base01);
     filter: drop-shadow(0 1px 5px rgba(0,0,0,0.16));
 }
 
@@ -98,7 +98,8 @@ body > .alert
     right: 0;
 }
 
-pre.highlight { padding: 15px 0px; }
+pre.highlight { padding: 15px 0; }
+.info-page pre.highlight { padding: 15px; }
 
 .highlight,
 .highlight .w
@@ -113,6 +114,11 @@ hr
     height: 2px;
     border-width: 0;
     background-color: var(--base02);
+}
+
+mark
+{
+    background-color: yellow;
 }
 
 table 
