@@ -10,8 +10,10 @@
         <%= render 'devise/registrations/sections/account' %>
         <%= render 'devise/registrations/sections/details' %>
         <%= render 'devise/registrations/sections/preferences' %>
-        <%= render 'devise/registrations/sections/threads' %>
-        <%= render 'devise/registrations/sections/posts' %>
+        <% if @stickies %>
+        <%= render 'devise/registrations/sections/threads', stickies: @stickies, root_posts: @root_posts %>
+        <%= render 'devise/registrations/sections/posts', child_posts: @child_posts %>
+        <% end %>
       </div>
     </div>
   </div>
