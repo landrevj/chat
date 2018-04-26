@@ -122,7 +122,7 @@ body > .alert
 {
     border: none;
     background: var(--base01);
-    filter: drop-shadow(0 1px 5px rgba(0,0,0,0.16));
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
 }
 
 .post-form
