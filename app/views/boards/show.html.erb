@@ -3,7 +3,7 @@
   <%= render partial: 'root_posts/form', locals: { root_post: @root_post } %>
 </div>
 
-<div class="post-container" id="<%= current_user.thread_theme %>">
+<div class="<%= 'card-columns ' if current_user.thread_theme != 'full' %>post-container" id="<%= current_user.thread_theme %>">
   <% @stickies.each do |root_post| %>
     <%= render 'root_posts/root_post_' + current_user.thread_theme, board: root_post.board, root_post: root_post %>
   <% end %>
