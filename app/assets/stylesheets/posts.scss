@@ -1,6 +1,7 @@
 
 .post
 { 
+    background: var(--base03) !important;
     .replies
     {
         padding: 0 10px;
@@ -30,6 +31,11 @@
 {
     margin: 2rem;
     outline: var(--bg) 1px solid;
+}
+
+.post.embedded + .post.embedded
+{
+    margin-top: 0;
 }
 
 .post-full
