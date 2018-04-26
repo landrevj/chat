@@ -1,3 +1,57 @@
+<div class="card post post-full root-post" id="child-<%= child_post.id %>">
+
+  <div class="card-body<%= ' replies-after' if child_post.root_reply_ids.any? || child_post.child_reply_ids.any? %>">
+    <div class="row post-header">
+      <div class="col">
+        <div class="post-details">
+          <div class="post-detail" id="user-name" title="username"><strong><%= child_post.user.anonymous ? 'Anonymous' : child_post.user.user_name %></strong> </div>
+          <div class="post-detail" id="id" title="id"><a><strong>##<%= child_post.id %></strong></a></div>
+          <div class="post-detail" id="timestamp-created" title="created <%= child_post.created_at %>"><strong><%= time_ago_in_words(child_post.created_at) %> ago </strong></div>
+          <% if child_post.created_at != child_post.updated_at %>
+          <div class="post-detail" id="timestamp-edited" title="edited <%= child_post.updated_at %>"><strong><%= time_ago_in_words(child_post.updated_at) %> ago</strong></div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-auto">
+        <div class="dropdown post-actions">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <%= link_to child_post, class: "dropdown-item" do %>Link<% end %>      
+            <% if can? :modify, child_post %>
+              <%= link_to [:edit, child_post], class: "dropdown-item" do %>Edit<% end %>
+              <%= link_to child_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" do %>Delete<% end %>      
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row post-content">
+      <div class="col">
+        <div class="card-text text-light"><%= markdown child_post.body %></div>
+      </div>
+      <div class="col-md-auto">
+        <div class="col">
+        </div>
+        <% if child_post.picture.present? %>
+        <div class="col post-image">
+          <%= link_to child_post.picture_url do %>
+            <%= image_tag child_post.picture_url(:thumb) %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= replies child_post if child_post.root_reply_ids.any? || child_post.child_reply_ids.any? %>
+    </div>
+  </div>
+</div>
+
+<!--
 <div class="child-post post" id="child-<%= child_post.id %>">
   <a class="post-anchor" name="<%= child_post.id %>"></a>
   <div class="post-contents">
@@ -35,3 +89,4 @@
 
   <%= replies( child_post ) if child_post.root_reply_ids.any? || child_post.child_reply_ids.any? %>
 </div>
+-->

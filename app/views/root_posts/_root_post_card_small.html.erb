@@ -1,27 +1,14 @@
-<div class="root-post post-card small <%= 'sticky' if root_post.sticky %><%= root_post.picture.present? ? ' has-image' : ' no-image' %><%= ' owned' if root_post.user.id == current_user.id %>" id="root-<%= root_post.id %>">
+<div class="card text-white post post-card root-post card-overlay <%= 'sticky' if root_post.sticky %><%= root_post.picture.present? ? ' has-image' : ' no-image' %><%= ' owned' if root_post.user.id == current_user.id %>" id="root-<%= root_post.id %>">
     <% if root_post.picture.present? %>
-      <div class="post-image">
-        <%= link_to root_post.picture_url do %>
-          <%= image_tag root_post.picture_url(:thumb) %>
-        <% end %>
-      </div>
+        <%= image_tag root_post.picture_url(:thumb), class: 'card-img' %>
+        <div class="card-img-overlay">
+            <%= link_to [board, root_post] do %><% end %>
+            <% if root_post.subject != '' %><h5 class="card-title"><%= root_post.subject %></h5><% end %>
+            <% if root_post.body != '' %><p class="card-text"><%= root_post.body %></p><% end %>
+        </div>
+    <% else %>
+        <%= link_to [board, root_post] do %><% end %>
+        <% if root_post.subject != '' %><div class="card-header"><%= root_post.subject %></div><% end %>
+        <% if root_post.body != '' %><div class="card-body"><p class="card-text"><%= root_post.body %></p></div><% end %>
     <% end %>
-    <div class="post-details <%= 'has-subject' if root_post.subject.present? %>">
-        <div class="post-top-row">
-            <div class="post-detail" id="count" title="post count / file count"><strong><%= root_post.child_posts.size + 1 %> / <%= root_post.file_count %></strong></div>
-        </div>
-            <div class="post-detail" id="subject" title="subject"><strong><%= root_post.subject %></strong></div>
-    </div>
-    
-    <div class="post-body"><p><%= root_post.body %></p></div>
-
-    <div class="post-card-links">
-        <div class="post-links-wrapper">
-            <% if can? :modify, root_post %>
-                <%= link_to [board, root_post], method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" do %><i class="material-icons">delete</i><% end %>
-                <%= link_to [:edit, board, root_post], class: "edit" do %><i class="material-icons">create</i><% end %>
-            <% end %>
-            <%= link_to [board, root_post], class: "link" do %> <i class="material-icons">link</i><% end %>
-        </div>
-    </div>
 </div>
