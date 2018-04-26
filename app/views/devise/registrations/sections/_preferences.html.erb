@@ -1,0 +1,42 @@
+<div class="tab-pane fade" id="v-pills-preferences" role="tabpanel" aria-labeledby="v-pills-preferences-tab">
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-row">
+      <div class="form-group col">
+        <%= label :timezone, 'Timezone', for: 'timezone' %>
+        <%= f.time_zone_select :timezone, nil, {}, {class: 'form-control'} %> 
+      </div>
+    </div>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Thread Display</legend>
+        <div class="col-sm-4">
+          <div id="form-check">
+            <%= f.radio_button :thread_theme, 'full', class: 'form-check-input', type: 'radio', id: 'theme-full' %>
+            <%= label :thread_theme_full, 'full', for: 'theme-full' %>
+          </div>
+          <div id="form-check">
+            <%= f.radio_button :thread_theme, 'card_big', class: 'form-check-input', type: 'radio', id: 'theme-card-big' %>
+            <%= label :thread_theme_card_big, 'big card', for: 'theme-card-big' %>
+          </div>
+          <div id="form-check">
+            <%= f.radio_button :thread_theme, 'card_small', class: 'form-check-input', type: 'radio', id: 'theme-card-small' %>
+            <%= label :thread_theme_card_small, 'small card', for: 'theme-card-small' %>
+          </div>
+        </div>
+        <legend class="col-form-label col-sm-2 pt-0">Privacy</legend>
+        <div class="col-sm-4">        
+          <div class="form-check">
+            <%= f.check_box :anonymous, class: 'form-check-input', id: 'anonymous', type: 'checkbox' %>
+            <%= label :anonymous, 'Hide Username' %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    
+    <%= f.submit "Update Preferences", class: ['btn', 'btn-primary'] %>
+  <% end %>
+</div>
