@@ -2,6 +2,11 @@
 .post
 { 
     background: var(--base03) !important;
+
+    &.post-full.sticky { border-left: var(--cyan) 0.35rem solid; }
+    &.card-normal.sticky, 
+    &.card-overlay.sticky { border-top: var(--cyan) 0.35rem solid; }
+
     .replies
     {
         padding: 0 10px;
@@ -99,7 +104,7 @@
     }
 }
 
-.post-card
+.post.card
 {
     background: var(--base02) !important;
     .card-body
