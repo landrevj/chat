@@ -12,9 +12,11 @@
  */
 
 @import "bootstrap";
+@import "rouge";
 @import "navbar";
 @import "boards";
-@import "post";
+@import "posts";
+@import "forms";
 
 :root
 {
@@ -95,6 +97,8 @@ body > .alert
     bottom: 0;
     right: 0;
 }
+
+pre.highlight { padding: 15px 0px; }
 
 .highlight,
 .highlight .w
