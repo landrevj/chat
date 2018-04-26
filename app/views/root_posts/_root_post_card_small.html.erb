@@ -1,4 +1,4 @@
-<div class="card text-white post post-card root-post card-overlay <%= 'sticky' if root_post.sticky %><%= root_post.picture.present? ? ' has-image' : ' no-image' %><%= ' owned' if root_post.user.id == current_user.id %>" id="root-<%= root_post.id %>">
+<div class="card text-white post post-card root-post card-overlay<%= ' sticky' if root_post.sticky %><%= root_post.picture.present? ? ' has-image' : ' no-image' %><%= ' owned' if root_post.user.id == current_user.id %>" id="root-<%= root_post.id %>">
     <% if root_post.picture.present? %>
         <%= image_tag root_post.picture_url(:thumb), class: 'card-img' %>
         <div class="card-img-overlay">
