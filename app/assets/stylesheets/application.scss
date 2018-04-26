@@ -10,6 +10,39 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
+ $blue:    #5F87AF !default; //
+ $indigo:  #6610f2 !default;
+ $purple:  #A25576 !default; //~
+ $pink:    #e83e8c !default;
+ $red:     #9A4C4C !default; //
+ $orange:  #fd7e14 !default;
+ $yellow:  #D7D787 !default; //
+ $green:   #87AF5F !default; //
+ $teal:    #20c997 !default;
+ $cyan:    #87AFD7 !default; //
+ $white:   #E8E8E8 !default; //
+ 
+ $colors: (
+   blue: $blue,
+   indigo: $indigo,
+   purple: $purple,
+   pink: $pink,
+   red: $red,
+   orange: $orange,
+   yellow: $yellow,
+   green: $green,
+   teal: $teal,
+   cyan: $cyan,
+   white: $white,
+ ) !default;
+ 
+ $theme-colors: (
+   primary: $blue,
+   success: $green,
+   info: $cyan,
+   warning: $yellow,
+   danger: $red,
+ ) !default;
 
 @import "bootstrap";
 @import "rouge";
@@ -17,6 +50,7 @@
 @import "boards";
 @import "posts";
 @import "forms";
+
 
 :root
 {
