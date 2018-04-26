@@ -1,0 +1,7 @@
+<div class="tab-pane fade" id="v-pills-posts" role="tabpanel" aria-labeledby="v-pills-posts-tab">
+  <div class="col">
+    <% @child_posts.each do |child_post| %>
+      <%= render 'child_posts/child_post', child_post: child_post %>
+    <% end %>
+  </div>
+</div>

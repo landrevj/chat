@@ -1,0 +1,79 @@
+<div class="tab-pane fade" id="v-pills-details" role="tabpanel" aria-labeledby="v-pills-details-tab">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="email">E-mail address</label>
+      <input class="form-control" id="email" type="text" placeholder="<%= current_user.email %>" readonly>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="user-name">User name</label>
+      <input class="form-control" id="user-name" type="text" placeholder="<%= current_user.user_name %>" readonly>
+    </div>
+    <div class="form-group col-md-1">
+      <label for="user-id">ID</label>
+      <input class="form-control" id="user-id" type="text" placeholder="<%= current_user.id %>" readonly>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="admin">Admin</label>
+      <input class="form-control" id="admin" type="text" placeholder="<%= current_user.admin %>" readonly>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <label for="encrypted-password">Encrypted Password</label>
+      <input class="form-control" id="encrypted-password" type="text" placeholder="<%= current_user.encrypted_password %>" readonly>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="signin">Sign-in Count</label>
+      <input class="form-control" id="signin" type="text" placeholder="<%= current_user.sign_in_count %>" readonly>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="reset-send">Reset Password Sent At</label>
+      <input class="form-control" id="reset-sent" type="text" placeholder="<%= current_user.reset_password_sent_at %>" readonly>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="remember-me">Remember Created At</label>
+      <input class="form-control" id="remember-me" type="text" placeholder="<%= current_user.remember_created_at %>" readonly>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="created">Account Created At</label>
+      <input class="form-control" id="created" type="text" placeholder="<%= current_user.created_at %>" readonly>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="updated">Account Updated At</label>
+      <input class="form-control" id="updated" type="text" placeholder="<%= current_user.updated_at %>" readonly>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="current-signin">Current Sign-in</label>
+      <input class="form-control" id="current-signin" type="text" placeholder="<%= current_user.current_sign_in_at %>" readonly>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="current-signin-ip">Current IP</label>
+      <input class="form-control" id="current-signin-ip" type="text" placeholder="<%= current_user.current_sign_in_ip %>" readonly>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="last-signin">Last Sign-in</label>
+      <input class="form-control" id="last-signin" type="text" placeholder="<%= current_user.last_sign_in_at %>" readonly>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="last-signin-ip">Last IP</label>
+      <input class="form-control" id="last-signin-ip" type="text" placeholder="<%= current_user.last_sign_in_ip %>" readonly>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="preferences">Preferences</label>
+      <textarea class="form-control" id="preferences" type="text" rows="3" readonly><%= current_user.preferences %></textarea>
+    </div>
+  </div>
+</div>
