@@ -5,7 +5,7 @@
       <div class="col">
         <div class="post-details">
           <div class="post-detail" id="user-name" title="username"><strong><%= child_post.user.anonymous ? 'Anonymous' : child_post.user.user_name %></strong> </div>
-          <div class="post-detail" id="id" title="id"><a><strong>##<%= child_post.id %></strong></a></div>
+          <div class="post-detail" id="id" title="id"><a><strong>#<%= child_post.id %></strong></a></div>
           <div class="post-detail" id="timestamp-created" title="created <%= child_post.created_at %>"><strong><%= time_ago_in_words(child_post.created_at) %> ago </strong></div>
           <% if child_post.created_at != child_post.updated_at %>
           <div class="post-detail" id="timestamp-edited" title="edited <%= child_post.updated_at %>"><strong><%= time_ago_in_words(child_post.updated_at) %> ago</strong></div>
