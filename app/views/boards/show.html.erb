@@ -1,6 +1,17 @@
-<div class="post-form" id="thread">
-  <div class="form-handle"><i class="material-icons">drag_handle</i></div>
-  <%= render partial: 'root_posts/form', locals: { root_post: @root_post } %>
+<button type="button" class="btn btn-primary btn-circle" data-toggle="modal" id="new-thread-button" data-target="#newThreadModal"><i class="material-icons">add_circle</i></button>
+
+<div class="modal fade" id="newThreadModal" tabindex="-1" role="dialog" aria-labelledby="newThreadModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newThreadModalTitle">Create New Thread</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= render partial: 'root_posts/form', locals: { root_post: @root_post } %>
+    </div>
+  </div>
 </div>
 
 <div class="<%= 'card-columns ' if current_user.thread_theme != 'full' %>post-container" id="<%= current_user.thread_theme %>">

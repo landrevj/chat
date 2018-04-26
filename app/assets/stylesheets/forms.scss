@@ -1,0 +1,16 @@
+.btn-circle
+{
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    border-radius: 999px;
+    height: 65px;
+    width: 65px;
+    padding: 20px;
+    z-index: 999;
+}
+
+#new-thread
+{
+    button#close { display: none; }
+}

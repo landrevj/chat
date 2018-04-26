@@ -1,27 +1,30 @@
 <%= form_with(model: child_post, local: true) do |form| %>
+  <div class="modal-body">
   <% if child_post.errors.any? %>
-    <div id="error_explanation">
-      <h2></h2>
-
-      <ul>
-      <% child_post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <% child_post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
   <% end %>
 
-  <div class="field first" id="body">
-    <%= form.text_area :body, autocomplete: 'off', id: :child_post_body, placeholder: 'body' %>
+  <div class="form-group">
+      <label for="child-post-body">Body</label>
+      <%= form.text_area :body, class: 'form-control', id: 'child-post-body', rows: '3' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.file_field :picture, class: 'form-control-file', id: :child_post_picture %>
+    </div>
+
+    <%= form.hidden_field :root_post_id %>
+
   </div>
-
-  <div class="field last" id="file">
-    <%= form.file_field :picture, id: :child_post_picture %>
-  </div>
-
-  <%= form.hidden_field :root_post_id %>
-
-  <div class="actions" id="submit">
-    <%= form.submit "post"%>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
+    <%= form.submit "Post", class: ['btn', 'btn-primary'] %>
   </div>
 <% end %>

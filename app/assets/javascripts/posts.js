@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function () {
     // clicking post numbers appends a quote to the post-form
     $('body').on('click', '.post-detail#id', function (e) {
         var txt = '@' + $(e.target).text() + '\n';
-        $('.post-form #body textarea').append(txt);
+        $('#newChildPostModal #child-post-body').append(txt);
     });
 
     // clicking post-images creates a fullscreen popup
