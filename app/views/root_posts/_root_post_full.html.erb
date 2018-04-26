@@ -41,9 +41,11 @@
       </div>
     </div>
   </div>
-  <div class="row replies-row">
-    <div class="col">
-      <%= replies root_post if root_post.root_reply_ids.any? || root_post.child_reply_ids.any? %>
+  <% if root_post.root_reply_ids.any? || root_post.child_reply_ids.any? %>
+  <div class="row">
+    <div class="col replies-container">
+      <%= replies root_post  %>
     </div>
   </div>
+  <% end %>
 </div>
