@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="v-pills-preferences" role="tabpanel" aria-labeledby="v-pills-preferences-tab">
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "edit_user_details" }) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="form-row">
