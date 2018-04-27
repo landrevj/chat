@@ -75,7 +75,7 @@ class ChildPostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def child_post_params
-    params.require(:child_post).permit(:body, :picture, :root_post_id)
+    params.require(:child_post).permit(:body, :picture, :remote_picture_url, :root_post_id)
   end
 
   # Add child_post.id to the properties of each post it quotes.
