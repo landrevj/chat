@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   store_attributes :preferences do
     timezone     String, default: 'UTC'
-    thread_theme String, default: 'full'
+    thread_theme String, default: 'card_small'
     anonymous    Boolean, default: true
   end
 end
