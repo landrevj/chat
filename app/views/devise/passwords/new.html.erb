@@ -1,16 +1,21 @@
-<div class="card float-form">
-  <div class="text-icon">>_</div>
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= devise_error_messages! %>
+<div class="container login-form">
+  <div class="row text-light">
+    <div class="absolute-center is-responsive">
+      <div id="logo-container">>_</div>
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= devise_error_messages! %>
 
-    <div class="field only">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email" %>
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", type: 'email', class: ['form-control', 'top'] %>          
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "Send Reset Instructions", class: ['btn', 'btn-success', 'btn-block'] %>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <br>
-
-    <div class="actions">
-      <%= f.submit "send reset instructions" %>
-    </div>
-  <% end %>
+  </div>
 </div>
+
