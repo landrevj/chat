@@ -33,7 +33,22 @@
 }
 
 // show
-.card-columns {
+.card-columns#card_big {
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 2;
+  }
+}
+
+.card-columns#card_small {
   @include media-breakpoint-only(xl) {
     column-count: 6;
   }

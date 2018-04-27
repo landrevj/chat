@@ -1,9 +1,14 @@
 <div class="card text-white post card-normal<%= ' sticky' if root_post.sticky %><%= root_post.picture.present? ? ' has-image' : ' no-image' %><%= ' owned' if root_post.user.id == current_user.id %>" id="root-<%= root_post.id %>">
-    <% if root_post.picture.present? %>
-        <%= link_to root_post.picture_url do %>
-          <%= image_tag root_post.picture_url(:thumb), class: 'card-img-top' %>
+        <% if root_post.picture.present? %>
+            <div class="post-image">
+                <%= link_to root_post.picture_url do %>
+                    <%= image_tag root_post.picture_url(:thumb), class: 'card-img-top' %>
+                <% end %>
+            </div>
         <% end %>
-    <% end %>
-    <% if root_post.subject != '' %><div class="card-header"><%= root_post.subject %></div><% end %>
-    <% if root_post.body != '' %><div class="card-body"><p class="card-text"><%= root_post.body %></p></div><% end %>
+        <div class="card-body">
+            <% if root_post.subject != '' %><h4 class="card-title"><%= root_post.subject %></h4><% end %>
+            <p class="card-text"><%= root_post.body %></p>
+            <%= link_to [board, root_post], class: ['btn', 'btn-primary', 'btn-block'] do %><i class="material-icons">link</i><% end %>
+        </div>
 </div>
