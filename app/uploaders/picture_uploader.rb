@@ -15,14 +15,29 @@ class PictureUploader < CarrierWave::Uploader::Base
     1..4.megabytes
   end
   
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  def filename
+    if original_filename
+      if model && model.read_attribute(mounted_as).present?
+        model.read_attribute(mounted_as)
+      else
+        "#{secure_token}.#{file.extension}" if original_filename.present?
+      end
+    end
+  end
+
+  protected
+
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) || model.instance_variable_set(var, SecureRandom.uuid)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

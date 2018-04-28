@@ -16,6 +16,7 @@ gem 'pg'
 gem 'storext'
 # Use Carrierwave for file uploads
 gem 'carrierwave'
+gem 'fog'
 # Use MiniMagick for thumbnails
 gem 'mini_magick', '4.8.0'
 # Use Puma as the app server
