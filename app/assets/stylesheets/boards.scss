@@ -32,6 +32,12 @@
   .breadcrumb-item.active { color: var(--font01); }
 }
 
+body > .container {
+  @include media-breakpoint-only(xs) {
+    padding: 30px 50px !important;
+  }
+}
+
 // show
 .card-columns#card_big {
   @include media-breakpoint-only(xl) {
@@ -46,11 +52,7 @@
   @include media-breakpoint-only(sm) {
     column-count: 2;
   }
-  @include media-breakpoint-only(xs) {
-    padding: 0 75px;
-  }
 }
-
 .card-columns#card_small {
   @include media-breakpoint-only(xl) {
     column-count: 6;
@@ -63,9 +65,6 @@
   }
   @include media-breakpoint-only(sm) {
     column-count: 2;
-  }
-  @include media-breakpoint-only(xs) {
-    padding: 0 75px;
   }
 }
 
