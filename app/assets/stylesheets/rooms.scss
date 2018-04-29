@@ -1,3 +1,81 @@
-// Place all the styles related to the Rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.room-link {
+    margin-right: 1.25rem;
+    ol {
+        background: var(--base01);
+    }
+}
+
+.room-header
+{
+    // height: 30px;
+    padding: 14px 10px;
+    font-size: 1.5rem;
+    background: var(--base03);
+    color: var(--font02);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+    z-index: 1029;
+    
+    .room-name
+    {
+        color: var(--font01);
+        display: inline-block;
+    }
+}
+
+[data-behavior="messages"]
+{
+    padding-bottom: 33px;
+}
+
+.message
+{
+    strong
+    {
+        padding-right: 2rem;
+    }
+
+    .timestamp
+    {
+        color: var(--font03);
+    }
+}
+
+@include media-breakpoint-up(lg)
+{
+    .room-header
+    {
+        margin-left: 250px;
+    }
+    [data-behavior="messages"]
+    {
+        padding-top: 40px;
+    }
+    
+    form#new_message
+    {
+        width: calc(100% - 300px);
+    }
+}
+
+@include media-breakpoint-down(md)
+{
+    .room-header
+    {
+        top: 56px;
+    }
+    [data-behavior="messages"]
+    {
+        padding-top: 40px;
+    }
+    form#new_message
+    {
+        width: calc(100% - 50px);
+    }
+}
+
+
+form#new_message
+{
+    position: fixed;
+    bottom: 20px;
+}

@@ -1,2 +1,6 @@
-<div><strong><%= message.user.user_name %>:</strong> <%= message.body %></div>
+<div class="message">
+    <strong><%= message.user.user_name %></strong>
+    <%= message.body %>
+    <div class="timestamp float-right"><%= l message.created_at, format: :clock %></div>
+</div>
 <hr>

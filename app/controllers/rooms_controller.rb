@@ -1,10 +1,13 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+
 
   # GET /rooms
   # GET /rooms.json
   def index
     @rooms = Room.all
+    @room = Room.new
   end
 
   # GET /rooms/1

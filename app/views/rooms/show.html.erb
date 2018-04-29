@@ -1,5 +1,11 @@
-<strong>Name:</strong>
-<%= @room.name %>
+<div class="fixed-top room-header">
+  #<div class="room-name"><%= @room.name %></div>
+  <%= link_to 'Join', room_room_users_path(@room), method: :post %>
+  <%= link_to 'Leave', room_room_users_path(@room), method: :delete %>
+  <% if can? :modify, @room %>
+    <%= link_to 'Destroy', @room, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
 
 <div class="text-light" data-behavior="messages" data-room-id="<%= @room.id %>">
   <hr>

@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      clock: '%H:%M:%S'
   activerecord:
     models:
       root_post: 

@@ -1,22 +1,24 @@
 <%= form_with(model: room, local: true) do |form| %>
-  <% if room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
-
-      <ul>
-      <% room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="modal-body">
+    <% if room.errors.any? %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <% room.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </div>
       <% end %>
-      </ul>
+
+    <div class="form-group">
+      <%= form.label :name, for: 'room_name' %>
+      <%= form.text_field :name, class: 'form-control', id: :room_name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :room_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
+      <%= form.submit "Create", class: ['btn', 'btn-primary'] %>
+    </div>
   </div>
 <% end %>

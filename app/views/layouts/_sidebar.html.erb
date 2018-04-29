@@ -1,0 +1,52 @@
+<% if user_signed_in? %>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="side-nav">
+  <%= link_to '>_', root_path, class: 'navbar-brand' %>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <hr class="lg-up-only">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <% if current_user.admin? %>
+      <li class="nav-item">
+        <%= link_to 'Dashboard', '/admin', class: 'nav-link' %>
+      </li>
+      <% end %>
+      <li class="nav-item">
+        <%= link_to 'Account', edit_user_registration_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
+      </li>
+      <hr class="lg-up-only">
+      <li class="nav-item">
+        <%= link_to 'Rooms', rooms_path, class: 'nav-link' %>
+        <ul class="text-light">
+          <% current_user.rooms.each do |room| %>
+            <li>#<%= link_to room.name, room, data: {behavior: 'room-link', room_id: room.id} %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <nav class="nav-bread" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item" aria-current="page"><%= link_to 'Boards', boards_path, class: 'nav-link' %></li>
+            <% if @board%><li class="breadcrumb-item" aria-current="page"><%= link_to @board, class: 'board-abbreviation' do %><%= @board.abbreviation %><% end %></li><% end %>
+            <% if @root_post && @child_posts %><li class="breadcrumb-item active" aria-current="page"><%= @root_post.id %></li><% end %>
+          </ol>
+        </nav>
+      </li>
+      <hr class="lg-up-only">
+      <li class="nav-item">
+        <%= link_to 'Info', 'pages/info', class: 'nav-link' %>
+      </li>
+
+      <li class="nav-item" id="logout">
+        <%= link_to 'Logout', destroy_user_session_path, class: 'nav-link', method: :delete %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<% end %>
