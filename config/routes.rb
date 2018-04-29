@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # different roots for authenticated users
   authenticated :user do
-    root to: 'boards#index', as: :authenticated_root
+    root to: 'pages#home', page: 'home', as: :authenticated_root
   end
   root to: redirect('/login')
-
+  
   # custom Devise login/out routes
   devise_for :users, controllers: { registrations: "registrations" }, path: 'account', skip: [:sessions]
   as :user do
@@ -12,16 +12,20 @@ Rails.application.routes.draw do
     post 'login', to: 'devise/sessions#create', as: :user_session
     delete 'logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
-
+  
   # move rails_admin to shorter uri
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
+  
   # resource routes
+  resources :rooms do
+    resource :room_users
+    resources :messages
+  end
   resources :boards, param: :abbreviation, :only => [:index, :show], :path => '' do
     resources :root_posts, :path => 'threads'
   end
   resources :child_posts, :except => [:index] , :path => 'posts'
-
+  
   get '/api/root-posts', to: 'root_posts#index' 
   get '/api/root-post/:id', to: 'root_posts#show' 
   get '/api/child-post/:id', to: 'child_posts#show' 

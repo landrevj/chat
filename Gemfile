@@ -57,6 +57,8 @@ gem 'rouge'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.0'
 
+gem 'redis'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -71,10 +71,22 @@
     --base03 :  #3C3C3C;
 }
 
+html,
+body
+{
+    height: calc(100% - 28px);
+}
+
 body
 {
     background: var(--bg);
     font-family: 'Open Sans', sans-serif !important;
+}
+
+.fill
+{
+    min-height: 100%;
+    height: 100%;
 }
 
 body > .alert
@@ -88,10 +100,10 @@ body > .alert
     border-radius: 0;
 }
 
-.container
+.container-fluid
 {
     margin-top: 56px;
-    padding: 30px 0;
+    // padding: 30px 0;
 }
 
 .card
@@ -217,9 +229,25 @@ a.quote:hover { color: var(--font01);}
 }
 
 @include media-breakpoint-only(xs) {
-    .row
-    {
-        margin-left: 0;
-        margin-right: 0;
-    }
+    // .row
+    // {
+    //     margin-left: 0;
+    //     margin-right: 0;
+    // }
 }
+
+
+//
+.left-panel
+{
+    padding-top: 25px;
+    background: var(--base03);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+    z-index: 1030;
+}
+
+.main-content
+{
+    padding: 25px;
+}
+

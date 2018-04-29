@@ -1,0 +1,13 @@
+<strong>Name:</strong>
+<%= @room.name %>
+
+<div class="text-light" data-behavior="messages" data-room-id="<%= @room.id %>">
+  <hr>
+  <% @recents.each do |message| %>
+    <%= render message %>
+  <% end %>
+</div>
+
+<%= form_for [@room, Message.new] do |f| %>
+  <%= f.text_field :body, autocomplete: 'off', class: 'form-control', autofocus: 'true' %>
+<% end %>

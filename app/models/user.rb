@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :root_posts, dependent: :destroy
   has_many :child_posts, dependent: :destroy
 
+  has_many :room_users
+  has_many :rooms, through: :room_users
+  has_many :messages
+
   store_attributes :preferences do
     timezone     String, default: 'UTC'
     thread_theme String, default: 'card_small'

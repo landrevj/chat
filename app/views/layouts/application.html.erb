@@ -18,8 +18,23 @@
     <div class="wild-ui"></div>
 
     <%= render 'layouts/alerts' %>
-    <div class="container">
-      <%= yield %>
+    <div class="container-fluid fill">
+      <div class="row fill">
+        <div class="col-sm-2 left-panel fill" style="position: fixed;">
+          <div class="content text-light">
+            <% if user_signed_in? %>
+              <h5>Rooms</h5>
+              <ul>
+                <% current_user.rooms.each do |room| %>
+                  <li><%= link_to room.name, room, data: {behavior: 'room-link', room_id: room.id} %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-10 offset-sm-2 main-content">
+          <%= yield %>
+        </div>
     </div>
   </body>
 </html>
