@@ -2,9 +2,9 @@
 { 
     background: var(--base03) !important;
 
-    &.post-full.sticky { border-left: var(--cyan) 0.35rem solid; }
+    &.post-full.sticky { border-left: var(--cyan) 0.45rem solid; }
     &.card-normal.sticky, 
-    &.card-overlay.sticky { border-top: var(--cyan) 0.35rem solid; }
+    &.card-overlay.sticky { border-top: var(--cyan) 0.45rem solid; }
 
     @include media-breakpoint-only(xs) 
     {
