@@ -52,12 +52,27 @@
         background: var(--base03);
     }
 
+    #unknown
+    {
+        .icon
+        {
+            background: var(--font03);
+        }
+    }
     #connected
     {
         .icon
         {
+            background: var(--blue);
+            animation: status-connected 1.5s infinite linear;
+        }
+    }
+    #streaming
+    {
+        .icon
+        {
             background: var(--green);
-            animation: status-connected 2s infinite;
+            animation: status-streaming 2s infinite;
         }
     }
     #disconnected
@@ -70,6 +85,15 @@
 }
 
 @keyframes status-connected
+{
+    0% {
+        border: var(--base03) 7px solid;
+    }
+    100% {
+        border: var(--cyan) 0px solid;
+    }
+} 
+@keyframes status-streaming
 {
     0% {
         box-shadow: 0 0 0 0px rgba(157, 181, 95, 0.8);

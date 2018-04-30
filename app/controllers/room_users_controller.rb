@@ -8,7 +8,7 @@ class RoomUsersController < ApplicationController
 
     def destroy
         @room_user = @room.room_users.where(user_id: current_user.id).destroy_all
-        redirect_to rooms_path
+        redirect_to @room
     end
 
     private

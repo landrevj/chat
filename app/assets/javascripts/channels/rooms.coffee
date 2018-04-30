@@ -9,8 +9,8 @@ $(document).on "turbolinks:load", ->
       $('.room-connection .status').text('disconnected')
 
     received: (data) ->
-      $('.room-connection').attr('id', 'connected')
-      $('.room-connection .status').text('connected')
+      $('.room-connection').attr('id', 'streaming')
+      $('.room-connection .status').text('streaming')
       active_room = $("[data-behavior='messages'][data-room-id='#{data.room_id}']")
       if active_room.length > 0
         active_room.append(data.message)
