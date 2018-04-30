@@ -1,19 +1,29 @@
 <div class="fixed-top room-header">
   #<div class="room-name"><%= @room.name %></div>
-  <%= link_to 'Join', room_room_users_path(@room), method: :post %>
-  <%= link_to 'Leave', room_room_users_path(@room), method: :delete %>
-  <% if can? :modify, @room %>
-    <%= link_to 'Destroy', @room, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+  <div class="room-connection float-right" id="unknown">
+    <div class="status">unknown</div>
+    <div class="icon"></div>
+  </div>
+  <div class="room-actions">
+    <% if RoomUser.find_by(user_id: current_user.id, room_id: @room.id) %>
+      <%= link_to room_room_users_path(@room), method: :delete, class: 'text-warning' do %><i class="material-icons">highlight_off</i><% end %>
+    <% else %>
+      <%= link_to room_room_users_path(@room), method: :post, class: 'text-success' do %><i class="material-icons">add_circle</i><% end %>
+    <% end %>
+    <% if can? :modify, @room %>
+      <%= link_to @room, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' do %><i class="material-icons">delete</i><% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="text-light" data-behavior="messages" data-room-id="<%= @room.id %>">
-  <hr>
   <% @recents.each do |message| %>
     <%= render message %>
   <% end %>
 </div>
 
-<%= form_for [@room, Message.new] do |f| %>
-  <%= f.text_field :body, autocomplete: 'off', class: 'form-control', autofocus: 'true' %>
-<% end %>
+<div class="form-wrap">
+  <%= form_for [@room, Message.new] do |f| %>
+    <%= f.text_field :body, autocomplete: 'off', class: 'form-control', autofocus: 'true' %>
+  <% end %>
+</div>

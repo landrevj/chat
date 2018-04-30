@@ -1,12 +1,16 @@
 $(document).on "turbolinks:load", ->
   App.rooms = App.cable.subscriptions.create channel: "RoomsChannel", current_stream: $("[data-behavior='messages']").data('room-id'),
     connected: ->
-      # Called when the subscription is ready for use on the server
+      $('.room-connection').attr('id', 'connected')
+      $('.room-connection .status').text('connected')
 
     disconnected: ->
-      # Called when the subscription has been terminated by the server
+      $('.room-connection').attr('id', 'disconnected')
+      $('.room-connection .status').text('disconnected')
 
     received: (data) ->
+      $('.room-connection').attr('id', 'connected')
+      $('.room-connection .status').text('connected')
       active_room = $("[data-behavior='messages'][data-room-id='#{data.room_id}']")
       if active_room.length > 0
         active_room.append(data.message)

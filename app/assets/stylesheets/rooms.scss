@@ -20,11 +20,81 @@
         color: var(--font01);
         display: inline-block;
     }
+
+    i.material-icons
+    {
+        position: relative;
+        top: 5px;
+    }
+    .room-connection,
+    .room-actions
+    {
+        display: inline-block;
+    }
+
+    .status,
+    .icon
+    {
+        display: inline-block;
+    }
+
+    .status { margin-right: 5px; }
+    
+    .icon
+    {
+        width: 15px;
+        height: 15px;
+        position: relative;
+        top: 1px;
+        margin-right: 10px;
+        border-radius: 90px;
+        display: inline-block;
+        background: var(--base03);
+    }
+
+    #connected
+    {
+        .icon
+        {
+            background: var(--green);
+            animation: status-connected 2s infinite;
+        }
+    }
+    #disconnected
+    {
+        .icon
+        {
+            animation: status-disconnected 4s infinite;
+        }
+    }
 }
+
+@keyframes status-connected
+{
+    0% {
+        box-shadow: 0 0 0 0px rgba(157, 181, 95, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 0 10px transparent;
+    }
+} 
+@keyframes status-disconnected
+{
+    0% {
+        background: var(--red);
+    }
+    50% {
+        background: var(--magenta);
+    }
+    100% {
+        background: var(--red);
+    }
+} 
+
 
 [data-behavior="messages"]
 {
-    padding-bottom: 33px;
+    padding-bottom: 50px;
 }
 
 .message
@@ -37,6 +107,18 @@
     .timestamp
     {
         color: var(--font03);
+    }
+
+    .details
+    {
+        strong
+        {
+            color: var(--cyan);
+        }
+    }
+    .body
+    {
+        word-break: break-word;
     }
 }
 
@@ -62,6 +144,8 @@
     .room-header
     {
         top: 56px;
+
+        .room-connection .status {display: none;}
     }
     [data-behavior="messages"]
     {
@@ -78,4 +162,13 @@ form#new_message
 {
     position: fixed;
     bottom: 20px;
+}
+
+.form-wrap
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    background: var(--bg);
 }
