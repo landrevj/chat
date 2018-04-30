@@ -3,6 +3,9 @@ class RoomsChannel < ApplicationCable::Channel
     current_user.rooms.each do |room|
       stream_from "rooms:#{room.id}"
     end
+    if params[:current_stream]
+      stream_from "rooms:#{params[:current_stream]}"
+    end
   end
 
   def unsubscribed
