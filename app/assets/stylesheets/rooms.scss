@@ -79,7 +79,7 @@
     {
         .icon
         {
-            animation: status-disconnected 4s infinite;
+            animation: status-disconnected 2s infinite;
         }
     }
 }
@@ -105,12 +105,23 @@
 @keyframes status-disconnected
 {
     0% {
+        transform: scale(1.2, 1.2) translateY(-10px);
         background: var(--red);
     }
+    25% {
+        transform: scale(0.7,0.7);
+        background: var(--magenta);
+    }
     50% {
+        transform: scale(1.2, 1.2) translateY(10px);
+        background: var(--magenta);
+    }
+    75% {
+        transform: scale(0.7,0.7);
         background: var(--magenta);
     }
     100% {
+        transform: scale(1.2, 1.2) translateY(-10px);
         background: var(--red);
     }
 } 
