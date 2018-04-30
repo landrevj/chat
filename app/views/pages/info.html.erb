@@ -7,20 +7,38 @@
 This site functions similarly to many imageboards out there, however, there are a few differences which I will explain here.
 
 &nbsp;
+## Accounts
+---
+Authentication is entirely handled by the [Devise](https://github.com/plataformatec/devise) gem. \
+The information fields associated with your account can be seen [here](/account/details).
+
+&nbsp;
 ## Structure
 ---
-### Board > Root Post > Child Post
+### Boards: Board > Root Post > Child Post
 This hierarchy is fairly standard for imageboards however these are the words used in the source. \
 Root Post is typically swapped out for 'Thread' and child post for simply 'Post' in most of the text and uri's you'll see but they mean the same thing.
 
 Unlike other imageboards, the numbering of threads and posts are not unique to boards, but a site-wide total. \
 This is due to how Rails ids things. This could likely be changed to function the same way as in other sites, but frankly, I can't even be asked.
 
-&nbsp;
-## Accounts
----
-Authentication is entirely handled by the [Devise](https://github.com/plataformatec/devise) gem. \
-The information fields associated with your account can be seen [here](/account/details).
+### Rooms: Room > Message
+Fairly self explanitory but whatever. In the upper right hand corner you can see the state of your WebSocket connection \
+to the server:
+
+- \"Unknown\" means that there havn't been any updates from the server so your browser \
+doesn't know where it stands. This will almost always be changed to something else moments after the page loads fully. \
+
+- \"Connected\" means that you have an open connection with the server.
+
+- \"Streaming\" this means that your connection is subscribed - to use ActionCable's terminology - to that Room's channel. \
+If you can see this then you should get get messages live as they come in.
+
+- \"Disconnected\" means that your connection is no longer working and you won't get updates of any kind. This will happen when \
+you lose internet or when the server goes down.
+
+In order to stay subscribed to that room regardless of where you are in the site, click the green plus symbol next to the \
+room name. Once you do that you will be subscribed to that Room regardless of what device you login to.
 
 &nbsp;
 ## File Uploads
@@ -30,7 +48,8 @@ Uploads are restricted to 4 megabytes or smaller and only jpg, jpeg, gif, and pn
 &nbsp;
 ## Markdown
 ---
-The body of both root and child posts supports markdown through the [Red Carpet](https://github.com/vmg/redcarpet) gem. \
+The body of both root and child posts supports markdown through the [Red Carpet](https://github.com/vmg/redcarpet) gem.
+Messages don't support markdown. \
 Enabled options and extensions:
 
 | Option/Extension             | Explanation |
