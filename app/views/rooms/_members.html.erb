@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark side-nav" id="members-nav">
+  <div class="navbar-brand">Subscribers</div>
+  <hr>
+  <div class="collapse navbar-collapse" id="membersList">
+    <ul class="navbar-nav">
+      
+      <% @room.users.each do |user| %>
+      <li class="nav-item text-light user">
+        <%= user.user_name %>
+      </li>
+      <% end %>
+      
+    </ul>
+  </div>
+</nav>
