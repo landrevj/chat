@@ -41,9 +41,8 @@
     body > .container-fluid
     {
         margin-left: 250px;
-        margin-right: 250px;
         padding: 25px;
-        width: calc(100% - 500px);
+        width: calc(100% - 250px);
     }
     .side-nav {
         overflow: auto;

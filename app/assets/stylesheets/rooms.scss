@@ -166,15 +166,19 @@
     }
     [data-behavior="messages"]
     {
+        margin-bottom: 25px;
+        padding: 25px;
+        width: calc(100% - 250px);
         padding-top: 40px;
     }
     form#new_message
     {
-        width: calc(100% - 550px);
+        width: calc(100% - 600px);
     }
     .form-wrap
     {
-        width: calc(100% - 550px);        
+        margin-left: 25px;
+        width: calc(100% - 600px);        
     }    
 }
 
@@ -183,19 +187,18 @@
     .room-header
     {
         top: 56px;
-
         .room-connection .status {display: none;}
     }
     [data-behavior="messages"]
     {
         padding-top: 40px;
     }
-    form#new_message
+    form#new_message,
+    .form-wrap
     {
         width: calc(100% - 50px);
     }
 }
-
 
 form#new_message
 {
