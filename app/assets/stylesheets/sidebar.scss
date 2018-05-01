@@ -15,8 +15,6 @@
 
 .nav-bread
 {
-    padding: 0.5rem;
-
     .breadcrumb
     {
         padding: 0;
@@ -49,6 +47,10 @@
         top: 0px;
         width: 250px;
         height: 100%;
+    }
+    .nav-bread
+    {
+        padding: 0.5rem;
     }
     #members-nav
     {
@@ -110,6 +112,10 @@
     #members-nav
     {
         display: none;
+    }
+    .nav-bread
+    {
+        padding: 0.5rem 0;
     }
     nav hr
     {
