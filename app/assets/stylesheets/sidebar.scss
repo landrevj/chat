@@ -100,15 +100,12 @@
         display: block;
     }
 }
-@include media-breakpoint-down(lg)
+@include media-breakpoint-down(md)
 {
     body > .container-fluid
     {
         padding: 25px;
     }
-}
-@include media-breakpoint-down(md)
-{
     #members-nav
     {
         display: none;

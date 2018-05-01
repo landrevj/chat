@@ -6,15 +6,6 @@
     &.card-normal.sticky, 
     &.card-overlay.sticky { border-top: var(--cyan) 0.45rem solid; }
 
-    @include media-breakpoint-only(xs) 
-    {
-        .replies-container
-        {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
     .replies
     {
         padding: 0 10px;
