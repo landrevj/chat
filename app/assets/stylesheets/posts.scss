@@ -142,8 +142,15 @@
     }
 }
 
+.card-img-container
+{
+    max-height: 300px;
+    overflow: hidden;
+    border-radius: 0.25rem;
+}
 .card-img-overlay
 {
+    border-radius: 0.25rem;
     transition: background 0.25s;
     background: rgba(0,0,0,0.5);
 }
