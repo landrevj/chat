@@ -14,6 +14,7 @@
 //= require jquery
 //= require popper
 //= require bootstrap
+//= require jquery.easy-autocomplete
 //= require turbolinks
 //= require Chart.bundle
 //= require chartkick

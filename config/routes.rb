@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     get 'messages'
     get 'rooms'
   end
+
+  get :search, controller: :search
   
   get '/api/root-posts', to: 'root_posts#index' 
   get '/api/root-post/:id', to: 'root_posts#show' 

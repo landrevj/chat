@@ -62,6 +62,8 @@ gem 'redis'
 gem 'chartkick'
 gem 'groupdate'
 
+gem 'ransack', '~> 1.8.8'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

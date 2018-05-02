@@ -6,8 +6,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <hr class="lg-up-only">
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <hr class="lg-up-only">
     <ul class="navbar-nav">
       <% if current_user.admin? %>
       <li class="nav-item">
@@ -20,7 +21,9 @@
       <li class="nav-item">
         <%= link_to 'Home', root_path, class: 'nav-link' %>
       </li>
+
       <hr class="lg-up-only">
+      
       <li class="nav-item">
         <%= link_to 'Rooms', rooms_path, class: 'nav-link' %>
         <ul class="text-light">
@@ -38,14 +41,22 @@
           </ol>
         </nav>
       </li>
+      
       <hr class="lg-up-only">
+      
       <li class="nav-item">
         <%= link_to 'Info', '/pages/info', class: 'nav-link' %>
       </li>
 
+      <hr class="lg-up-only">
+
       <li class="nav-item" id="logout">
         <%= link_to 'Logout', destroy_user_session_path, class: 'nav-link', method: :delete %>
       </li>
+
+      <%= form_with url: search_path, local: true, method: :get, html: {class: 'site-search'} do |f| %>
+        <%= f.text_field :q, placeholder: 'Search', data: {behavior: 'autocomplete'}, class: 'form-control mr-sm-2' %>
+      <% end %>
     </ul>
   </div>
 </nav>

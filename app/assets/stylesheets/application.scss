@@ -9,6 +9,9 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
+ *
+ *= require easy-autocomplete
+ *= require easy-autocomplete.themes
  */
  $blue:    #5F87AF !default; //
  $indigo:  #6610f2 !default;
@@ -220,4 +223,9 @@ a.quote:hover { color: var(--font01);}
     background: var(--white);
     padding: 25px;
     margin-bottom: 25px;
+}
+
+.easy-autocomplete
+{
+    width: initial !important;
 }
