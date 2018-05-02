@@ -1,0 +1,24 @@
+<div class="card text-light graph-card">
+    <div class="row">
+        <div class="col-md-9">
+            <%= line_chart charts_posts_by_hour_path, points: false, colors: ['#5F87AF','#87AF5F'], library:{
+                xAxis: {
+                    crosshair: true
+                }
+            } %>
+        </div>
+        <div class="col-md-3">
+            <%= pie_chart charts_posts_path, donut: true, colors: ['#5F87AF','#87AF5F'] %>
+        </div>
+    </div>
+</div>
+<div class="card text-light graph-card">
+    <div class="row">
+        <div class="col-md-9">
+            <%= line_chart charts_messages_path, colors: ['#5F87AF','#87AF5F'], refresh: 60, points: false %>
+        </div>
+        <div class="col-md-3">
+            <%= pie_chart charts_rooms_path, donut: true, colors: ['#5F87AF','#87AF5F'], refresh: 60 %>
+        </div>
+    </div>
+</div>
