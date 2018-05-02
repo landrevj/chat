@@ -17,14 +17,14 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   # resource routes
-  resources :rooms, except: [:edit] do
+  resources :rooms, except: [:edit], path: 'r' do
     resource :room_users
     resources :messages
   end
-  resources :boards, param: :abbreviation, :only => [:index, :show], :path => 'b', as: :boards do
+  resources :boards, param: :abbreviation, only: [:index, :show], path: 'b', as: :boards do
     resources :root_posts, :path => 'threads'
   end
-  resources :child_posts, :except => [:index] , :path => 'posts'
+  resources :child_posts, except: [:index] , path: 'posts'
   
   get '/api/root-posts', to: 'root_posts#index' 
   get '/api/root-post/:id', to: 'root_posts#show' 
