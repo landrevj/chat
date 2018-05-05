@@ -2,6 +2,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark side-nav" id="main-nav">
   <%= link_to '>_', root_path, class: 'navbar-brand' %>
   
+  <hr class="lg-up-only">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,17 +11,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <hr class="lg-up-only">
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Account', edit_user_registration_path, class: 'nav-link' %>
+      </li>
+
       <% if current_user.admin? %>
+      <hr class="lg-up-only">
       <li class="nav-item">
         <%= link_to 'Dashboard', '/admin', class: 'nav-link' %>
       </li>
       <% end %>
-      <li class="nav-item">
-        <%= link_to 'Account', edit_user_registration_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Home', root_path, class: 'nav-link' %>
-      </li>
 
       <hr class="lg-up-only">
       
