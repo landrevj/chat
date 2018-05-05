@@ -3,9 +3,9 @@ class ChartsController < ApplicationController
         render json: {"Total Live Threads": RootPost.all.count, "Total Live Posts": ChildPost.all.count}
     end
     def posts_by_hour
-        render json: [{name: 'Threads', data: RootPost.group_by_minute(:created_at).count},
-            {name: 'Posts', data: ChildPost.group_by_minute(:created_at).count}]
-        end
+        render json: [{name: 'Threads', data: RootPost.group_by_hour(:created_at).count},
+            {name: 'Posts', data: ChildPost.group_by_hour(:created_at).count}]
+    end
     def messages
         render json: Message.group_by_hour(:created_at).count
     end
