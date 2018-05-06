@@ -24,7 +24,7 @@
 
 <div class="form-wrap">
   <%= form_for [@room, Message.new] do |f| %>
-    <%= f.text_field :body, autocomplete: 'off', class: 'form-control', autofocus: 'true' %>
+    <%= f.text_field :body, autocomplete: 'off', class: 'form-control' %>
   <% end %>
 </div>
 
