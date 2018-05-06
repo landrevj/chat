@@ -14,7 +14,13 @@ App.rooms = App.cable.subscriptions.create channel: "RoomsChannel", current_stre
     $('.room-connection .status').text('streaming')
     active_room = $("[data-behavior='messages'][data-room-id='#{data.room_id}']")
     if active_room.length > 0
-      active_room.append(data.message)
+      last_message = active_room.find('.message:last-child')
+      
+      if parseInt(last_message.attr('data-sender'), 10) == data.user_id
+        last_message.append "<div class='col-12 body'>" + data.body + "</div>"
+      else
+        active_room.append(data.message)
+      
       $("html, body").scrollTop($("html, body")[0].scrollHeight);
     else
       $("[data-behavior='room-link'][data-room-id='#{data.room_id}']").addClass('unread')

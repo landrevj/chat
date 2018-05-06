@@ -1,5 +1,7 @@
 $(document).on "turbolinks:load", ->
 
+  compress_messages()
+
   $("html, body").scrollTop($("html, body")[0].scrollHeight);  
     
   options = { prevent_repeat: true, prevent_default: true }
@@ -17,3 +19,17 @@ $(document).on "turbolinks:load", ->
     App.rooms.send_message(room_id, body.val())
 
     body.val('')
+
+compress_messages = ->
+  prev = ''
+  $('.message').each (i, el) ->
+    if i == 0 
+      prev = el
+      return
+    
+    if $(prev).attr('data-sender') == $(el).attr('data-sender')
+      $(prev).append $(el).find('.body')
+      $(el).prev('hr').remove()
+      $(el).remove()
+    else
+      prev = el
