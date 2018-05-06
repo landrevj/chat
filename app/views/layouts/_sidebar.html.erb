@@ -28,7 +28,7 @@
  
       <hr class="lg-up-only">
       
-      <li class="nav-item">
+      <li class="nav-item" id="nav-home">
         <%= link_to 'Rooms', rooms_path, class: 'nav-link' %>
         <ul class="text-light">
           <% current_user.rooms.each do |room| %>
