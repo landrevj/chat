@@ -2,9 +2,9 @@
 { 
     background: var(--base03) !important;
 
-    &.post-full.sticky { border-left: var(--cyan) 0.45rem solid; }
+    &.post-full.sticky { border-left: $cyan 0.45rem solid; }
     &.card-normal.sticky, 
-    &.card-overlay.sticky { border-top: var(--cyan) 0.45rem solid; }
+    &.card-overlay.sticky { border-top: $cyan 0.45rem solid; }
 
     .replies
     {
@@ -71,12 +71,12 @@
         display: inherit;
     }
 
-    .post-detail#user-name { color: var(--blue) }
-    .post-detail#subject { color: var(--red) }
-    .post-detail#id a { color: var(--green) }
-    .post-detail#count { color: var(--green) }
-    .post-detail#timestamp-created { color: var(--yellow) }
-    .post-detail#timestamp-edited { color: var(--magenta) }
+    .post-detail#user-name { color: $blue }
+    .post-detail#subject { color: $red; }
+    .post-detail#id a { color: $green }
+    .post-detail#count { color: $green }
+    .post-detail#timestamp-created { color: $yellow }
+    .post-detail#timestamp-edited { color: $purple }
 
     .post-detail#id a
     {

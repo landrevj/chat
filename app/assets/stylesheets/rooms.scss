@@ -63,7 +63,7 @@
     {
         .icon
         {
-            background: var(--blue);
+            background: $blue;
             animation: status-connected 1.5s infinite linear;
         }
     }
@@ -71,7 +71,7 @@
     {
         .icon
         {
-            background: var(--green);
+            background: $green;
             animation: status-streaming 2s infinite;
         }
     }
@@ -90,7 +90,7 @@
         border: var(--base03) 7px solid;
     }
     100% {
-        border: var(--cyan) 0px solid;
+        border: $cyan 0px solid;
     }
 } 
 @keyframes status-streaming
@@ -106,23 +106,23 @@
 {
     0% {
         transform: scale(1.2, 1.2) translateY(-10px);
-        background: var(--red);
+        background: $red;
     }
     25% {
         transform: scale(0.7,0.7);
-        background: var(--magenta);
+        background: $purple;
     }
     50% {
         transform: scale(1.2, 1.2) translateY(10px);
-        background: var(--magenta);
+        background: $purple;
     }
     75% {
         transform: scale(0.7,0.7);
-        background: var(--magenta);
+        background: $purple;
     }
     100% {
         transform: scale(1.2, 1.2) translateY(-10px);
-        background: var(--red);
+        background: $red;
     }
 } 
 
@@ -148,7 +148,7 @@
     {
         strong
         {
-            color: var(--cyan);
+            color: $cyan;
         }
     }
     .body

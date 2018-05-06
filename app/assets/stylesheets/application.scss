@@ -13,17 +13,18 @@
  *= require easy-autocomplete
  *= require easy-autocomplete.themes
  */
- $blue:    #5F87AF !default; //
- $indigo:  #6610f2 !default;
- $purple:  #A25576 !default; //~
- $pink:    #e83e8c !default;
- $red :    #AB5454 !default; //
- $orange:  #fd7e14 !default;
- $yellow:  #D7D787 !default; //
- $green:   #87AF5F !default; //
- $teal:    #20c997 !default;
- $cyan:    #87AFD7 !default; //
- $white:   #E8E8E8 !default; //
+ $green:   #87AF5F !default;
+ $yellow:  #E0E07E !default;
+ $orange : #EC8834 !default;
+ $red:     #AB5454 !default;
+ $purple:  #9E4595 !default;
+ $indigo:  #7D449D !default;
+ $blue:    #4579BF !default;
+ $cyan:    #4EBADC !default;
+
+ $pink:    #CF4E89 !default;
+ $teal:    #58CFB1 !default;
+ $white:   #E8E8E8 !default;
  
  $colors: (
    blue: $blue,
@@ -57,22 +58,13 @@
 
 :root
 {
-    --bg:       #313131;
-    
-    --red :     #AB5454;
-    --green:    #87AF5F;
-    --yellow:   #D7D787;
-    --blue:     #5F87AF;
-    --magenta:  #A25576;
-    --cyan:     #87AFD7;
-    --white :   #E8E8E8;
-
-    --font01 :    var(--white);
-    --font02 :  #A9A598;
-    --font03 :  #848176;
-    --base01 :  #4B4B4B;
-    --base02 :  #444444;
-    --base03 :  #3C3C3C;
+    --font01:  #E8E8E8;
+    --font02:  #A9A598;
+    --font03:  #848176;
+    --base01:  #4B4B4B;
+    --base02:  #444444;
+    --base03:  #3C3C3C;
+    --bg:      #313131;
 }
 
 body
@@ -119,6 +111,15 @@ hr
     border-width: 0;
     background-color: var(--base02);
 }
+hr.rainbow {
+    border: 0;
+    height: 5px;
+    background: -moz-linear-gradient(left,    $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+    background: -webkit-linear-gradient(left, $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+    background: -o-linear-gradient(left,      $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+    background: -ms-linear-gradient(left,     $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+    background: linear-gradient(to right,     $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+}
 
 mark
 {
@@ -133,7 +134,7 @@ table
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
 }
 
-thead { background: var(--blue); }
+thead { background: $blue; }
 
 th, td
 {
@@ -144,7 +145,7 @@ th, td
 blockquote
 {
     background: var(--base02);
-    border-left: 10px solid var(--green);
+    border-left: 10px solid $green;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
@@ -163,7 +164,7 @@ blockquote:after { content: no-close-quote; }
 
 blockquote p { display: inline; }
 
-.spoiler { border-left: 10px solid var(--red); background: var(--base03);}
+.spoiler { border-left: 10px solid $red; background: var(--base03);}
 
 .spoiler:before { content: no-open-quote; }
 
@@ -220,7 +221,7 @@ a.quote:hover { color: var(--font01);}
 
 .graph-card
 {
-    background: var(--white);
+    background: $white;
     padding: 25px;
     margin-bottom: 25px;
 }

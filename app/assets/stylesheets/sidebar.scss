@@ -36,7 +36,7 @@
 
 hr.admin-section
 {
-    background: var(--red);
+    background: $red;
     &::after
     {
         display: block;
@@ -47,8 +47,21 @@ hr.admin-section
         content: 'A';
         text-align: center;
         color: var(--font01);
-        background: var(--red);
+        background: $red;
     }
+}
+
+.unread::after
+{
+    display: inline-block;
+    position: relative;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    
+    content: '';
+    border-radius: 999px;
+    background: $cyan;
 }
 
 @include media-breakpoint-up(lg)
