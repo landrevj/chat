@@ -18,4 +18,5 @@
 //= require turbolinks
 //= require Chart.bundle
 //= require chartkick
+//= require keypress
 //= require_tree .
