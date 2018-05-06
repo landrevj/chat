@@ -9,15 +9,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
-    
-      <% if current_user.admin? %>
-      <hr class="lg-up-only admin-section">
-      <li class="nav-item">
-        <%= link_to 'Dashboard', '/admin', class: 'nav-link' %>
-      </li>
-      <% end %>
 
-      <hr class="lg-up-only">
+      <hr class="lg-up-only rainbow">
 
       <li class="nav-item">
         <%= link_to 'Home', root_path, class: 'nav-link' %>
@@ -26,6 +19,13 @@
         <%= link_to 'Account', edit_user_registration_path, class: 'nav-link' %>
       </li>
 
+      <% if current_user.admin? %>
+      <hr class="lg-up-only admin-section">
+      <li class="nav-item">
+        <%= link_to 'Dashboard', '/admin', class: 'nav-link' %>
+      </li>
+      <% end %>
+ 
       <hr class="lg-up-only">
       
       <li class="nav-item">
@@ -36,6 +36,9 @@
           <% end %>
         </ul>
       </li>
+
+      <hr class="lg-up-only">
+      
       <li class="nav-item">
         <nav class="nav-bread" aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -61,6 +64,7 @@
       <%= form_with url: search_path, local: true, method: :get, html: {class: 'site-search'} do |f| %>
         <%= f.text_field :q, placeholder: 'Search', data: {behavior: 'autocomplete'}, class: 'form-control mr-sm-2' %>
       <% end %>
+
     </ul>
   </div>
 </nav>
