@@ -1,7 +1,7 @@
 <hr>
 <div class="row message">
     <div class="col-12 details">
-        <strong><%= message.user.user_name %></strong>
+        <strong class='<%= get_user_color message.user.user_name %> username-string'><%= message.user.user_name %></strong>
         <div class="timestamp float-right"><%= l message.created_at, format: :clock %></div>
     </div>
     <div class="col-12 body">

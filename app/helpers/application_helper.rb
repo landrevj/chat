@@ -149,4 +149,18 @@ module ApplicationHelper
       when 'alert' then "alert alert-error"
     end
   end
+
+  def get_user_color(nick)
+    number = djb2(nick) % 10
+    color = %w(green yellow orange red pink purple indigo blue cyan teal)
+    color[number]
+  end
+
+  def djb2 str
+    hash = 5381
+    str.each_byte do |b|
+      hash = (((hash << 5) + hash) + b) % (2 ** 32)
+    end
+    hash
+  end
 end

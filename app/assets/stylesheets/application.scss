@@ -17,13 +17,13 @@
  $yellow:  #E0E07E !default;
  $orange : #EC8834 !default;
  $red:     #AB5454 !default;
+ $pink:    #CF4E89 !default;
  $purple:  #9E4595 !default;
  $indigo:  #7D449D !default;
  $blue:    #4579BF !default;
  $cyan:    #4EBADC !default;
-
- $pink:    #CF4E89 !default;
  $teal:    #58CFB1 !default;
+
  $white:   #E8E8E8 !default;
  
  $colors: (
@@ -229,4 +229,18 @@ a.quote:hover { color: var(--font01);}
 .easy-autocomplete
 {
     width: initial !important;
+}
+
+.username-string
+{
+    &.green   { color: $green !important; }
+    &.yellow  { color: $yellow !important; }
+    &.orange  { color: $orange !important; }
+    &.red     { color: $red !important; }
+    &.pink    { color: $pink !important; }
+    &.purple  { color: $purple !important; }
+    &.indigo  { color: $indigo !important; }
+    &.blue    { color: $blue !important; }
+    &.cyan    { color: $cyan !important; }
+    &.teal    { color: $teal !important; }
 }
