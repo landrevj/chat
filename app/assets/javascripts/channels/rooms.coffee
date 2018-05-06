@@ -17,7 +17,7 @@ App.rooms = App.cable.subscriptions.create channel: "RoomsChannel", current_stre
       active_room.append(data.message)
       $("html, body").scrollTop($("html, body")[0].scrollHeight);
     else
-      $("[data-behavior='room-link'][data-room-id='#{data.room_id}']").css('font-weight', 'bold')
+      $("[data-behavior='room-link'][data-room-id='#{data.room_id}']").addClass('unread')
 
   send_message: (room_id, message) ->
     @perform "send_message", {room_id: room_id, body: message}
