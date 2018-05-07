@@ -13,12 +13,16 @@ $(document).on "turbolinks:load", ->
   $('#new_message').on 'submit', (e) ->
     e.preventDefault()
 
-    room_id = $("[data-behavior='messages']").data('room-id')
-    body = $('#message_body')
+    # validate form input size
+    if this.checkValidity() == false
+      this.classList.add('was-validated');
+    else
+      body = $('#message_body')
+      room_id = $("[data-behavior='messages']").data('room-id')
+      App.rooms.send_message(room_id, body.val())
 
-    App.rooms.send_message(room_id, body.val())
-
-    body.val('')
+      $(this).removeClass('was-validated')
+      body.val('')
 
 compress_messages = ->
   prev = ''

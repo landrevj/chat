@@ -13,6 +13,7 @@ class RoomsController < ApplicationController
   def show
     @current_stream = params[:id]
     @recents = @room.messages.order(created_at: :desc).limit(100).reverse
+    @message = @room.messages.build
   end
 
   # GET /rooms/new

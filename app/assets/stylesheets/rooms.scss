@@ -195,13 +195,19 @@
 form#new_message
 {
     position: fixed;
-    bottom: 20px;
+    bottom: 25px;
+
+    .invalid-feedback {
+        position: absolute;
+        bottom: -21px;
+        pointer-events: none;
+    }
 }
 
 .form-wrap
 {
     position: fixed;
     bottom: 0;
-    height: 25px;
+    height: 30px;
     background: var(--bg);
 }

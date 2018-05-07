@@ -23,8 +23,11 @@
 </div>
 
 <div class="form-wrap">
-  <%= form_for [@room, Message.new] do |f| %>
-    <%= f.text_field :body, autocomplete: 'off', class: 'form-control' %>
+  <%= form_for [@room, @message] do |f| %>
+    <%= f.text_field :body, autocomplete: 'off', class: 'form-control form-control-danger', pattern: '.{1,1000}', required: true  %>
+    <div class="invalid-feedback">
+      Length must be between 1 and 1000 characters.
+    </div>
   <% end %>
 </div>
 
