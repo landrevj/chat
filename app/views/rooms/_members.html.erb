@@ -10,6 +10,13 @@
       </li>
       <% end %>
       
+      <% (1..100).each do %>
+        <% name = (0..10).map { (65 + rand(26)).chr }.join %>
+        <li class="nav-item text-light username-string <%= get_user_color name %>">
+          <%= name %>
+        </li>
+      <% end %>
+
     </ul>
   </div>
 </nav>
