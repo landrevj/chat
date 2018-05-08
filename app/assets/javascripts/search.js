@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', () => {
             }
         },
         url: function(phrase) {
-            return '/search.json?q=' + phrase
+            return '/api/search.json?q=' + phrase
         },
         categories: [
             {

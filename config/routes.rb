@@ -16,6 +16,21 @@ Rails.application.routes.draw do
   # move rails_admin to shorter uri
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
+  # api stuff
+  scope '/api' do
+    namespace :charts do
+      get 'posts'
+      get 'posts-by-hour'
+      get 'messages'
+      get 'rooms'
+    end
+    get :search, controller: :search
+  end
+  
+  get 'root-posts', to: 'root_posts#index' 
+  get 'root-post/:id', to: 'root_posts#show' 
+  get 'child-post/:id', to: 'child_posts#show' 
+  
   # resource routes
   resources :rooms, except: [:edit], path: 'r' do
     resource :room_users
@@ -25,19 +40,6 @@ Rails.application.routes.draw do
     resources :root_posts, :path => 'threads'
   end
   resources :child_posts, except: [:index] , path: 'posts'
-  
-  namespace :charts do
-    get 'posts'
-    get 'posts-by-hour'
-    get 'messages'
-    get 'rooms'
-  end
-
-  get :search, controller: :search
-  
-  get '/api/root-posts', to: 'root_posts#index' 
-  get '/api/root-post/:id', to: 'root_posts#show' 
-  get '/api/child-post/:id', to: 'child_posts#show' 
 
   # static page routes
   get '/pages/:page' => 'pages#show'
