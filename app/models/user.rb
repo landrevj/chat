@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   has_many :room_users
   has_many :rooms, through: :room_users
+  has_many :owned_rooms, class_name: 'Room', foreign_key: 'user_id'
   has_many :messages
 
   store_attributes :preferences do

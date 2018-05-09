@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
-    @room = Room.new
+    @room = current_user.owned_rooms.build
   end
 
   # GET /rooms/1
@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/new
   def new
-    @room = Room.new
+    @room = current_user.owned_rooms.build
   end
 
   # GET /rooms/1/edit
@@ -28,7 +28,7 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(room_params)
+    @room = current_user.owned_rooms.build(room_params)
 
     respond_to do |format|
       if @room.save
