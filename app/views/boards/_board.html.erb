@@ -1,6 +1,6 @@
 <nav class="board-link" aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item" aria-current="page"><%= link_to board, class: 'board-abbreviation' do %><%= board.abbreviation %><% end %></li>
+    <li class="breadcrumb-item" aria-current="page"><%= link_to board.abbreviation, board, class: 'board-abbreviation'%></li>
     <li class="breadcrumb-item active" aria-current="page"><%= board.name %></li>
   </ol>
 </nav>

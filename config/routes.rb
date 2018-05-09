@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   
   
   # resource routes
-  resources :rooms, except: [:edit], path: 'r' do
+  resources :rooms, except: [:edit], path: 'r', param: :name do
     resource :room_users
     resources :messages
   end
