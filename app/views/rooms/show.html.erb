@@ -10,16 +10,16 @@
     <% else %>
       <%= link_to room_room_users_path(@room), method: :post, class: 'text-success' do %><i class="material-icons">add_circle</i><% end %>
     <% end %>
+    <% if can? :modify, @room %>
     <div class="dropdown float-right post-actions">
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <% if can? :modify, @room %>
           <%= link_to [:edit, @room], class: 'dropdown-item' do %>Edit<% end %>
           <%= link_to @room, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' do %>Delete<% end %>
-        <% end %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
 
