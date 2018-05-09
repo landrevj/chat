@@ -30,6 +30,11 @@
     .room-actions
     {
         display: inline-block;
+
+        & > *
+        {
+            margin-left: 3px;
+        }
     }
 
     .status,
