@@ -25,11 +25,12 @@ Rails.application.routes.draw do
       get 'rooms'
     end
     get :search, controller: :search
+    
+    get 'root-posts', to: 'root_posts#index' 
+    get 'root-post/:id', to: 'root_posts#show' 
+    get 'child-post/:id', to: 'child_posts#show' 
   end
   
-  get 'root-posts', to: 'root_posts#index' 
-  get 'root-post/:id', to: 'root_posts#show' 
-  get 'child-post/:id', to: 'child_posts#show' 
   
   # resource routes
   resources :rooms, except: [:edit], path: 'r' do
