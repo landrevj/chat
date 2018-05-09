@@ -12,46 +12,64 @@
 
       <hr class="lg-up-only rainbow">
 
-      <li class="nav-item">
-        <%= link_to 'Home', root_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Account', edit_user_registration_path, class: 'nav-link' %>
-      </li>
+      <div class="user-section">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Account', edit_user_registration_path, class: 'nav-link' %>
+        </li>
+      </div>
 
       <% if current_user.admin? %>
       <hr class="lg-up-only admin-section">
-      <li class="nav-item">
-        <%= link_to 'Dashboard', '/admin', class: 'nav-link' %>
-      </li>
+      <div class="admin-section">
+        <li class="nav-item">
+          <%= link_to 'Dashboard', '/admin', class: 'nav-link' %>
+        </li>
+      </div>
       <% end %>
  
       <hr class="lg-up-only">
       
-      <li class="nav-item" id="nav-home">
-        <%= link_to 'Rooms', rooms_path, class: 'nav-link' %>
-        <ul class="text-light">
-          <% current_user.rooms.each do |room| %>
-            <li>#<%= link_to room.name, room, data: {behavior: 'room-link', room_id: room.id} %></li>
-          <% end %>
-        </ul>
-      </li>
+      <div class="rooms-section">
+        <li class="nav-item" id="nav-home">
+          <%= link_to 'Rooms', rooms_path, class: 'nav-link' %>
+          <ul class="text-light">
+            <% current_user.rooms.each do |room| %>
+              <li>#<%= link_to room.name, room, data: {behavior: 'room-link', room_id: room.id} %></li>
+            <% end %>
+          </ul>
+        </li>
+      </div>
 
       <hr class="lg-up-only">
       
-      <li class="nav-item">
-        <nav class="nav-bread" aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item" aria-current="page"><%= link_to 'Boards', boards_path, class: 'nav-link' %></li>
-            <% if @board%><li class="breadcrumb-item" aria-current="page"><%= link_to @board, class: 'board-abbreviation' do %><%= @board.abbreviation %><% end %></li><% end %>
-            <% if @root_post && @child_posts %><li class="breadcrumb-item active" aria-current="page"><%= @root_post.id %></li><% end %>
-          </ol>
-        </nav>
-      </li>
-      
+      <div class="boards-section">
+        <li class="nav-item">
+          <nav class="nav-bread" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item" aria-current="page"><%= link_to 'Boards', boards_path, class: 'nav-link' %></li>
+              <% if @board%><li class="breadcrumb-item" aria-current="page"><%= link_to @board, class: 'board-abbreviation' do %><%= @board.abbreviation %><% end %></li><% end %>
+              <% if @root_post && @child_posts %><li class="breadcrumb-item active" aria-current="page"><%= @root_post.id %></li><% end %>
+            </ol>
+          </nav>
+        </li>
+        <% if @root_post && @child_posts %>
+        <li class="nav-link thread-stats text-light" title="[Post Count / File Count / User Count] [Update Timer]">
+          [
+          <div class="post-count"><%= 1 + @child_posts.count %></div>/
+          <div class="file-count"><%= @root_post.file_count %></div>/
+          <div class="user-count"><%= (@child_posts.where(user_id: @root_post.user.id).exists? ? 0:1) + @child_posts.distinct.count(:user_id) %></div>
+          ]&nbsp;
+          [<div class="updater">?</div>]
+        </li>
+        <% end %>
+      </div>
+
       <hr class="lg-up-only">
       
-      <li class="nav-item">
+      <li class="nav-item logout">
         <%= link_to 'Info', '/pages/info', class: 'nav-link' %>
       </li>
 

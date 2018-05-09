@@ -82,6 +82,11 @@ hr.admin-section
     background: $cyan;
 }
 
+.thread-stats
+{
+    display: flex;
+}
+
 @include media-breakpoint-up(lg)
 {
     body > .container-fluid
