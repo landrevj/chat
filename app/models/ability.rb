@@ -9,7 +9,6 @@ class Ability
       can :manage, RootPost, user_id: user.id
       can :manage, ChildPost, user_id: user.id
       can :manage, Room, user_id: user.id
-      # can :manage, Room
       if user.admin?
         can :manage, :all
       end

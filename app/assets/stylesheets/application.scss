@@ -75,10 +75,23 @@ body
 
 body > .alert
 {
-    position: relative;
-    top: 56px;
-    z-index: 1030;
+    position: fixed;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+    z-index: 1031;
+    animation: alert-slide-down 0.8s;
 }
+
+@keyframes alert-slide-down
+{
+    from {
+        top: -55px;
+    }
+    to {
+        top: 0;
+    }
+} 
 
 .card
 {

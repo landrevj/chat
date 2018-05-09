@@ -14,12 +14,12 @@
   </head>
 
   <body>
+    <%= render 'layouts/alerts' %>
     <div class="wild-ui"></div>
     
     <%= render 'layouts/sidebar' %>
 
     <div class="container-fluid">
-      <%= render 'layouts/alerts' %>
       <%= yield %>
     </div>
   </body>
