@@ -13,6 +13,6 @@ class RoomUsersController < ApplicationController
 
     private
     def set_room
-        @room = Room.find(params[:room_id])
+        @room = Room.find_by(name: params[:room_name])
     end
 end
