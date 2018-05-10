@@ -50,7 +50,7 @@ function insert_new_posts()
         url: location.toString() + '.json',
         dataType: 'json',
         success: (data) => {
-            update_posts(data);
+            refresh_thread(data);
             var new_posts = data.child_posts;
             if (old_posts.length < new_posts.length)
             {
@@ -62,10 +62,15 @@ function insert_new_posts()
     });
 }
 
-function update_posts(data)
+function refresh_thread(data)
 {
-    $('.root-post').replaceWith(data.html);
+    $('.root-post').replaceWith(data.root_post.html);
     for (let i = 0; i < data.child_posts.length; i++) {
         $($('.child-post')[i]).replaceWith(data.child_posts[i].html)
     }
+}
+
+function update_post(post, created, updated, replies)
+{
+
 }

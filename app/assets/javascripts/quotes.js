@@ -53,9 +53,9 @@ function insert_post(type, id, target)
         url: "/api/" + type + "/" + id,
         dataType: "json",
         success: (data) => {
-            target.after(data.html);
+            // console.log(data[type.replace('-', '_')])
+            target.after(data[type.replace('-', '_')].html);
             target.next().addClass('embedded');
-            // console.log(data);
         }
     });
 }
