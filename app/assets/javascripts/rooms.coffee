@@ -2,7 +2,8 @@ $(document).on "turbolinks:load", ->
 
   compress_messages()
 
-  $("html, body").scrollTop($("html, body")[0].scrollHeight);  
+  if $('[data-behavior="messages"]').length 
+    $("html, body").scrollTop($("html, body")[0].scrollHeight);  
     
   options = { prevent_repeat: true, prevent_default: true }
   listener = new window.keypress.Listener($('#new_message'), options)

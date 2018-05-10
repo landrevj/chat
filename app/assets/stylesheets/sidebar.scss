@@ -85,6 +85,11 @@ hr.admin-section
 .thread-stats
 {
     display: flex;
+
+    .updater
+    {
+        cursor: pointer;
+    }
 }
 
 @include media-breakpoint-up(lg)

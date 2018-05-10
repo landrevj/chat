@@ -1,4 +1,4 @@
-<div class="card post post-full root-post" id="child-<%= child_post.id %>">
+<div class="card post post-full child-post" id="child-<%= child_post.id %>">
 
   <div class="card-body<%= ' replies-after' if child_post.root_reply_ids.any? || child_post.child_reply_ids.any? %>">
     <div class="row post-header">
