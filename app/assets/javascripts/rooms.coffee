@@ -4,12 +4,11 @@ $(document).on "turbolinks:load", ->
 
   if $('[data-behavior="messages"]').length 
     $("html, body").scrollTop($("html, body")[0].scrollHeight);  
-    
-  options = { prevent_repeat: true, prevent_default: true }
-  listener = new window.keypress.Listener($('#new_message'), options)
+    options = { prevent_repeat: true, prevent_default: true }
+    listener = new window.keypress.Listener($('#new_message'), options)
 
-  listener.simple_combo "enter", (e) ->
-    $('#new_message').submit()
+    listener.simple_combo "enter", (e) ->
+      $('#new_message').submit()
 
   $('#new_message').on 'submit', (e) ->
     e.preventDefault()
