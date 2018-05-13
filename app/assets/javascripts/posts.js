@@ -16,11 +16,11 @@ $(document).on('turbolinks:load', () => {
 
     // post fetching on interval
     var query_interval_ms = 30000,
-    query_timer_ms = query_interval_ms,
-    updater = $('.thread-stats .updater');
+        query_timer_ms = query_interval_ms,
+        updater = $('.thread-stats .updater');
     
     $('body').on('click', '.thread-stats .updater', () => {
-        insert_new_posts();
+        refresh_thread();
         query_timer_ms = query_interval_ms;
     });
     
@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', () => {
             if (query_timer_ms <= 0)
             {
                 query_timer_ms = query_interval_ms;
-                insert_new_posts();
+                refresh_thread();
             }
             else query_timer_ms -= 1000;
         }, 1000);
@@ -40,9 +40,9 @@ $(document).on('turbolinks:load', () => {
 
 });
 
-function insert_new_posts()
+function refresh_thread()
 {
-    var old_posts = $('.child-post');
+    var old_posts = $('.child-post:not(.embedded)');
     var last_id = 0;
     if (old_posts.length) last_id = parseInt($(old_posts[old_posts.length - 1]).attr('id').substring(6), 10);
     $.ajax({
@@ -50,27 +50,62 @@ function insert_new_posts()
         url: location.toString() + '.json',
         dataType: 'json',
         success: (data) => {
-            refresh_thread(data);
-            var new_posts = data.child_posts;
-            if (old_posts.length < new_posts.length)
-            {
-                for (let i = old_posts.length; i < new_posts.length; i++) {
-                    $('.container-fluid').append(new_posts[i].html)
-                }
+            
+            var posts = $('.child-post:not(.embedded)'),
+                new_ids = data.child_posts.map(post => post.data.id);
+            for (let i = 0; i < posts.length; i++) {
+                var e = $(posts[i]);
+                if (!new_ids.includes(parseInt(e.attr('id').split('-')[1], 10))) e.remove();
             }
+
+            var old_length = $('.child-post:not(.embedded)').length,
+                new_posts = data.child_posts;
+            for (let i = old_length; i < new_posts.length; i++) {
+                var e = new_posts[i].html;
+                $('.container-fluid').append(e);
+            }
+
+            update_posts(data);
         }
     });
 }
 
-function refresh_thread(data)
+function update_posts(data)
 {
-    $('.root-post').replaceWith(data.root_post.html);
-    for (let i = 0; i < data.child_posts.length; i++) {
-        $($('.child-post')[i]).replaceWith(data.child_posts[i].html)
+    var or = $('.root-post:not(.embedded)');
+    or.replaceWith(data.root_post.html);
+    var nr = $('.root-post:not(.embedded)');
+    persist_actions(or, nr);
+
+    var old_children = $('.child-post:not(.embedded)'); 
+    for (let i = 0; i < old_children.length; i++) {
+        var oc = $(old_children[i]);
+        oc.replaceWith(data.child_posts[i].html);
+        var nc = $('#' + oc.attr('id'));
+        persist_actions(oc, nc);
     }
 }
 
-function update_post(post, created, updated, replies)
+function persist_actions(old_post, new_post)
 {
-
+    var quotes = old_post.find('.quote');
+    for (let i = 0; i < quotes.length; i++) {
+        var e = $(quotes[i]),
+            f = $(new_post.find('.quote')[i]),
+            g = e.next();
+        if (g.hasClass('post')) {
+            f.after(g);
+        }
+    }
+    new_post.find('> .card-body').after(old_post.find('> .embedded'));
+    var has_replies = new_post.find('> .row > .replies-container > .replies').length;
+    if (has_replies) {
+        var old_replies = old_post.find('> .row > .replies-container .reply.opened');
+        for (let i = 0; i < old_replies.length; i++) {
+            var e = $(old_replies[i]);
+            var p = new_post.find('#' + e.attr('id') + '.' + e.attr('class').split(' ')[0]);
+            p.addClass('opened');
+            p.find('i').text('close');
+        }
+    }
 }
