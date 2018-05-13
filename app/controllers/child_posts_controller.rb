@@ -91,7 +91,7 @@ class ChildPostsController < ApplicationController
           post = ChildPost.find(id)
         end
 
-        post.child_reply_ids = post.child_reply_ids.push(child_post.id)
+        post.child_reply_ids |= [child_post.id]
         post.save(touch: false)
 
       rescue ActiveRecord::RecordNotFound
