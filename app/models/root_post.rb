@@ -21,10 +21,10 @@ class RootPost < ApplicationRecord
 
   def file_count
     sum = 0
-    self.child_posts.each do |c|
+    child_posts.each do |c|
       sum += 1 if c.picture.present?
     end
-    sum += 1 if self.picture.present?
+    sum += 1 if picture.present?
     sum
   end
 end

@@ -84,6 +84,10 @@ function update_posts(data)
         var nc = $('#' + oc.attr('id'));
         persist_actions(oc, nc);
     }
+
+    $('.thread-stats .post-count').text(data.root_post.stats.posts);
+    $('.thread-stats .file-count').text(data.root_post.stats.files);
+    $('.thread-stats .user-count').text(data.root_post.stats.users);
 }
 
 function persist_actions(old_post, new_post)
