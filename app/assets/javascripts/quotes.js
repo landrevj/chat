@@ -28,11 +28,11 @@ $(document).on('turbolinks:load', () => {
         if (clicked.hasClass('root-reply'))       type = 'root-post';
         else if (clicked.hasClass('child-reply')) type = 'child-post';
 
-        var find = clicked.parent().parent().parent().parent().find('#' + type.split('-', 1) + '-' + id)
+        var find = clicked.closest('.post').find('#' + type.split('-', 1) + '-' + id)
 
         if (find.length === 0)
         {   
-            insert_post(type, id, clicked.parent().parent().parent().prev());
+            insert_post(type, id, clicked.closest('.row').prev());
             clicked.addClass('opened');
             $(e.target).html('close');
         }
