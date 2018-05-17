@@ -81,7 +81,7 @@ function update_posts(data)
     for (let i = 0; i < old_children.length; i++) {
         var oc = $(old_children[i]);
         oc.replaceWith(data.child_posts[i].html);
-        var nc = $('#' + oc.attr('id'));
+        var nc = $('#' + oc.attr('id') + ':not(.embedded)');
         persist_actions(oc, nc);
     }
 
@@ -92,7 +92,7 @@ function update_posts(data)
 
 function persist_actions(old_post, new_post)
 {
-    var quotes = old_post.find('.quote');
+    var quotes = old_post.find('*:not(.embedded) .quote');
     for (let i = 0; i < quotes.length; i++) {
         var e = $(quotes[i]),
             f = $(new_post.find('.quote')[i]),
