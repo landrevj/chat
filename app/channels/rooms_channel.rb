@@ -3,10 +3,9 @@ class RoomsChannel < ApplicationCable::Channel
     current_user.rooms.each do |room|
       stream_from "rooms:#{room.id}"
     end
-    # if params[:current_stream] && !RoomUser.find_by(user_id: current_user.id, room_id: params[:current_stream])
-    #   stop_all_streams
-    #   stream_from "rooms:#{params[:current_stream]}"
-    # end
+    if params[:current_stream] && !RoomUser.find_by(user_id: current_user.id, room_id: params[:current_stream])
+      stream_from "rooms:#{params[:current_stream]}"
+    end
   end
 
   def unsubscribed
@@ -14,8 +13,8 @@ class RoomsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    @room = Room.find(data["room_id"])
-    message = @room.messages.create(body: data["body"], user: current_user)
+    @room = Room.find(data['room_id'])
+    message = @room.messages.create(body: data['body'], user: current_user)
     MessageRelayJob.perform_later(message)
   end
 end
