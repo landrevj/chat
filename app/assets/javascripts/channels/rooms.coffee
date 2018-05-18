@@ -10,7 +10,6 @@ $(document).on "turbolinks:load", ->
       $('.room-connection .status').text('disconnected')
 
     received: (data) ->
-      console.log App.rooms
       $('.room-connection').attr('id', 'streaming')
       $('.room-connection .status').text('streaming')
       active_room = $("[data-behavior='messages'][data-room-id='#{data.room_id}']")
