@@ -37,7 +37,7 @@
           <%= link_to 'Rooms', rooms_path, class: 'nav-link' %>
           <ul class="text-light">
             <% current_user.rooms.each do |room| %>
-              <li>#<%= link_to room.name, room, data: {behavior: 'room-link', room_id: room.id} %></li>
+              <li>#<%= link_to room.name, room, data: {behavior: 'room-link', room_id: room.id}, class: ['hash-color', get_user_color(room.name)] %></li>
             <% end %>
           </ul>
         </li>
@@ -50,7 +50,7 @@
           <nav class="nav-bread" aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item" aria-current="page"><%= link_to 'Boards', boards_path, class: 'nav-link' %></li>
-              <% if @board%><li class="breadcrumb-item" aria-current="page"><%= link_to @board, class: 'board-abbreviation' do %><%= @board.abbreviation %><% end %></li><% end %>
+              <% if @board%><li class="breadcrumb-item" aria-current="page"><%= link_to @board, class: ['board-abbreviation', 'hash-color', get_user_color(@board.name)] do %><%= @board.abbreviation %><% end %></li><% end %>
               <% if @root_post && @child_posts %><li class="breadcrumb-item active" aria-current="page"><%= @root_post.id %></li><% end %>
             </ol>
           </nav>
