@@ -1,24 +1,20 @@
 <div class="card text-light graph-card">
     <div class="row">
         <div class="col-md-9">
-            <%= line_chart charts_posts_by_hour_path, points: false, colors: ['#5F87AF','#87AF5F'], library:{
-                xAxis: {
-                    crosshair: true
-                }
-            } %>
+            <%= area_chart charts_posts_by_hour_path, height: '375px', points: false, colors: @colors, refresh: 300, title: 'Posts Created', library: @options[:line] %>
         </div>
         <div class="col-md-3">
-            <%= pie_chart charts_posts_path, donut: true, colors: ['#5F87AF','#87AF5F'] %>
+            <%= column_chart charts_posts_path, height: '375px', stacked: true, colors: @colors, refresh: 300, library: @options[:bar] %>
         </div>
     </div>
 </div>
 <div class="card text-light graph-card">
     <div class="row">
         <div class="col-md-9">
-            <%= line_chart charts_messages_path, colors: ['#5F87AF','#87AF5F'], refresh: 60, points: false %>
+            <%= area_chart charts_messages_path, height: '375px', colors: @colors, refresh: 300, points: false, title: 'Messages Sent', library: @options[:line] %>
         </div>
         <div class="col-md-3">
-            <%= pie_chart charts_rooms_path, donut: true, colors: ['#5F87AF','#87AF5F'], refresh: 60 %>
+            <%= pie_chart charts_rooms_path, height: '375px', donut: true, colors: @colors, refresh: 300, library: @options[:donut] %>
         </div>
     </div>
 </div>
