@@ -12,6 +12,7 @@ board_list = [
   ['auto', 'Automobiles'],
   ['nat', 'Nature'],
   ['tech', 'Technology'],
+  ['dev', 'Development'],
   ['tv', 'Television'],
   ['v', 'Video Games'],
   ['vg', 'Video Game Generals'],

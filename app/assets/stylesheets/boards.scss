@@ -20,6 +20,11 @@
   .breadcrumb-item.active { color: var(--font01); }
 }
 
+.boards
+{
+  padding-left: 1.25rem;
+}
+
 body > .container {
   @include media-breakpoint-only(xs) {
     padding: 30px 50px !important;
