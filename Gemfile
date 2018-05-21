@@ -64,6 +64,8 @@ gem 'groupdate'
 
 gem 'ransack', '~> 1.8.8'
 
+gem 'acts-as-taggable-on', '~> 5.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
