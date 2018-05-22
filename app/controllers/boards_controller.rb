@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   # GET /boards
   # GET /boards.json
   def index
@@ -11,9 +11,14 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @stickies = @board.root_posts.where('properties @> ?', {sticky: true}.to_json).order(created_at: :desc)
-    @root_posts = @board.root_posts.where('properties @> ?', {sticky: false}.to_json).order(created_at: :desc)
-    @root_post = @board.root_posts.build
+    @board = Board.find_by(abbreviation: params[:board_abbreviation]) if params[:board_abbreviation]
+
+    r = @board.root_posts
+    r = r.tagged_with(params[:tag]) if params[:tag]
+
+    @stickies = r.where('properties @> ?', { sticky: true }.to_json).order(created_at: :desc)
+    @root_posts = r.where('properties @> ?', { sticky: false }.to_json).order(created_at: :desc)
+    @root_post = r.build
   end
 
   # GET /boards/new
