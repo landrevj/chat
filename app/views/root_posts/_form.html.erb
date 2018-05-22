@@ -22,6 +22,10 @@
     </div>
 
     <div class="form-group">
+      <%= form.text_field :tag_list, value: root_post.tag_list.join(', '), class: 'form-control', id: :tag_list, placeholder: 'tags (comma delimited)' %>
+    </div>
+
+    <div class="form-group">
       <%= form.text_field :remote_picture_url, class: 'form-control', id: :root_post_picture_url, placeholder: 'url upload' %>
     </div>
 

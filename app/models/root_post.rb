@@ -8,6 +8,7 @@ class RootPost < ApplicationRecord
   validates :body, presence: true, unless: proc { |r| r.picture.present? }
 
   mount_uploader :picture, PictureUploader
+  acts_as_taggable
 
   belongs_to :user
   belongs_to :board

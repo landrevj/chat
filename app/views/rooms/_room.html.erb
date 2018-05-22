@@ -1,5 +1,5 @@
 <nav class="room-link text-light" aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item" aria-current="page">#<%= link_to room.name, room, class: ['hash-color', get_user_color(room.name)] %></li>
+    <li class="breadcrumb-item" aria-current="page">#<%= link_to room.name, room, class: ['hash-color', get_hash_color(room.name) + '-text'] %></li>
   </ol>
 </nav>

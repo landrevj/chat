@@ -1,0 +1,10 @@
+<div class="row tag-list text-light">
+    <div class="col">
+        <div class="tag-container">
+            <i class="material-icons">label</i>
+            <% tag_list.each do |tag| %>
+                <div class="tag hash-color <%= get_hash_color tag %>-background"><%= tag %></div>
+            <% end %>
+        </div>
+    </div>
+</div>

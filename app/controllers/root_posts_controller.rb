@@ -1,7 +1,7 @@
 class RootPostsController < ApplicationController
   before_action :set_root_post, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   include ApplicationHelper
 
   # GET /root_posts
@@ -76,10 +76,10 @@ class RootPostsController < ApplicationController
   def set_root_post
     @root_post = RootPost.find(params[:id])
   end
- 
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def root_post_params
-    params.require(:root_post).permit(:subject, :body, :picture, :remote_picture_url, :board_id)
+    params.require(:root_post).permit(:subject, :body, :picture, :remote_picture_url, :tag_list, :board_id)
   end
 
   # Add root_post.id to the properties of each post it quotes.

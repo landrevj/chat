@@ -246,14 +246,25 @@ a.quote:hover { color: var(--font01);}
 
 .hash-color
 {
-    &.green   { color: $green !important; }
-    &.yellow  { color: $yellow !important; }
-    &.orange  { color: $orange !important; }
-    &.red     { color: $red !important; }
-    &.pink    { color: $pink !important; }
-    &.purple  { color: $purple !important; }
-    &.indigo  { color: $indigo !important; }
-    &.blue    { color: $blue !important; }
-    &.cyan    { color: $cyan !important; }
-    &.teal    { color: $teal !important; }
+    &.green-text   { color: $green !important; }
+    &.yellow-text  { color: $yellow !important; }
+    &.orange-text  { color: $orange !important; }
+    &.red-text     { color: $red !important; }
+    &.pink-text    { color: $pink !important; }
+    &.purple-text  { color: $purple !important; }
+    &.indigo-text  { color: $indigo !important; }
+    &.blue-text    { color: $blue !important; }
+    &.cyan-text    { color: $cyan !important; }
+    &.teal-text    { color: $teal !important; }
+
+    &.green-background   { background: $green !important; }
+    &.yellow-background  { background: $yellow !important; }
+    &.orange-background  { background: $orange !important; }
+    &.red-background     { background: $red !important; }
+    &.pink-background    { background: $pink !important; }
+    &.purple-background  { background: $purple !important; }
+    &.indigo-background  { background: $indigo !important; }
+    &.blue-background    { background: $blue !important; }
+    &.cyan-background    { background: $cyan !important; }
+    &.teal-background    { background: $teal !important; }
 }

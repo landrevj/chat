@@ -150,8 +150,8 @@ module ApplicationHelper
     end
   end
 
-  def get_user_color(nick)
-    number = djb2(nick) % 10
+  def get_hash_color(str)
+    number = djb2(str) % 10
     color = %w(green yellow orange red pink purple indigo blue cyan teal)
     color[number]
   end
