@@ -12,10 +12,11 @@
     <% end %>
 
     <div class="form-group">
-      <label for="child-post-body">Body</label>
+      <%= form.label :body, for: 'child-post-body' %>
       <%= form.text_area :body, class: 'form-control', id: 'child-post-body', rows: '3' %>
     </div>
 
+    <%= form.label 'Image' %>
     <div class="form-group">
       <%= form.text_field :remote_picture_url, class: 'form-control', id: :child_post_picture_url, placeholder: 'url upload' %>
     </div>

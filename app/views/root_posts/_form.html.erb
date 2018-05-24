@@ -17,14 +17,16 @@
     </div>
 
     <div class="form-group">
-      <label for="thread-body">Body</label>
+      <%= form.label :body, for: 'thread-body' %>
       <%= form.text_area :body, class: 'form-control', id: 'thread-body', rows: '3' %>
     </div>
 
     <div class="form-group">
-      <%= form.text_field :tag_list, value: root_post.tag_list.join(', '), class: 'form-control', id: :tag_list, placeholder: 'tags (comma delimited)' %>
+      <%= form.label 'Tags', for: 'thread-tags' %>
+      <%= form.text_field :tag_list, value: root_post.tag_list.join(', '), class: 'form-control', id: 'thread-tags', placeholder: 'separate with commas' %>
     </div>
 
+    <%= form.label 'Image' %>
     <div class="form-group">
       <%= form.text_field :remote_picture_url, class: 'form-control', id: :root_post_picture_url, placeholder: 'url upload' %>
     </div>

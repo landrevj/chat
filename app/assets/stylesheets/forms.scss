@@ -39,10 +39,16 @@
   padding: 40px;
 }
 
-#logo-container{
+#logo-container
+{
   margin: 5px 15px;
   width:200px;
   font-size: 5rem;
+}
+
+.card-form
+{
+    background: $white !important;
 }
 
 // account
@@ -65,7 +71,7 @@
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
 }
 
-#new-thread
+#post-edit
 {
     button#close { display: none; }
 }
