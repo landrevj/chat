@@ -42,7 +42,7 @@
     </div>
   </div>
   <% if root_post.tags.any? %>
-    <%= render 'tags.html.erb', root_post: root_post %>
+    <%= render 'root_posts/tags.html.erb', root_post: root_post %>
   <% end %>
   <% if root_post.root_reply_ids.any? || root_post.child_reply_ids.any? %>
   <div class="row">
