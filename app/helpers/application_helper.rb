@@ -3,12 +3,11 @@ module ApplicationHelper
   require 'rouge'
   require 'rouge/plugins/redcarpet'
 
-  
   # Custom renderer for Redcarpet
   class HTML < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
     include Redcarpet::Render::SmartyPants
-    
+
     # Custom support for spoilers
     def block_quote(quote)
       if quote.gsub!(/(?<=<p>)\s*!\s*/, ' ')
@@ -17,7 +16,7 @@ module ApplicationHelper
         "<blockquote> #{quote}</blockquote>"
       end
     end
-    
+
     # youtube auto embedding from https://stackoverflow.com/questions/23051568/how-to-embed-a-youtube-video-in-markdown-with-redcarpet-for-rails
     def autolink(link, link_type)
       case link_type
@@ -25,7 +24,7 @@ module ApplicationHelper
       when :email then email_link(link)
       end
     end
-    
+
     def url_link(link)
       case link
         # regex from https://gist.github.com/afeld/1254889
@@ -33,26 +32,26 @@ module ApplicationHelper
       else normal_link(link)
       end
     end
-    
+
     def youtube_link(link)
       video_id = /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/.match(link)[1]
       "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/#{video_id}?rel=0\" frameborder=\"0\" allowfullscreen></iframe>"
     end
-    
+
     def normal_link(link)
       "<a href=\"#{link}\">#{link}</a>"
     end
-    
+
     def email_link(email)
       "<a href=\"mailto:#{email}\">#{email}</a>"
     end
   end
-  
+
   # Apply custom markdown here
   def custom_markdown(text)
     wrap_quotes(text)
   end
-  
+
   # Detect custom root and child post text references
   # @##12 matches root post ##12
   # @#12 matches child post #12
@@ -70,7 +69,7 @@ module ApplicationHelper
         board = child_post.root_post.board.abbreviation
         thread_id = child_post.root_post.id
         subject = current_user.id == child_post.user.id ? ' (You)' : ''
-        
+
         "<a class='quote child-quote' href='/#{board}/threads/#{thread_id}##{$2}' id='#{id}'>@#{$1 + $2 + subject}</a>"
       end
       rescue ActiveRecord::RecordNotFound
@@ -87,7 +86,7 @@ module ApplicationHelper
       space_after_headers: true,
       safe_links_only: true,
     }
-    
+
     extensions = {
       autolink:           true,
       strikethrough:      true,
@@ -99,10 +98,10 @@ module ApplicationHelper
       fenced_code_blocks: true,
       disable_indented_code_blocks: true,
     }
-    
+
     renderer = HTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
-    
+
     custom_markdown(markdown.render(text)).html_safe
   end
 
@@ -113,7 +112,7 @@ module ApplicationHelper
         r += content_tag :div, class: ['root-reply', 'reply'], id: id do
           begin
             p = RootPost.find(id)
-            content_tag :a, class: 'live-link', href: board_root_post_url(p.board, p) do
+            content_tag :a, class: 'live-link', title: "###{p.id}", href: board_root_post_url(p.board, p) do
               content_tag :i, 'reply_all', class: 'material-icons'
             end
           rescue ActiveRecord::RecordNotFound
@@ -127,7 +126,7 @@ module ApplicationHelper
         r += content_tag :div, class: ['child-reply', 'reply'], id: id do
           begin
             p = ChildPost.find(id)
-            content_tag :a, class: 'live-link', href: board_root_post_url(p.root_post.board, p.root_post) + '#' + p.id.to_s do
+            content_tag :a, class: 'live-link', title: "##{p.id}", href: board_root_post_url(p.root_post.board, p.root_post) + '#' + p.id.to_s do
               content_tag :i, 'reply', class: 'material-icons'
             end
           rescue ActiveRecord::RecordNotFound
@@ -143,10 +142,10 @@ module ApplicationHelper
 
   def flash_class(key)
     case key
-      when 'notice' then "alert alert-info"
-      when 'success' then "alert alert-success"
-      when 'error' then "alert alert-error"
-      when 'alert' then "alert alert-error"
+      when 'notice' then 'alert alert-info'
+      when 'success' then 'alert alert-success'
+      when 'error' then 'alert alert-error'
+      when 'alert' then 'alert alert-error'
     end
   end
 
@@ -156,7 +155,7 @@ module ApplicationHelper
     color[number]
   end
 
-  def djb2 str
+  def djb2(str)
     hash = 5381
     str.each_byte do |b|
       hash = (((hash << 5) + hash) + b) % (2 ** 32)
