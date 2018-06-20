@@ -11,8 +11,6 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @board = Board.find_by(abbreviation: params[:board_abbreviation]) if params[:board_abbreviation]
-
     r = @board.root_posts
     r = r.tagged_with(params[:tag]) if params[:tag]
 
@@ -71,13 +69,17 @@ class BoardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_board
-      @board = Board.find_by(abbreviation: params[:abbreviation])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_board
+    @board = if params[:board_abbreviation]
+               Board.find_by!(abbreviation: params[:board_abbreviation])
+             else
+               Board.find_by!(abbreviation: params[:abbreviation])
+             end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def board_params
-      params.require(:board).permit(:name, :abbreviation)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def board_params
+    params.require(:board).permit(:name, :abbreviation)
+  end
 end
