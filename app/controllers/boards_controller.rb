@@ -71,11 +71,7 @@ class BoardsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_board
-    @board = if params[:board_abbreviation]
-               Board.find_by!(abbreviation: params[:board_abbreviation])
-             else
-               Board.find_by!(abbreviation: params[:abbreviation])
-             end
+    @board = Board.find_by!(abbreviation: (params[:board_abbreviation] ? params[:board_abbreviation] : params[:abbreviation]))
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
