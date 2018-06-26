@@ -152,7 +152,16 @@ hr.admin-section
         left: 0;
         width: 250px;
         background: var(--base02);
+        transition: background 0.2s, color 0.2s;
+        
+        &:hover
+        {
+            background: $red;
+            color: $white;
+        }
     }
+
+
     .lg-up-only
     {
         display: block;
