@@ -83,6 +83,12 @@ body > .alert
     animation: alert-slide-down 0.8s;
 }
 
+::selection
+{
+    background: $teal;
+    color: white;
+}
+
 @keyframes alert-slide-down
 {
     from {
