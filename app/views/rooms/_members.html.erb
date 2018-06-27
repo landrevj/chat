@@ -6,13 +6,13 @@
       
       <% @room.users.order(user_name: :asc).each do |user| %>
       <li class="nav-item text-light">
-        <div class="username-string hash-color <%= get_hash_color user.user_name %>-text"><%= user.user_name %></div>#<%= user.id %>
+        <div class="username-string hash-color text-<%= get_hash_color user.user_name %>"><%= user.user_name %></div>#<%= user.id %>
       </li>
       <% end %>
       
       <% (1..100).each do %>
         <% name = (0..10).map { (65 + rand(26)).chr }.join %>
-        <li class="nav-item text-light username-string hash-color <%= get_hash_color name %>-text">
+        <li class="nav-item text-light username-string hash-color text-<%= get_hash_color name %>">
           <%= name %>
         </li>
       <% end %>

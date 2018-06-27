@@ -120,16 +120,16 @@
             &:hover
             {
                 text-decoration: none;
-                &.green-background  { box-shadow: 0 0 0 0.2rem rgba($green, 0.5) }
-                &.yellow-background { box-shadow: 0 0 0 0.2rem rgba($yellow, 0.5) }
-                &.orange-background { box-shadow: 0 0 0 0.2rem rgba($orange, 0.5) }
-                &.red-background    { box-shadow: 0 0 0 0.2rem rgba($red, 0.5) }
-                &.pink-background   { box-shadow: 0 0 0 0.2rem rgba($pink, 0.5) }
-                &.purple-background { box-shadow: 0 0 0 0.2rem rgba($purple, 0.5) }
-                &.indigo-background { box-shadow: 0 0 0 0.2rem rgba($indigo, 0.5) }
-                &.blue-background   { box-shadow: 0 0 0 0.2rem rgba($blue, 0.5) }
-                &.cyan-background   { box-shadow: 0 0 0 0.2rem rgba($cyan, 0.5) }
-                &.teal-background   { box-shadow: 0 0 0 0.2rem rgba($teal, 0.5) }
+                
+                $names: green yellow orange red pink purple indigo blue cyan teal;
+                $values: $green $yellow $orange $red $pink $purple $indigo $blue $cyan $teal;
+                @for $i from 1 through length($names) {
+                    $n: nth($names, $i);
+                    $v: nth($values, $i);
+                    &.background-#{$n} {
+                        box-shadow: 0 0 0 0.2rem rgba($v, 0.5);
+                    }
+                }
             }
         }
         

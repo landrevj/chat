@@ -16,13 +16,13 @@
  $green:   #87AF5F !default;
  $yellow:  #E0E07E !default;
  $orange:  #DC7C54 !default;
- $red :    #D05353 !default;
- $pink :   #D66799 !default;
+ $red:     #D05353 !default;
+ $pink:    #D66799 !default;
  $purple:  #9F5ED1 !default;
  $indigo:  #7B53DF !default;
- $blue :   #4084D6 !default;
- $cyan :   #4CB1DC !default;
- $teal :   #4CDCCF !default;
+ $blue:    #4084D6 !default;
+ $cyan:    #4CB1DC !default;
+ $teal:    #4CDCCF !default;
 
  $white:   #E8E8E8 !default;
  
@@ -129,15 +129,16 @@ hr
     height: 2px;
     border-width: 0;
     background-color: var(--base02);
-}
-hr.rainbow {
-    border: 0;
-    height: 5px;
-    background: -moz-linear-gradient(left,    $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
-    background: -webkit-linear-gradient(left, $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
-    background: -o-linear-gradient(left,      $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
-    background: -ms-linear-gradient(left,     $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
-    background: linear-gradient(to right,     $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+
+    &.rainbow {
+        border: 0;
+        height: 5px;
+        background: -moz-linear-gradient(left,    $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+        background: -webkit-linear-gradient(left, $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+        background: -o-linear-gradient(left,      $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+        background: -ms-linear-gradient(left,     $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+        background: linear-gradient(to right,     $green 0%, $green 12.5%, $yellow 12.5%, $yellow 25%, $orange 25%, $orange 37.5%, $red 37.5%, $red 50%, $purple 50%, $purple 62.5%, $indigo 62.5%, $indigo 75%, $blue 75%, $blue 87.5%, $cyan 87.5%, $cyan 87.5%, $cyan 100%);
+    }
 }
 
 mark
@@ -230,14 +231,6 @@ a.quote:hover { color: var(--font01);}
     max-width: 85vw;
 }
 
-@include media-breakpoint-only(xs) {
-    // .row
-    // {
-    //     margin-left: 0;
-    //     margin-right: 0;
-    // }
-}
-
 .logo
 {
     position: absolute;
@@ -281,27 +274,21 @@ a.quote:hover { color: var(--font01);}
     width: initial !important;
 }
 
+@mixin color-range($property, $class-prefix)
+{
+    $names: green yellow orange red pink purple indigo blue cyan teal;
+    $values: $green $yellow $orange $red $pink $purple $indigo $blue $cyan $teal;
+    @for $i from 1 through length($names) {
+        $n: nth($names, $i);
+        $v: nth($values, $i);
+        &.#{$class-prefix}-#{$n} {
+            #{$property}: $v !important;
+        }
+    }
+}
+
 .hash-color
 {
-    &.green-text   { color: $green !important; }
-    &.yellow-text  { color: $yellow !important; }
-    &.orange-text  { color: $orange !important; }
-    &.red-text     { color: $red !important; }
-    &.pink-text    { color: $pink !important; }
-    &.purple-text  { color: $purple !important; }
-    &.indigo-text  { color: $indigo !important; }
-    &.blue-text    { color: $blue !important; }
-    &.cyan-text    { color: $cyan !important; }
-    &.teal-text    { color: $teal !important; }
-
-    &.green-background   { background: $green !important; }
-    &.yellow-background  { background: $yellow !important; }
-    &.orange-background  { background: $orange !important; }
-    &.red-background     { background: $red !important; }
-    &.pink-background    { background: $pink !important; }
-    &.purple-background  { background: $purple !important; }
-    &.indigo-background  { background: $indigo !important; }
-    &.blue-background    { background: $blue !important; }
-    &.cyan-background    { background: $cyan !important; }
-    &.teal-background    { background: $teal !important; }
+    @include color-range(color, text);
+    @include color-range(background, background);
 }

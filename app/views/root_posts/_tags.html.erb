@@ -3,7 +3,7 @@
         <div class="tag-container">
             <i class="material-icons">label</i>
             <% root_post.tag_list.each do |tag| %>
-                <%= link_to tag, board_tag_path(root_post.board, tag), class: ['tag', 'hash-color', get_hash_color(tag) + '-background'] %>
+                <%= link_to tag, board_tag_path(root_post.board, tag), class: ['tag', 'hash-color', 'background-' + get_hash_color(tag)] %>
             <% end %>
         </div>
     </div>
